@@ -17,7 +17,7 @@ To build the component for production, run:
 npm run build
 ```
 
-To run the unit tests for the components, run:
+To run the unit and e2e tests for the components, run:
 
 ```bash
 npm test
