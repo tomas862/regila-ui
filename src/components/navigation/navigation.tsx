@@ -2,10 +2,10 @@ import {Component, h, Prop} from '@stencil/core';
 
 @Component({
   tag: 'rg-navigation',
-  styleUrl: 'rg-navigation.css',
+  styleUrl: 'navigation.css',
   shadow: true
 })
-export class RgNavigation {
+export class Navigation {
   @Prop({ mutable: true }) navigationItems: any | Array<NavigationItem> = [];
 
   componentWillRender() {
@@ -23,7 +23,7 @@ export class RgNavigation {
           </div>
           <ul class="navigation-items">
             {
-              this.navigationItems.map((item) => <li>{item.name}</li>)
+              this.navigationItems.map((item) => <li><a href={item.link}>{item.name}</a></li>)
             }
           </ul>
           <slot name="actions"/>

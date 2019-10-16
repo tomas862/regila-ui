@@ -4,10 +4,10 @@ import {add} from "../../utils/math";
 
 @Component({
   tag: 'rg-anniversary',
-  styleUrl: 'rg-anniversary.css',
+  styleUrl: 'anniversary.css',
   shadow: true
 })
-export class RgAnniversary {
+export class Anniversary {
 
   @Prop() date: string;
   @Prop() title: string;
