@@ -12,7 +12,9 @@ export class RgNavigation {
       <rg-container>
         <div class="menu">
           <div class="logo">
-
+            <div class="anniversary">
+              <slot name="anniversary"></slot>
+            </div>
           </div>
           <slot name="menu"/>
           <slot name="actions"/>

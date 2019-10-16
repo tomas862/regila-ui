@@ -1,0 +1,15 @@
+
+.anniversary-number,
+.anniversary-title
+{
+  display: inline-block;
+}
+
+.anniversary-number {
+  font-size: 33px;
+  padding-right: 3px;
+}
+
+.anniversary-title {
+  font-size: var(--rg-font-size-small);
+}

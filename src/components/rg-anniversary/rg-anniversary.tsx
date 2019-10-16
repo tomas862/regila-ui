@@ -4,6 +4,7 @@ import {add} from "../../utils/math";
 
 @Component({
   tag: 'rg-anniversary',
+  styleUrl: 'rg-anniversary.css',
   shadow: true
 })
 export class RgAnniversary {
@@ -13,12 +14,14 @@ export class RgAnniversary {
 
   render() {
     const anniversary = add(getDifferenceInYears(getDate(this.date), now()), 1);
+    const titleParts = this.title.split(' ');
+
     return <span>
-      <b>
-        ${anniversary}
+      <b class="anniversary-number">
+        {anniversary}
       </b>
-      <span>
-        ${this.title}
+      <span class="anniversary-title">
+        {titleParts.map((part) => <div>{part}</div>)}
       </span>
     </span>;
   }
