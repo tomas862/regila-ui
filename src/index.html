@@ -15,42 +15,17 @@
 
 <h2>Navigation component</h2>
 
-<rg-navigation id="navigation">
+<rg-navigation
+  id="navigation"
+  navigation-items='[{"name": "Pagrindinis", "link": "localhost"},{"name": "Roletai", "link": "localhost"}]'
+>
   <rg-anniversary slot="anniversary" date="2004-01-27" title="year anniversary" />
-  <div slot="menu">
-    <ul>
-      <li>li 1</li>
-      <li>li 2</li>
-      <li>li 3</li>
-    </ul>
-  </div>
   <div slot="actions">
     <div>action1</div>
     <div>action2</div>
     <div>action3</div>
   </div>
 </rg-navigation>
-
-<script>
-  function loadJSON(file, callback) {
-
-    var xobj = new XMLHttpRequest();
-    xobj.overrideMimeType("application/json");
-    xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
-    xobj.onreadystatechange = function () {
-      if (xobj.readyState == 4 && xobj.status == "200") {
-        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-        callback(xobj.responseText);
-      }
-    };
-    xobj.send(null);
-  }
-
-  loadJSON('./seeds/navigationItems.json', (response) => {
-    const nav = document.getElementById("navigation");
-    nav.setAttribute('navigation-items', response)
-  });
-</script>
 
 </body>
 </html>

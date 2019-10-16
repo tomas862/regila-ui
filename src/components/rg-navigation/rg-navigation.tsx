@@ -6,8 +6,11 @@ import {Component, h, Prop} from '@stencil/core';
   shadow: true
 })
 export class RgNavigation {
+  @Prop({ mutable: true }) navigationItems: any | Array<NavigationItem> = [];
 
-  @Prop({ attribute: 'navigation-items' }) navigationItems: Array<NavigationItem>;
+  componentWillRender() {
+    this.navigationItems = typeof this.navigationItems === 'string' ? JSON.parse(this.navigationItems) : this.navigationItems;
+  }
 
   render() {
     return <nav>
@@ -18,7 +21,11 @@ export class RgNavigation {
               <slot name="anniversary"/>
             </div>
           </div>
-          <slot name="menu"/>
+          <ul class="navigation-items">
+            {
+              this.navigationItems.map((item) => <li>{item.name}</li>)
+            }
+          </ul>
           <slot name="actions"/>
         </div>
       </rg-container>

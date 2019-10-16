@@ -15,7 +15,7 @@ export namespace Components {
   }
   interface RgContainer {}
   interface RgNavigation {
-    'navigationItems': Array<NavigationItem>;
+    'navigationItems': any | Array<NavigationItem>;
   }
 }
 
@@ -53,7 +53,7 @@ declare namespace LocalJSX {
   }
   interface RgContainer {}
   interface RgNavigation {
-    'navigationItems'?: Array<NavigationItem>;
+    'navigationItems'?: any | Array<NavigationItem>;
   }
 
   interface IntrinsicElements {
