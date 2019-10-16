@@ -9,11 +9,18 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface RgContainer {}
   interface RgNavigation {}
 }
 
 declare global {
 
+
+  interface HTMLRgContainerElement extends Components.RgContainer, HTMLStencilElement {}
+  var HTMLRgContainerElement: {
+    prototype: HTMLRgContainerElement;
+    new (): HTMLRgContainerElement;
+  };
 
   interface HTMLRgNavigationElement extends Components.RgNavigation, HTMLStencilElement {}
   var HTMLRgNavigationElement: {
@@ -21,14 +28,17 @@ declare global {
     new (): HTMLRgNavigationElement;
   };
   interface HTMLElementTagNameMap {
+    'rg-container': HTMLRgContainerElement;
     'rg-navigation': HTMLRgNavigationElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface RgContainer {}
   interface RgNavigation {}
 
   interface IntrinsicElements {
+    'rg-container': RgContainer;
     'rg-navigation': RgNavigation;
   }
 }
@@ -39,6 +49,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
     }
   }

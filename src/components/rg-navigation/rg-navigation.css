@@ -1,4 +1,11 @@
 :host {
   width: 100%;
-  color: purple;
+}
+
+nav {
+  border-top: 1px solid var(--rg-border-color);
+  border-bottom: 1px solid var(--rg-border-color);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
