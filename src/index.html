@@ -8,15 +8,14 @@
   <link rel="stylesheet" href="/build/regila-ui.css">
   <script type="module" src="/build/regila-ui.esm.js"></script>
   <script nomodule src="/build/regila-ui.js"></script>
-
 </head>
 <body>
 
-<h1>Component's playground</h1>
+<h1>Component"s playground</h1>
 
 <h2>Navigation component</h2>
 
-<rg-navigation>
+<rg-navigation id="navigation">
   <rg-anniversary slot="anniversary" date="2004-01-27" title="year anniversary" />
   <div slot="menu">
     <ul>
@@ -31,6 +30,27 @@
     <div>action3</div>
   </div>
 </rg-navigation>
+
+<script>
+  function loadJSON(file, callback) {
+
+    var xobj = new XMLHttpRequest();
+    xobj.overrideMimeType("application/json");
+    xobj.open('GET', file, true); // Replace 'my_data' with the path to your file
+    xobj.onreadystatechange = function () {
+      if (xobj.readyState == 4 && xobj.status == "200") {
+        // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+        callback(xobj.responseText);
+      }
+    };
+    xobj.send(null);
+  }
+
+  loadJSON('./seeds/navigationItems.json', (response) => {
+    const nav = document.getElementById("navigation");
+    nav.setAttribute('navigation-items', response)
+  });
+</script>
 
 </body>
 </html>

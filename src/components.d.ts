@@ -14,7 +14,9 @@ export namespace Components {
     'title': string;
   }
   interface RgContainer {}
-  interface RgNavigation {}
+  interface RgNavigation {
+    'navigationItems': Array<NavigationItem>;
+  }
 }
 
 declare global {
@@ -50,7 +52,9 @@ declare namespace LocalJSX {
     'title'?: string;
   }
   interface RgContainer {}
-  interface RgNavigation {}
+  interface RgNavigation {
+    'navigationItems'?: Array<NavigationItem>;
+  }
 
   interface IntrinsicElements {
     'rg-anniversary': RgAnniversary;
