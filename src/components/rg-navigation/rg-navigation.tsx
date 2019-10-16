@@ -8,6 +8,16 @@ import { Component, h } from '@stencil/core';
 export class RgNavigation {
 
   render() {
-    return <nav><rg-container>hello there!</rg-container></nav>;
+    return <nav>
+      <rg-container>
+        <div class="menu">
+          <div class="logo">
+
+          </div>
+          <slot name="menu"/>
+          <slot name="actions"/>
+        </div>
+      </rg-container>
+    </nav>;
   }
 }

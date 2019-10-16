@@ -5,7 +5,11 @@
 nav {
   border-top: 1px solid var(--rg-border-color);
   border-bottom: 1px solid var(--rg-border-color);
+}
+
+.menu {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
