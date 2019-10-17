@@ -15,7 +15,16 @@ export namespace Components {
   }
   interface RgContainer {}
   interface RgNavigation {
-    'navigationItems': any | Array<NavigationItem>;
+    /**
+    * A property which holds serialized data of Array<NavigationField>
+    */
+    'navigationFields': string;
+  }
+  interface RgNavigationItem {
+    'link': string;
+  }
+  interface RgNavigationItemsDesktop {
+    'navigationFields': any | Array<NavigationField>;
   }
 }
 
@@ -39,10 +48,24 @@ declare global {
     prototype: HTMLRgNavigationElement;
     new (): HTMLRgNavigationElement;
   };
+
+  interface HTMLRgNavigationItemElement extends Components.RgNavigationItem, HTMLStencilElement {}
+  var HTMLRgNavigationItemElement: {
+    prototype: HTMLRgNavigationItemElement;
+    new (): HTMLRgNavigationItemElement;
+  };
+
+  interface HTMLRgNavigationItemsDesktopElement extends Components.RgNavigationItemsDesktop, HTMLStencilElement {}
+  var HTMLRgNavigationItemsDesktopElement: {
+    prototype: HTMLRgNavigationItemsDesktopElement;
+    new (): HTMLRgNavigationItemsDesktopElement;
+  };
   interface HTMLElementTagNameMap {
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-container': HTMLRgContainerElement;
     'rg-navigation': HTMLRgNavigationElement;
+    'rg-navigation-item': HTMLRgNavigationItemElement;
+    'rg-navigation-items-desktop': HTMLRgNavigationItemsDesktopElement;
   }
 }
 
@@ -53,13 +76,24 @@ declare namespace LocalJSX {
   }
   interface RgContainer {}
   interface RgNavigation {
-    'navigationItems'?: any | Array<NavigationItem>;
+    /**
+    * A property which holds serialized data of Array<NavigationField>
+    */
+    'navigationFields'?: string;
+  }
+  interface RgNavigationItem {
+    'link'?: string;
+  }
+  interface RgNavigationItemsDesktop {
+    'navigationFields'?: any | Array<NavigationField>;
   }
 
   interface IntrinsicElements {
     'rg-anniversary': RgAnniversary;
     'rg-container': RgContainer;
     'rg-navigation': RgNavigation;
+    'rg-navigation-item': RgNavigationItem;
+    'rg-navigation-items-desktop': RgNavigationItemsDesktop;
   }
 }
 
@@ -72,6 +106,8 @@ declare module "@stencil/core" {
       'rg-anniversary': LocalJSX.RgAnniversary & JSXBase.HTMLAttributes<HTMLRgAnniversaryElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
+      'rg-navigation-item': LocalJSX.RgNavigationItem & JSXBase.HTMLAttributes<HTMLRgNavigationItemElement>;
+      'rg-navigation-items-desktop': LocalJSX.RgNavigationItemsDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationItemsDesktopElement>;
     }
   }
 }

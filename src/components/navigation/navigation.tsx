@@ -6,11 +6,10 @@ import {Component, h, Prop} from '@stencil/core';
   shadow: true
 })
 export class Navigation {
-  @Prop({ mutable: true }) navigationItems: any | Array<NavigationItem> = [];
-
-  componentWillRender() {
-    this.navigationItems = typeof this.navigationItems === 'string' ? JSON.parse(this.navigationItems) : this.navigationItems;
-  }
+  /**
+   * A property which holds serialized data of Array<NavigationField>
+   */
+  @Prop() navigationFields: string;
 
   render() {
     return <nav>
@@ -21,11 +20,7 @@ export class Navigation {
               <slot name="anniversary"/>
             </div>
           </div>
-          <ul class="navigation-items">
-            {
-              this.navigationItems.map((item) => <li><a href={item.link}>{item.name}</a></li>)
-            }
-          </ul>
+          <rg-navigation-items-desktop navigation-fields={this.navigationFields} />
           <slot name="actions"/>
         </div>
       </rg-container>
