@@ -1,11 +1,20 @@
-rg-navigation-item {
-  padding-left: 60px;
+.main-fields rg-navigation-item {
+  padding-right: 60px;
 }
 
 rg-navigation-dropdown-desktop {
   position: absolute;
+  background-color: var(--rg-white-color);
   width: 100%;
   left: 0;
+  top: calc(var(--rg-nav-height) + 1px );
+  z-index: var(--rg-z-index-nav-dropdown);
+
+  border: 1ps solid var(--rg-border-color);
+
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(163,157,163,1);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(163,157,163,1);
+  box-shadow: 0px 4px 5px 0px rgba(163,157,163,1);
 }
 
 ul {
@@ -13,4 +22,5 @@ ul {
   display: flex;
   width: 100%;
   justify-content: flex-start;
+  padding-left: 0;
 }

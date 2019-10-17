@@ -26,9 +26,10 @@ export class NavigationItemsDesktop {
   }
 
   render() {
+    this.activeField = this.navigationFields[1];
     return (
       <div>
-        <ul>
+        <ul class="main-fields">
           {
             this.navigationFields.map((item, index) =>
               <rg-navigation-item
@@ -40,11 +41,11 @@ export class NavigationItemsDesktop {
             )
           }
         </ul>
-        { this.isAllowedToDisplayChildren ?
+        { !this.isAllowedToDisplayChildren ?
           <rg-navigation-dropdown-desktop>
             {
               this.activeField.children.map((item) =>
-                <rg-navigation-item>
+                <rg-navigation-item link={item.link}>
                   {item.name}
                 </rg-navigation-item>
               )

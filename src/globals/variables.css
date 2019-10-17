@@ -1,4 +1,12 @@
 :root {
   --rg-border-color: #DEDEDE;
+  --rg-white-color: #ffffff;
+
+
+
   --rg-font-size-small: 13px;
+
+  /* navigation */
+  --rg-z-index-nav-dropdown: 2;
+  --rg-nav-height: 52px;
 }
