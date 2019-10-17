@@ -22,4 +22,5 @@ nav {
 
 .logo {
   width: 180px;
+  padding-bottom: var(--rg-nav-padding-bottom);
 }

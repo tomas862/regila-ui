@@ -1,5 +1,7 @@
 .main-fields rg-navigation-item {
-  padding-right: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: var(--rg-nav-padding-bottom);
 }
 
 rg-navigation-dropdown-desktop {
@@ -23,4 +25,16 @@ ul {
   width: 100%;
   justify-content: flex-start;
   padding-left: 0;
+}
+
+.dropdown-visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .5s ease,visibility .5s ease;
+}
+
+.dropdown-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .5s, opacity .5s linear;
 }
