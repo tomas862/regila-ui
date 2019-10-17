@@ -5,6 +5,8 @@ before_install:
 - npm i -g npm@latest
 - npm install
 - npm run build
+before_deploy:
+  - npm run build
 deploy:
   provider: npm
   email: tilginis@gmail.com

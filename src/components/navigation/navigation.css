@@ -1,0 +1,20 @@
+:host {
+  width: 100%;
+}
+
+nav {
+  border-top: 1px solid var(--rg-border-color);
+  border-bottom: 1px solid var(--rg-border-color);
+  position: relative;
+}
+
+.menu {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.logo {
+  width: 180px;
+}
