@@ -20,6 +20,7 @@ export namespace Components {
     */
     'navigationFields': string;
   }
+  interface RgNavigationDropdownDesktop {}
   interface RgNavigationItem {
     'link': string;
   }
@@ -49,6 +50,12 @@ declare global {
     new (): HTMLRgNavigationElement;
   };
 
+  interface HTMLRgNavigationDropdownDesktopElement extends Components.RgNavigationDropdownDesktop, HTMLStencilElement {}
+  var HTMLRgNavigationDropdownDesktopElement: {
+    prototype: HTMLRgNavigationDropdownDesktopElement;
+    new (): HTMLRgNavigationDropdownDesktopElement;
+  };
+
   interface HTMLRgNavigationItemElement extends Components.RgNavigationItem, HTMLStencilElement {}
   var HTMLRgNavigationItemElement: {
     prototype: HTMLRgNavigationItemElement;
@@ -64,6 +71,7 @@ declare global {
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-container': HTMLRgContainerElement;
     'rg-navigation': HTMLRgNavigationElement;
+    'rg-navigation-dropdown-desktop': HTMLRgNavigationDropdownDesktopElement;
     'rg-navigation-item': HTMLRgNavigationItemElement;
     'rg-navigation-items-desktop': HTMLRgNavigationItemsDesktopElement;
   }
@@ -81,6 +89,7 @@ declare namespace LocalJSX {
     */
     'navigationFields'?: string;
   }
+  interface RgNavigationDropdownDesktop {}
   interface RgNavigationItem {
     'link'?: string;
   }
@@ -92,6 +101,7 @@ declare namespace LocalJSX {
     'rg-anniversary': RgAnniversary;
     'rg-container': RgContainer;
     'rg-navigation': RgNavigation;
+    'rg-navigation-dropdown-desktop': RgNavigationDropdownDesktop;
     'rg-navigation-item': RgNavigationItem;
     'rg-navigation-items-desktop': RgNavigationItemsDesktop;
   }
@@ -106,6 +116,7 @@ declare module "@stencil/core" {
       'rg-anniversary': LocalJSX.RgAnniversary & JSXBase.HTMLAttributes<HTMLRgAnniversaryElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
+      'rg-navigation-dropdown-desktop': LocalJSX.RgNavigationDropdownDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationDropdownDesktopElement>;
       'rg-navigation-item': LocalJSX.RgNavigationItem & JSXBase.HTMLAttributes<HTMLRgNavigationItemElement>;
       'rg-navigation-items-desktop': LocalJSX.RgNavigationItemsDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationItemsDesktopElement>;
     }

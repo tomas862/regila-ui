@@ -20,7 +20,7 @@ export class Navigation {
               <slot name="anniversary"/>
             </div>
           </div>
-          <rg-navigation-items-desktop navigation-fields={this.navigationFields} />
+          { this.navigationFields ? <rg-navigation-items-desktop navigation-fields={this.navigationFields} /> : null }
           <slot name="actions"/>
         </div>
       </rg-container>

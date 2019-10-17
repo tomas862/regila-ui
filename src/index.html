@@ -15,10 +15,7 @@
 
 <h2>Navigation component</h2>
 
-<rg-navigation
-  id="navigation"
-  navigation-fields='[{"name": "Pagrindinis", "link": "localhost"},{"name": "Roletai", "link": "localhost"}]'
->
+<rg-navigation id="navigation">
   <rg-anniversary slot="anniversary" date="2004-01-27" title="year anniversary" />
   <div slot="actions">
     <div>action1</div>
@@ -28,4 +25,51 @@
 </rg-navigation>
 
 </body>
+
+<script>
+
+  // write data sets here
+
+  const navigationFields = [
+    {
+      "name": "Pagrindinis",
+      "link": "localhost",
+    },
+    {
+      "name": "Roletai",
+      "link": "localhost",
+      children: [
+        {
+          "name": "Tradiciniai roletai",
+          "link": "localhost",
+        },
+        {
+          "name": "Roletai diena/naktis",
+          "link": "localhost",
+        },
+        {
+          "name": "Roletai diena/naktis",
+          "link": "localhost",
+        },
+        {
+          "name": "Foto roletai",
+          "link": "localhost",
+        },
+        {
+          "name": "Plastikiniams langams",
+          "link": "localhost",
+        },
+        {
+          "name": "Pliusuotos žaliuzės",
+          "link": "localhost",
+        }
+      ]
+    }
+  ];
+
+  // set your datasets here
+  const nav = document.getElementById('navigation');
+  nav.setAttribute('navigation-fields', JSON.stringify(navigationFields))
+
+</script>
 </html>
