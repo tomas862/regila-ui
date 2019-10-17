@@ -21,7 +21,6 @@ export class Navigation {
             </div>
           </div>
           { this.navigationFields ? <rg-navigation-items-desktop navigation-fields={this.navigationFields} /> : null }
-          <slot name="actions"/>
         </div>
       </rg-container>
     </nav>;
