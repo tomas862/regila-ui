@@ -11,7 +11,9 @@ export class NavigationDropdownDesktop {
     return (
       <div>
         <rg-container>
-          <slot/>
+          <ul>
+            <slot/>
+          </ul>
         </rg-container>
       </div>
     )
