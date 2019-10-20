@@ -8,7 +8,7 @@ import {Component, h } from "@stencil/core";
 export class Button {
   render() {
     return <button class="mdc-button mdc-button--raised">
-      <span class="mdc-button__label"><slot/></span>
+      <slot/>
     </button>
   }
 }

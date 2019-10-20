@@ -35,7 +35,7 @@ export class Navigation {
         {this.getLogo('logo-mobile')}
         <div class="menu">
           <rg-button>
-            this is button
+            <rg-icon type="menu" />
           </rg-button>
           {this.getLogo('logo')}
           { this.navigationFields ? <rg-navigation-items-desktop navigation-fields={this.navigationFields} /> : null }

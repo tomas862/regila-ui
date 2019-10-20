@@ -15,6 +15,9 @@ export namespace Components {
   }
   interface RgButton {}
   interface RgContainer {}
+  interface RgIcon {
+    'type': string;
+  }
   interface RgNavigation {
     'anniversaryDate': string;
     'anniversaryTitle': string;
@@ -61,6 +64,12 @@ declare global {
     new (): HTMLRgContainerElement;
   };
 
+  interface HTMLRgIconElement extends Components.RgIcon, HTMLStencilElement {}
+  var HTMLRgIconElement: {
+    prototype: HTMLRgIconElement;
+    new (): HTMLRgIconElement;
+  };
+
   interface HTMLRgNavigationElement extends Components.RgNavigation, HTMLStencilElement {}
   var HTMLRgNavigationElement: {
     prototype: HTMLRgNavigationElement;
@@ -94,6 +103,7 @@ declare global {
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-button': HTMLRgButtonElement;
     'rg-container': HTMLRgContainerElement;
+    'rg-icon': HTMLRgIconElement;
     'rg-navigation': HTMLRgNavigationElement;
     'rg-navigation-dropdown-desktop': HTMLRgNavigationDropdownDesktopElement;
     'rg-navigation-item': HTMLRgNavigationItemElement;
@@ -109,6 +119,9 @@ declare namespace LocalJSX {
   }
   interface RgButton {}
   interface RgContainer {}
+  interface RgIcon {
+    'type'?: string;
+  }
   interface RgNavigation {
     'anniversaryDate'?: string;
     'anniversaryTitle'?: string;
@@ -137,6 +150,7 @@ declare namespace LocalJSX {
     'rg-anniversary': RgAnniversary;
     'rg-button': RgButton;
     'rg-container': RgContainer;
+    'rg-icon': RgIcon;
     'rg-navigation': RgNavigation;
     'rg-navigation-dropdown-desktop': RgNavigationDropdownDesktop;
     'rg-navigation-item': RgNavigationItem;
@@ -154,6 +168,7 @@ declare module "@stencil/core" {
       'rg-anniversary': LocalJSX.RgAnniversary & JSXBase.HTMLAttributes<HTMLRgAnniversaryElement>;
       'rg-button': LocalJSX.RgButton & JSXBase.HTMLAttributes<HTMLRgButtonElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
+      'rg-icon': LocalJSX.RgIcon & JSXBase.HTMLAttributes<HTMLRgIconElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
       'rg-navigation-dropdown-desktop': LocalJSX.RgNavigationDropdownDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationDropdownDesktopElement>;
       'rg-navigation-item': LocalJSX.RgNavigationItem & JSXBase.HTMLAttributes<HTMLRgNavigationItemElement>;
