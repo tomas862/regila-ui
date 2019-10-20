@@ -13,6 +13,7 @@ export namespace Components {
     'date': string;
     'name': string;
   }
+  interface RgButton {}
   interface RgContainer {}
   interface RgNavigation {
     'anniversaryDate': string;
@@ -46,6 +47,12 @@ declare global {
   var HTMLRgAnniversaryElement: {
     prototype: HTMLRgAnniversaryElement;
     new (): HTMLRgAnniversaryElement;
+  };
+
+  interface HTMLRgButtonElement extends Components.RgButton, HTMLStencilElement {}
+  var HTMLRgButtonElement: {
+    prototype: HTMLRgButtonElement;
+    new (): HTMLRgButtonElement;
   };
 
   interface HTMLRgContainerElement extends Components.RgContainer, HTMLStencilElement {}
@@ -85,6 +92,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'rg-anniversary': HTMLRgAnniversaryElement;
+    'rg-button': HTMLRgButtonElement;
     'rg-container': HTMLRgContainerElement;
     'rg-navigation': HTMLRgNavigationElement;
     'rg-navigation-dropdown-desktop': HTMLRgNavigationDropdownDesktopElement;
@@ -99,6 +107,7 @@ declare namespace LocalJSX {
     'date'?: string;
     'name'?: string;
   }
+  interface RgButton {}
   interface RgContainer {}
   interface RgNavigation {
     'anniversaryDate'?: string;
@@ -126,6 +135,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'rg-anniversary': RgAnniversary;
+    'rg-button': RgButton;
     'rg-container': RgContainer;
     'rg-navigation': RgNavigation;
     'rg-navigation-dropdown-desktop': RgNavigationDropdownDesktop;
@@ -142,6 +152,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'rg-anniversary': LocalJSX.RgAnniversary & JSXBase.HTMLAttributes<HTMLRgAnniversaryElement>;
+      'rg-button': LocalJSX.RgButton & JSXBase.HTMLAttributes<HTMLRgButtonElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
       'rg-navigation-dropdown-desktop': LocalJSX.RgNavigationDropdownDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationDropdownDesktopElement>;

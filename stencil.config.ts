@@ -21,7 +21,8 @@ export const config: Config = {
       injectGlobalPaths: [
         'src/globals/variables.scss',
         'src/globals/mixins.scss'
-      ]
+      ],
+      includePaths: ["node_modules"]
     })
   ]
 };
