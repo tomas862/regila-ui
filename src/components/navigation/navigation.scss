@@ -47,6 +47,14 @@ nav {
         padding-bottom: $nav-padding-bottom;
       }
     }
+
+    .menu-mobile {
+      display: none;
+      padding-right: 10px;
+      @include media-max-width-large() {
+        display: block;
+      }
+    }
   }
 
   .logo-mobile {

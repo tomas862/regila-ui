@@ -41,6 +41,7 @@ export namespace Components {
     'logoTitle': string;
     'logoUrl': string;
   }
+  interface RgNavigationMobile {}
 }
 
 declare global {
@@ -99,6 +100,12 @@ declare global {
     prototype: HTMLRgNavigationLogoElement;
     new (): HTMLRgNavigationLogoElement;
   };
+
+  interface HTMLRgNavigationMobileElement extends Components.RgNavigationMobile, HTMLStencilElement {}
+  var HTMLRgNavigationMobileElement: {
+    prototype: HTMLRgNavigationMobileElement;
+    new (): HTMLRgNavigationMobileElement;
+  };
   interface HTMLElementTagNameMap {
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-button': HTMLRgButtonElement;
@@ -109,6 +116,7 @@ declare global {
     'rg-navigation-item': HTMLRgNavigationItemElement;
     'rg-navigation-items-desktop': HTMLRgNavigationItemsDesktopElement;
     'rg-navigation-logo': HTMLRgNavigationLogoElement;
+    'rg-navigation-mobile': HTMLRgNavigationMobileElement;
   }
 }
 
@@ -145,6 +153,7 @@ declare namespace LocalJSX {
     'logoTitle'?: string;
     'logoUrl'?: string;
   }
+  interface RgNavigationMobile {}
 
   interface IntrinsicElements {
     'rg-anniversary': RgAnniversary;
@@ -156,6 +165,7 @@ declare namespace LocalJSX {
     'rg-navigation-item': RgNavigationItem;
     'rg-navigation-items-desktop': RgNavigationItemsDesktop;
     'rg-navigation-logo': RgNavigationLogo;
+    'rg-navigation-mobile': RgNavigationMobile;
   }
 }
 
@@ -174,6 +184,7 @@ declare module "@stencil/core" {
       'rg-navigation-item': LocalJSX.RgNavigationItem & JSXBase.HTMLAttributes<HTMLRgNavigationItemElement>;
       'rg-navigation-items-desktop': LocalJSX.RgNavigationItemsDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationItemsDesktopElement>;
       'rg-navigation-logo': LocalJSX.RgNavigationLogo & JSXBase.HTMLAttributes<HTMLRgNavigationLogoElement>;
+      'rg-navigation-mobile': LocalJSX.RgNavigationMobile & JSXBase.HTMLAttributes<HTMLRgNavigationMobileElement>;
     }
   }
 }
