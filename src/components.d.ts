@@ -15,6 +15,8 @@ export namespace Components {
   }
   interface RgContainer {}
   interface RgNavigation {
+    'logoPath': string;
+    'logoTitle': string;
     /**
     * A property which holds serialized data of Array<NavigationField>
     */
@@ -84,6 +86,8 @@ declare namespace LocalJSX {
   }
   interface RgContainer {}
   interface RgNavigation {
+    'logoPath'?: string;
+    'logoTitle'?: string;
     /**
     * A property which holds serialized data of Array<NavigationField>
     */

@@ -10,6 +10,8 @@ export class Navigation {
    * A property which holds serialized data of Array<NavigationField>
    */
   @Prop() navigationFields: string;
+  @Prop() logoPath: string;
+  @Prop() logoTitle: string;
 
   render() {
     return <nav>
