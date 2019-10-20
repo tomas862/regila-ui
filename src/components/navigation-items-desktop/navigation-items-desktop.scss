@@ -1,0 +1,40 @@
+.main-fields rg-navigation-item {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: $nav-padding-bottom;
+}
+
+rg-navigation-dropdown-desktop {
+  position: absolute;
+  background-color: $white-color;
+  width: 100%;
+  left: 0;
+  top: calc(#{$nav-height} + 1px );
+  z-index: $z-index-nav-dropdown;
+
+  border: 1ps solid $border-color;
+
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(163,157,163,1);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(163,157,163,1);
+  box-shadow: 0px 4px 5px 0px rgba(163,157,163,1);
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
+.dropdown-visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity .5s ease,visibility .5s ease;
+}
+
+.dropdown-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility .5s, opacity .5s linear;
+}

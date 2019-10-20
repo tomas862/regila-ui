@@ -1,0 +1,45 @@
+:host {
+  width: 100%;
+}
+
+nav {
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  position: relative;
+
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(163,157,163,0.49);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(163,157,163,0.49);
+  box-shadow: 0px 2px 5px 0px rgba(163,157,163,0.49);
+}
+
+.menu {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.actions {
+  margin-left: auto;
+}
+
+@include media-max-width-large() {
+  rg-navigation-items-desktop {
+    display: none;
+  }
+}
+
+@include media-min-width-large() {
+  nav {
+    height: $nav-height;
+  }
+
+  .logo {
+    width: 180px;
+    padding-bottom: $nav-padding-bottom;
+  }
+
+  .actions {
+    padding-bottom: $nav-padding-bottom;
+  }
+}

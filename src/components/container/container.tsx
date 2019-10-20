@@ -2,7 +2,7 @@ import { Component, h } from '@stencil/core';
 
 @Component({
   tag: 'rg-container',
-  styleUrl: 'container.css',
+  styleUrl: 'container.scss',
   shadow: true
 })
 export class Container {

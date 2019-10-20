@@ -11,10 +11,12 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface RgAnniversary {
     'date': string;
-    'title': string;
+    'name': string;
   }
   interface RgContainer {}
   interface RgNavigation {
+    'logoPath': string;
+    'logoTitle': string;
     /**
     * A property which holds serialized data of Array<NavigationField>
     */
@@ -80,10 +82,12 @@ declare global {
 declare namespace LocalJSX {
   interface RgAnniversary {
     'date'?: string;
-    'title'?: string;
+    'name'?: string;
   }
   interface RgContainer {}
   interface RgNavigation {
+    'logoPath'?: string;
+    'logoTitle'?: string;
     /**
     * A property which holds serialized data of Array<NavigationField>
     */

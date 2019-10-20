@@ -15,8 +15,16 @@
 
 <h2>Navigation component</h2>
 
-<rg-navigation id="navigation">
-  <rg-anniversary slot="anniversary" date="2004-01-27" title="year anniversary" />
+<rg-navigation
+  id="navigation"
+  logo-path="http://lorempixel.com/125/44"
+  logo-title="title"
+>
+  <div slot="actions">
+    <button>button 1</button>
+    <button>button 2</button>
+  </div>
+  <rg-anniversary slot="anniversary" date="2004-01-27" name="year anniversary" />
 </rg-navigation>
 
 </body>
@@ -59,6 +67,32 @@
           "link": "localhost",
         }
       ]
+    },
+    {
+      "name": "Užuolaidos",
+      "link": "localhost",
+      "children": [
+        {
+          "name": "Dieninės užuolaidos",
+          "link": "localhost",
+        },
+        {
+          "name": "Austrietės",
+          "link": "localhost",
+        },
+        {
+          "name": "Naktinės užuolaidos",
+          "link": "localhost",
+        }
+      ]
+    },
+    {
+      "name": "Karnizai",
+      "link": "localhost",
+    },
+    {
+      "name": "Kontaktai",
+      "link": "localhost",
     }
   ];
 
