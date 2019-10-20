@@ -12,16 +12,31 @@ export class Navigation {
   @Prop() navigationFields: string;
   @Prop() logoPath: string;
   @Prop() logoTitle: string;
+  @Prop() logoUrl: string;
+  @Prop() anniversaryDate: string;
+  @Prop() anniversaryTitle: string;
+
+  getLogo(className: string) {
+    return <div class={className}>
+      <div class="logo-image">
+        <rg-navigation-logo
+          logo-path={this.logoPath}
+          logo-title={this.logoTitle}
+          logo-url={this.logoUrl}
+        />
+      </div>
+      <rg-anniversary date={this.anniversaryDate} name={this.anniversaryTitle}/>
+    </div>
+  }
 
   render() {
     return <nav>
       <rg-container>
+
+        {this.getLogo('logo-mobile')}
+
         <div class="menu">
-          <div class="logo">
-            <div class="anniversary">
-              <slot name="anniversary"/>
-            </div>
-          </div>
+          {this.getLogo('logo')}
           { this.navigationFields ? <rg-navigation-items-desktop navigation-fields={this.navigationFields} /> : null }
           <div class="actions">
             <slot name="actions"/>

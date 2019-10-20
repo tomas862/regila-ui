@@ -11,3 +11,9 @@
     @content;
   }
 }
+
+@mixin media-max-width-small() {
+  @media (max-width: $breakpoint-small) {
+    @content;
+  }
+}
