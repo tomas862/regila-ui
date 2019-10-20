@@ -11,7 +11,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface RgAnniversary {
     'date': string;
-    'title': string;
+    'name': string;
   }
   interface RgContainer {}
   interface RgNavigation {
@@ -80,7 +80,7 @@ declare global {
 declare namespace LocalJSX {
   interface RgAnniversary {
     'date'?: string;
-    'title'?: string;
+    'name'?: string;
   }
   interface RgContainer {}
   interface RgNavigation {

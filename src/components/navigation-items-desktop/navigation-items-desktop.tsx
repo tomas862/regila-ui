@@ -2,7 +2,7 @@ import {Component, h, Prop, State} from '@stencil/core';
 
 @Component({
   tag: 'rg-navigation-items-desktop',
-  styleUrl: 'navigation-items-desktop.css',
+  styleUrl: 'navigation-items-desktop.scss',
   shadow: true
 })
 export class NavigationItemsDesktop {

@@ -2,7 +2,7 @@ import {Component, h, Prop} from '@stencil/core';
 
 @Component({
   tag: 'rg-navigation',
-  styleUrl: 'navigation.css',
+  styleUrl: 'navigation.scss',
   shadow: true
 })
 export class Navigation {
@@ -21,6 +21,9 @@ export class Navigation {
             </div>
           </div>
           { this.navigationFields ? <rg-navigation-items-desktop navigation-fields={this.navigationFields} /> : null }
+          <div class="actions">
+            <slot name="actions"/>
+          </div>
         </div>
       </rg-container>
     </nav>;
