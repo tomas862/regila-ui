@@ -33,7 +33,9 @@ export class NavigationMobile {
         <summary>
           { parentText }
         </summary>
-        bla bla content
+        <ul>
+          {field.children.map((item) => <rg-navigation-item link={item.link}>{ item.name }</rg-navigation-item>)}
+        </ul>
       </details>
     </rg-navigation-item>
   }
@@ -44,9 +46,9 @@ export class NavigationMobile {
         <rg-icon type="menu"/>
       </rg-button>
       { this.isOpened ?
-        <div>
+        <ul>
           { this.navigationFields.map((item) => this.renderMenuElement(item))}
-        </div>
+        </ul>
         : null
       }
     </div>
