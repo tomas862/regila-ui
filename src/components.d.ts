@@ -41,7 +41,9 @@ export namespace Components {
     'logoTitle': string;
     'logoUrl': string;
   }
-  interface RgNavigationMobile {}
+  interface RgNavigationMobile {
+    'navigationFields': any | Array<NavigationField>;
+  }
 }
 
 declare global {
@@ -153,7 +155,9 @@ declare namespace LocalJSX {
     'logoTitle'?: string;
     'logoUrl'?: string;
   }
-  interface RgNavigationMobile {}
+  interface RgNavigationMobile {
+    'navigationFields'?: any | Array<NavigationField>;
+  }
 
   interface IntrinsicElements {
     'rg-anniversary': RgAnniversary;
