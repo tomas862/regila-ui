@@ -15,6 +15,10 @@ export class NavigationMobile {
     this.navigationFields = typeof this.navigationFields === 'string' ? JSON.parse(this.navigationFields) : this.navigationFields;
   }
 
+  isAvailableOnMobile(field: NavigationField) {
+    return typeof field.hideOnMobile === "undefined" || !field.hideOnMobile;
+  }
+
   toggleIsMenuOpened()
   {
     this.isOpened = !this.isOpened;
@@ -47,9 +51,17 @@ export class NavigationMobile {
         <rg-icon type="menu"/>
       </rg-button>
       { this.isOpened ?
-        <ul class="side-navigation">
-          { this.navigationFields.map((item) => this.renderMenuElement(item))}
-        </ul>
+        <div class="side-navigation">
+          <rg-button onClick={_ => this.toggleIsMenuOpened()}>
+            <rg-icon type="close"/>
+          </rg-button>
+          <ul>
+            { this.navigationFields
+              .filter(item => this.isAvailableOnMobile(item))
+              .map((item) => this.renderMenuElement(item))
+            }
+          </ul>
+        </div>
         : null
       }
     </div>

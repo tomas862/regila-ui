@@ -2,7 +2,6 @@ import {Component, h, Prop} from "@stencil/core";
 
 @Component({
   tag: 'rg-icon',
-  styleUrl: 'icon.scss',
   shadow: true
 })
 export class Icon {
