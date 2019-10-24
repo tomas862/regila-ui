@@ -2,6 +2,7 @@ import {Component, h, Prop, State} from "@stencil/core";
 
 @Component({
   tag: 'rg-navigation-mobile',
+  styleUrl: 'navigation-mobile.scss',
   shadow: true
 })
 export class NavigationMobile {
@@ -29,7 +30,7 @@ export class NavigationMobile {
     }
 
     return <rg-navigation-item>
-      <details>
+      <details open>
         <summary>
           { parentText }
         </summary>
@@ -46,7 +47,7 @@ export class NavigationMobile {
         <rg-icon type="menu"/>
       </rg-button>
       { this.isOpened ?
-        <ul>
+        <ul class="side-navigation">
           { this.navigationFields.map((item) => this.renderMenuElement(item))}
         </ul>
         : null
