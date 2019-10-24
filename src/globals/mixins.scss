@@ -12,6 +12,12 @@
   }
 }
 
+@mixin media-min-width-medium() {
+  @media (min-width: $breakpoint-medium) {
+    @content;
+  }
+}
+
 @mixin media-max-width-small() {
   @media (max-width: $breakpoint-small) {
     @content;

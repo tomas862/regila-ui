@@ -9,7 +9,6 @@ div.side-navigation {
 
   display: flex;
   flex-direction: column;
-  min-width: 30vh;
 
   border-right: 1px solid $border-color;
 
@@ -26,4 +25,27 @@ div.side-navigation {
       padding-left: 10px;
     }
   }
+}
+
+div.side-navigation--opened {
+
+  width: 80%;
+
+  @include media-min-width-medium() {
+    width: 40%;
+  }
+
+
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+div.side-navigation--closed {
+  width: 0;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
 }

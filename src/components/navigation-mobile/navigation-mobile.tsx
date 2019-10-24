@@ -50,8 +50,8 @@ export class NavigationMobile {
       <rg-button onClick={_ => this.toggleIsMenuOpened()}>
         <rg-icon type="menu"/>
       </rg-button>
-      { this.isOpened ?
-        <div class="side-navigation">
+
+        <div class={`side-navigation side-navigation${this.isOpened ? '--opened' : '--closed'}`}>
           <rg-button onClick={_ => this.toggleIsMenuOpened()}>
             <rg-icon type="close"/>
           </rg-button>
@@ -62,8 +62,6 @@ export class NavigationMobile {
             }
           </ul>
         </div>
-        : null
-      }
     </div>
   }
 }
