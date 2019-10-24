@@ -19,8 +19,7 @@ export class NavigationMobile {
     return typeof field.hideOnMobile === "undefined" || !field.hideOnMobile;
   }
 
-  toggleIsMenuOpened()
-  {
+  toggleIsMenuOpened() {
     this.isOpened = !this.isOpened;
   }
 
