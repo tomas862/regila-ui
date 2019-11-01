@@ -62,8 +62,10 @@ export class NavigationItemsDesktop {
               <rg-navigation-item
                 onMouseOver={_ => this.onMainMenuHover(index)}
                 onMouseLeave={_ => this.onMainMenuLeave()}
+                active={this.activeField === item && this.isDropdownDisplayed}
                 link={item.link}
-              >{item.name}
+              >
+                <b>{item.name}</b>
               </rg-navigation-item>
             )
           }

@@ -2,6 +2,7 @@ import {Component, h, Prop} from "@stencil/core";
 import {getIcon} from "./IconProvider";
 import {IconSize} from "./IconSize";
 import {getSize} from "./IconSizeProvider";
+import {IconColor} from "./IconColor";
 
 @Component({
   tag: 'rg-icon',
@@ -10,6 +11,7 @@ import {getSize} from "./IconSizeProvider";
 export class Icon {
   @Prop() type: string;
   @Prop() size: IconSize;
+  @Prop() color: IconColor;
 
   customIcons = [
     'basic_roller_blinds',
@@ -31,7 +33,7 @@ export class Icon {
       {
         width: size,
         height: size,
-        fill: 'none'
+        fill: this.color ? this.color : 'none'
       }
     )
   }
