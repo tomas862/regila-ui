@@ -34,6 +34,7 @@ export namespace Components {
   }
   interface RgNavigationDropdownDesktop {}
   interface RgNavigationItem {
+    'active': boolean;
     'icon': string;
     'link': string;
     'size': IconSize;
@@ -151,6 +152,7 @@ declare namespace LocalJSX {
   }
   interface RgNavigationDropdownDesktop {}
   interface RgNavigationItem {
+    'active'?: boolean;
     'icon'?: string;
     'link'?: string;
     'size'?: IconSize;

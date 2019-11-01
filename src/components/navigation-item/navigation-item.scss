@@ -1,9 +1,24 @@
 .navigation-item {
   a {
+    &:hover {
+      color: $primary-color;
+    }
+
     text-decoration: none;
     display: flex;
     align-items: center;
+  }
+}
+
+.navigation-item--inactive {
+  a {
     color: $black-color;
+  }
+}
+
+.navigation-item--active {
+  a {
+    color: $primary-color;
   }
 }
 
