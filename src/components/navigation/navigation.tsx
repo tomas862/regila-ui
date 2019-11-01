@@ -25,17 +25,15 @@ export class Navigation {
           logo-url={this.logoUrl}
         />
       </div>
-      <rg-anniversary date={this.anniversaryDate} name={this.anniversaryTitle}/>
+      <rg-anniversary class="anniversary" date={this.anniversaryDate} name={this.anniversaryTitle}/>
     </div>
   }
 
   render() {
     return <nav>
       <rg-container>
-
-        {this.getLogo('logo-mobile')}
-
         <div class="menu">
+          <rg-navigation-mobile class="menu-mobile" navigation-fields={this.navigationFields}/>
           {this.getLogo('logo')}
           { this.navigationFields ? <rg-navigation-items-desktop navigation-fields={this.navigationFields} /> : null }
           <div class="actions">

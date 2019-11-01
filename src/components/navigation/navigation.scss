@@ -26,18 +26,14 @@ nav {
     .logo {
       display: flex;
       align-items: center;
-
       @include media-min-width-large() {
-        width: 180px;
         padding-bottom: $nav-padding-bottom;
-
-        .logo-image {
-          display: none;
-        }
       }
 
-      @include media-max-width-small() {
-        display: none;
+      @include media-max-width-medium() {
+        .anniversary {
+          display: none;
+        }
       }
     }
 
@@ -47,15 +43,13 @@ nav {
         padding-bottom: $nav-padding-bottom;
       }
     }
-  }
 
-  .logo-mobile {
-    display: none;
-
-    @include media-max-width-small() {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .menu-mobile {
+      display: none;
+      padding-right: 10px;
+      @include media-max-width-large() {
+        display: block;
+      }
     }
   }
 }

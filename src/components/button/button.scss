@@ -1,0 +1,7 @@
+:host {
+  --mdc-theme-primary: $white-color;
+  --mdc-theme-on-primary: $black-color;
+}
+
+@import '@material/button/mdc-button';
+
