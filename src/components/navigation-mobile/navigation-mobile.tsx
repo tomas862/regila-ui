@@ -46,12 +46,12 @@ export class NavigationMobile {
 
   render() {
     return <div>
-      <rg-button onClick={_ => this.toggleIsMenuOpened()}>
+      <rg-button class="mobile-menu-toggle" onClick={_ => this.toggleIsMenuOpened()}>
         <rg-icon type="menu"/>
       </rg-button>
 
         <div class={`side-navigation side-navigation${this.isOpened ? '--opened' : '--closed'}`}>
-          <rg-button onClick={_ => this.toggleIsMenuOpened()}>
+          <rg-button class="mobile-menu-close" onClick={_ => this.toggleIsMenuOpened()}>
             <rg-icon type="close"/>
           </rg-button>
           <ul>

@@ -32,7 +32,6 @@ export class Navigation {
   render() {
     return <nav>
       <rg-container>
-        {this.getLogo('logo-mobile')}
         <div class="menu">
           <rg-navigation-mobile class="menu-mobile" navigation-fields={this.navigationFields}/>
           {this.getLogo('logo')}

@@ -26,19 +26,7 @@ nav {
     .logo {
       display: flex;
       align-items: center;
-
-      @include media-min-width-large() {
-        width: 180px;
-        padding-bottom: $nav-padding-bottom;
-
-        .logo-image {
-          display: none;
-        }
-      }
-
-      @include media-max-width-small() {
-        display: none;
-      }
+      padding-bottom: $nav-padding-bottom;
     }
 
     .actions {
@@ -54,16 +42,6 @@ nav {
       @include media-max-width-large() {
         display: block;
       }
-    }
-  }
-
-  .logo-mobile {
-    display: none;
-
-    @include media-max-width-small() {
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
   }
 }
