@@ -10,6 +10,7 @@ export class NavigationMobile {
   @Prop() navigationFields: any | Array<NavigationField> = [];
 
   @State() isOpened = false;
+  @State() openedFields = [];
 
   componentWillLoad() {
     this.navigationFields = typeof this.navigationFields === 'string' ? JSON.parse(this.navigationFields) : this.navigationFields;
@@ -35,7 +36,7 @@ export class NavigationMobile {
     return <rg-navigation-item>
       <details open>
         <summary>
-          { parentText }
+          <b>{ parentText }</b>
         </summary>
         <ul>
           {field.children.map((item) => <rg-navigation-item link={item.link}>{ item.name }</rg-navigation-item>)}

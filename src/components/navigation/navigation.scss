@@ -26,7 +26,15 @@ nav {
     .logo {
       display: flex;
       align-items: center;
-      padding-bottom: $nav-padding-bottom;
+      @include media-min-width-large() {
+        padding-bottom: $nav-padding-bottom;
+      }
+
+      @include media-max-width-medium() {
+        .anniversary {
+          display: none;
+        }
+      }
     }
 
     .actions {

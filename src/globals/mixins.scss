@@ -18,6 +18,12 @@
   }
 }
 
+@mixin media-max-width-medium() {
+  @media (max-width: $breakpoint-medium) {
+    @content;
+  }
+}
+
 @mixin media-max-width-small() {
   @media (max-width: $breakpoint-small) {
     @content;

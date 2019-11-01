@@ -25,7 +25,7 @@ export class Navigation {
           logo-url={this.logoUrl}
         />
       </div>
-      <rg-anniversary date={this.anniversaryDate} name={this.anniversaryTitle}/>
+      <rg-anniversary class="anniversary" date={this.anniversaryDate} name={this.anniversaryTitle}/>
     </div>
   }
 
