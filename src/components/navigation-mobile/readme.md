@@ -1,4 +1,4 @@
-# rg-navigation-items-desktop
+# rg-navigation-mobile
 
 
 
@@ -21,17 +21,18 @@
 ### Depends on
 
 - [rg-navigation-item](../navigation-item)
-- [rg-navigation-dropdown-desktop](../navigation-dropdown-desktop)
+- [rg-button](../button)
+- [rg-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
-  rg-navigation-items-desktop --> rg-navigation-item
-  rg-navigation-items-desktop --> rg-navigation-dropdown-desktop
+  rg-navigation-mobile --> rg-navigation-item
+  rg-navigation-mobile --> rg-button
+  rg-navigation-mobile --> rg-icon
   rg-navigation-item --> rg-icon
-  rg-navigation-dropdown-desktop --> rg-container
-  rg-navigation --> rg-navigation-items-desktop
-  style rg-navigation-items-desktop fill:#f9f,stroke:#333,stroke-width:4px
+  rg-navigation --> rg-navigation-mobile
+  style rg-navigation-mobile fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -9,8 +9,11 @@
 
 | Property           | Attribute           | Description                                                      | Type     | Default     |
 | ------------------ | ------------------- | ---------------------------------------------------------------- | -------- | ----------- |
+| `anniversaryDate`  | `anniversary-date`  |                                                                  | `string` | `undefined` |
+| `anniversaryTitle` | `anniversary-title` |                                                                  | `string` | `undefined` |
 | `logoPath`         | `logo-path`         |                                                                  | `string` | `undefined` |
 | `logoTitle`        | `logo-title`        |                                                                  | `string` | `undefined` |
+| `logoUrl`          | `logo-url`          |                                                                  | `string` | `undefined` |
 | `navigationFields` | `navigation-fields` | A property which holds serialized data of Array<NavigationField> | `string` | `undefined` |
 
 
@@ -18,14 +21,24 @@
 
 ### Depends on
 
+- [rg-navigation-logo](../navigation-logo)
+- [rg-anniversary](../anniversary)
 - [rg-container](../container)
+- [rg-navigation-mobile](../navigation-mobile)
 - [rg-navigation-items-desktop](../navigation-items-desktop)
 
 ### Graph
 ```mermaid
 graph TD;
+  rg-navigation --> rg-navigation-logo
+  rg-navigation --> rg-anniversary
   rg-navigation --> rg-container
+  rg-navigation --> rg-navigation-mobile
   rg-navigation --> rg-navigation-items-desktop
+  rg-navigation-mobile --> rg-navigation-item
+  rg-navigation-mobile --> rg-button
+  rg-navigation-mobile --> rg-icon
+  rg-navigation-item --> rg-icon
   rg-navigation-items-desktop --> rg-navigation-item
   rg-navigation-items-desktop --> rg-navigation-dropdown-desktop
   rg-navigation-dropdown-desktop --> rg-container

@@ -1,4 +1,4 @@
-# rg-navigation-item
+# rg-icon
 
 
 
@@ -9,29 +9,23 @@
 
 | Property | Attribute | Description | Type                                | Default     |
 | -------- | --------- | ----------- | ----------------------------------- | ----------- |
-| `icon`   | `icon`    |             | `string`                            | `undefined` |
-| `link`   | `link`    |             | `string`                            | `undefined` |
 | `size`   | `size`    |             | `IconSize.MEDIUM \| IconSize.SMALL` | `undefined` |
+| `type`   | `type`    |             | `string`                            | `undefined` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [rg-navigation-items-desktop](../navigation-items-desktop)
+ - [rg-navigation-item](../navigation-item)
  - [rg-navigation-mobile](../navigation-mobile)
-
-### Depends on
-
-- [rg-icon](../icon)
 
 ### Graph
 ```mermaid
 graph TD;
   rg-navigation-item --> rg-icon
-  rg-navigation-items-desktop --> rg-navigation-item
-  rg-navigation-mobile --> rg-navigation-item
-  style rg-navigation-item fill:#f9f,stroke:#333,stroke-width:4px
+  rg-navigation-mobile --> rg-icon
+  style rg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
