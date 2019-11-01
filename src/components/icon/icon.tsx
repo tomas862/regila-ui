@@ -1,4 +1,5 @@
 import {Component, h, Prop} from "@stencil/core";
+import {getIcon} from "./IconProvider";
 
 @Component({
   tag: 'rg-icon',
@@ -8,6 +9,13 @@ export class Icon {
   @Prop() type: string;
 
   render() {
-    return <img src={`../../assets/icons/${this.type}-24px.svg`} alt={this.type} width={24} height={24}/>
+    return getIcon(
+      this.type,
+      {
+        width: 24,
+        height: 24,
+        fill: 'none'
+      }
+    )
   }
 }
