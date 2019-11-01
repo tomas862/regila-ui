@@ -63,7 +63,8 @@ export class NavigationItemsDesktop {
                 onMouseOver={_ => this.onMainMenuHover(index)}
                 onMouseLeave={_ => this.onMainMenuLeave()}
                 link={item.link}
-              >{item.name}
+              >
+                <b>{item.name}</b>
               </rg-navigation-item>
             )
           }

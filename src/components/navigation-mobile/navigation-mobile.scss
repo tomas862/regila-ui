@@ -20,6 +20,11 @@ div.side-navigation {
   ul {
     list-style-type: none;
     padding-right: 10px;
+
+    .parent-text {
+      text-transform: uppercase;
+    }
+
     rg-navigation-item {
       padding-bottom: 20px;
       padding-left: 10px;

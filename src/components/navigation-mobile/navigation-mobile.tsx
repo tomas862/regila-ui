@@ -36,7 +36,7 @@ export class NavigationMobile {
     return <rg-navigation-item>
       <details open>
         <summary>
-          <b>{ parentText }</b>
+          <b class="parent-text">{ parentText }</b>
         </summary>
         <ul class="children">
           {field.children.map((item) => <rg-navigation-item icon={item.icon} link={item.link}>{ item.name }</rg-navigation-item>)}
