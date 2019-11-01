@@ -1,4 +1,5 @@
 import {Component, h, Prop, State} from '@stencil/core';
+import {IconSize} from "../icon/IconSize";
 
 @Component({
   tag: 'rg-navigation-items-desktop',
@@ -53,6 +54,7 @@ export class NavigationItemsDesktop {
   }
 
   render() {
+    this.setActiveMenu(1);
     return (
       <div>
         <ul class="main-fields">
@@ -74,7 +76,7 @@ export class NavigationItemsDesktop {
           >
             {
               this.activeField ? this.activeField.children.map((item) =>
-                <rg-navigation-item icon={item.icon} link={item.link}>
+                <rg-navigation-item size={IconSize.MEDIUM} icon={item.icon} link={item.link}>
                   {item.name}
                 </rg-navigation-item>
               ) : null

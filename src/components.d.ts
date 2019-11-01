@@ -6,7 +6,9 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  IconSize,
+} from './components/icon/IconSize';
 
 export namespace Components {
   interface RgAnniversary {
@@ -16,6 +18,7 @@ export namespace Components {
   interface RgButton {}
   interface RgContainer {}
   interface RgIcon {
+    'size': IconSize;
     'type': string;
   }
   interface RgNavigation {
@@ -33,6 +36,7 @@ export namespace Components {
   interface RgNavigationItem {
     'icon': string;
     'link': string;
+    'size': IconSize;
   }
   interface RgNavigationItemsDesktop {
     'navigationFields': any | Array<NavigationField>;
@@ -131,6 +135,7 @@ declare namespace LocalJSX {
   interface RgButton {}
   interface RgContainer {}
   interface RgIcon {
+    'size'?: IconSize;
     'type'?: string;
   }
   interface RgNavigation {
@@ -148,6 +153,7 @@ declare namespace LocalJSX {
   interface RgNavigationItem {
     'icon'?: string;
     'link'?: string;
+    'size'?: IconSize;
   }
   interface RgNavigationItemsDesktop {
     'navigationFields'?: any | Array<NavigationField>;
