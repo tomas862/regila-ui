@@ -1,4 +1,5 @@
 import {Component, h, Prop} from "@stencil/core";
+import {IconSize} from "../icon/IconSize";
 
 @Component({
   tag: 'rg-navigation-item',
@@ -7,10 +8,14 @@ import {Component, h, Prop} from "@stencil/core";
 })
 export class NavigationItem {
   @Prop() link: string;
+  @Prop() icon: string;
+  @Prop() size: IconSize;
 
   render() {
-    return <li>
-      <a href={this.link}><slot/></a>
+    return <li class="navigation-item">
+      <a href={this.link}>
+        <rg-icon size={this.size} type={this.icon}/><span class="text"><slot/></span>
+      </a>
     </li>
   }
 }
