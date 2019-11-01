@@ -74,7 +74,7 @@ export class NavigationItemsDesktop {
           >
             {
               this.activeField ? this.activeField.children.map((item) =>
-                <rg-navigation-item link={item.link}>
+                <rg-navigation-item icon={item.icon} link={item.link}>
                   {item.name}
                 </rg-navigation-item>
               ) : null

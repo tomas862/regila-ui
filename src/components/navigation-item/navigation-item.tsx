@@ -7,10 +7,13 @@ import {Component, h, Prop} from "@stencil/core";
 })
 export class NavigationItem {
   @Prop() link: string;
+  @Prop() icon: string;
 
   render() {
-    return <li>
-      <a href={this.link}><slot/></a>
+    return <li class="navigation-item">
+      <a href={this.link}>
+        <rg-icon type={this.icon}/><span class="text"><slot/></span>
+      </a>
     </li>
   }
 }

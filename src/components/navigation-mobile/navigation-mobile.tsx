@@ -38,8 +38,8 @@ export class NavigationMobile {
         <summary>
           <b>{ parentText }</b>
         </summary>
-        <ul>
-          {field.children.map((item) => <rg-navigation-item link={item.link}>{ item.name }</rg-navigation-item>)}
+        <ul class="children">
+          {field.children.map((item) => <rg-navigation-item icon={item.icon} link={item.link}>{ item.name }</rg-navigation-item>)}
         </ul>
       </details>
     </rg-navigation-item>
