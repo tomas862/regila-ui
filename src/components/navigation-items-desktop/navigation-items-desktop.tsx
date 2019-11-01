@@ -54,7 +54,6 @@ export class NavigationItemsDesktop {
   }
 
   render() {
-    this.setActiveMenu(1);
     return (
       <div>
         <ul class="main-fields">
