@@ -1,4 +1,4 @@
-import {Component, h, Prop} from "@stencil/core";
+import {Component, getAssetPath, h, Prop} from "@stencil/core";
 import {getIcon} from "./IconProvider";
 import {IconSize} from "./IconSize";
 import {getSize} from "./IconSizeProvider";
@@ -6,7 +6,10 @@ import {IconColor} from "./IconColor";
 
 @Component({
   tag: 'rg-icon',
-  shadow: true
+  shadow: true,
+  assetsDirs: [
+    'assets',
+  ]
 })
 export class Icon {
   @Prop() type: string;
@@ -24,7 +27,12 @@ export class Icon {
 
     // renders custom icons
     if (this.customIcons.includes(this.type)) {
-      return <img src={`../../assets/icons/${this.type}-${size}.svg`} alt={this.type} width={size} height={size}/>
+      return <img
+        src={getAssetPath(`./assets/${this.type}-${size}.svg`)}
+        alt={this.type}
+        width={size}
+        height={size}
+      />
     }
 
     // renders rest of the icons. Material icons for instance

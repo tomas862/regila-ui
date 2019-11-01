@@ -9,6 +9,7 @@
 
 | Property | Attribute | Description | Type                                | Default     |
 | -------- | --------- | ----------- | ----------------------------------- | ----------- |
+| `color`  | `color`   |             | `IconColor`                         | `undefined` |
 | `size`   | `size`    |             | `IconSize.MEDIUM \| IconSize.SMALL` | `undefined` |
 | `type`   | `type`    |             | `string`                            | `undefined` |
 
