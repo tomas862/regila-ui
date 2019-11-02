@@ -35,7 +35,7 @@ export class NavigationMobile {
     }
 
     return <rg-navigation-item>
-      <details>
+      <details open>
         <summary>
           <b class="parent-text">{ parentText }</b>
         </summary>

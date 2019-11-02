@@ -107,15 +107,30 @@
       "name": "Karnizai",
       "link": "localhost",
     },
-    {
-      "name": "Kontaktai",
-      "link": "localhost",
-    }
   ];
 
   // set your datasets here
   const nav = document.getElementById('navigation');
   nav.setAttribute('navigation-fields', JSON.stringify(navigationFields))
+
+  const contactFields = [
+    {
+      "name": "Kontaktai",
+      "link": "localhost",
+    },
+    {
+      "name": "+37061234567 (8 - 20 h)",
+      "link": "tel:+37061234567",
+      "icon": 'local_phone'
+    },
+    {
+      "name": "something@email.com",
+      "link": "mailto:something@email.com",
+      "icon": 'mail_outline'
+    }
+  ]
+
+  nav.setAttribute('contact-fields', JSON.stringify(contactFields))
 
 </script>
 </html>

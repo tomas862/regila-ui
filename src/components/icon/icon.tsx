@@ -41,7 +41,7 @@ export class Icon {
       {
         width: size,
         height: size,
-        fill: this.color ? this.color : 'none'
+        fill: this.color ? this.color : undefined
       }
     )
   }
