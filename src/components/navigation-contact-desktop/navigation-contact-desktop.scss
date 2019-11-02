@@ -1,0 +1,24 @@
+:host {
+  @include media-max-width-large() {
+    display: none;
+  }
+
+  .container {
+    border-bottom: 1px solid $border-color;
+  }
+
+  .contact-block {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    list-style-type: none;
+
+    margin: 0;
+    padding: 0;
+
+    * {
+      padding-left: $nav-padding-sides;
+    }
+  }
+}

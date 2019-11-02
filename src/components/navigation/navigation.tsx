@@ -10,6 +10,10 @@ export class Navigation {
    * A property which holds serialized data of Array<NavigationField>
    */
   @Prop() navigationFields: string;
+  /**
+   * Holds serialized data of Array<NavigationField>
+   */
+  @Prop() contactFields: string;
   @Prop() logoPath: string;
   @Prop() logoTitle: string;
   @Prop() logoUrl: string;
@@ -31,9 +35,15 @@ export class Navigation {
 
   render() {
     return <nav>
+      <rg-navigation-contact-desktop contact-fields={this.contactFields}/>
       <rg-container>
         <div class="menu">
-          <rg-navigation-mobile class="menu-mobile" navigation-fields={this.navigationFields}/>
+          <rg-navigation-mobile
+            class="menu-mobile"
+            contact-fields={this.contactFields}
+            navigation-fields={this.navigationFields}
+          />
+
           {this.getLogo('logo')}
           { this.navigationFields ? <rg-navigation-items-desktop navigation-fields={this.navigationFields} /> : null }
           <div class="actions">

@@ -28,6 +28,10 @@ export namespace Components {
   interface RgNavigation {
     'anniversaryDate': string;
     'anniversaryTitle': string;
+    /**
+    * Holds serialized data of Array<NavigationField>
+    */
+    'contactFields': string;
     'logoPath': string;
     'logoTitle': string;
     'logoUrl': string;
@@ -35,6 +39,12 @@ export namespace Components {
     * A property which holds serialized data of Array<NavigationField>
     */
     'navigationFields': string;
+  }
+  interface RgNavigationContactDesktop {
+    'contactFields': any | Array<NavigationField>;
+  }
+  interface RgNavigationContactMobile {
+    'contactFields': any | Array<NavigationField>;
   }
   interface RgNavigationDropdownDesktop {}
   interface RgNavigationItem {
@@ -52,6 +62,7 @@ export namespace Components {
     'logoUrl': string;
   }
   interface RgNavigationMobile {
+    'contactFields': string;
     'navigationFields': any | Array<NavigationField>;
   }
 }
@@ -89,6 +100,18 @@ declare global {
     new (): HTMLRgNavigationElement;
   };
 
+  interface HTMLRgNavigationContactDesktopElement extends Components.RgNavigationContactDesktop, HTMLStencilElement {}
+  var HTMLRgNavigationContactDesktopElement: {
+    prototype: HTMLRgNavigationContactDesktopElement;
+    new (): HTMLRgNavigationContactDesktopElement;
+  };
+
+  interface HTMLRgNavigationContactMobileElement extends Components.RgNavigationContactMobile, HTMLStencilElement {}
+  var HTMLRgNavigationContactMobileElement: {
+    prototype: HTMLRgNavigationContactMobileElement;
+    new (): HTMLRgNavigationContactMobileElement;
+  };
+
   interface HTMLRgNavigationDropdownDesktopElement extends Components.RgNavigationDropdownDesktop, HTMLStencilElement {}
   var HTMLRgNavigationDropdownDesktopElement: {
     prototype: HTMLRgNavigationDropdownDesktopElement;
@@ -124,6 +147,8 @@ declare global {
     'rg-container': HTMLRgContainerElement;
     'rg-icon': HTMLRgIconElement;
     'rg-navigation': HTMLRgNavigationElement;
+    'rg-navigation-contact-desktop': HTMLRgNavigationContactDesktopElement;
+    'rg-navigation-contact-mobile': HTMLRgNavigationContactMobileElement;
     'rg-navigation-dropdown-desktop': HTMLRgNavigationDropdownDesktopElement;
     'rg-navigation-item': HTMLRgNavigationItemElement;
     'rg-navigation-items-desktop': HTMLRgNavigationItemsDesktopElement;
@@ -147,6 +172,10 @@ declare namespace LocalJSX {
   interface RgNavigation {
     'anniversaryDate'?: string;
     'anniversaryTitle'?: string;
+    /**
+    * Holds serialized data of Array<NavigationField>
+    */
+    'contactFields'?: string;
     'logoPath'?: string;
     'logoTitle'?: string;
     'logoUrl'?: string;
@@ -154,6 +183,12 @@ declare namespace LocalJSX {
     * A property which holds serialized data of Array<NavigationField>
     */
     'navigationFields'?: string;
+  }
+  interface RgNavigationContactDesktop {
+    'contactFields'?: any | Array<NavigationField>;
+  }
+  interface RgNavigationContactMobile {
+    'contactFields'?: any | Array<NavigationField>;
   }
   interface RgNavigationDropdownDesktop {}
   interface RgNavigationItem {
@@ -171,6 +206,7 @@ declare namespace LocalJSX {
     'logoUrl'?: string;
   }
   interface RgNavigationMobile {
+    'contactFields'?: string;
     'navigationFields'?: any | Array<NavigationField>;
   }
 
@@ -180,6 +216,8 @@ declare namespace LocalJSX {
     'rg-container': RgContainer;
     'rg-icon': RgIcon;
     'rg-navigation': RgNavigation;
+    'rg-navigation-contact-desktop': RgNavigationContactDesktop;
+    'rg-navigation-contact-mobile': RgNavigationContactMobile;
     'rg-navigation-dropdown-desktop': RgNavigationDropdownDesktop;
     'rg-navigation-item': RgNavigationItem;
     'rg-navigation-items-desktop': RgNavigationItemsDesktop;
@@ -199,6 +237,8 @@ declare module "@stencil/core" {
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
       'rg-icon': LocalJSX.RgIcon & JSXBase.HTMLAttributes<HTMLRgIconElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
+      'rg-navigation-contact-desktop': LocalJSX.RgNavigationContactDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationContactDesktopElement>;
+      'rg-navigation-contact-mobile': LocalJSX.RgNavigationContactMobile & JSXBase.HTMLAttributes<HTMLRgNavigationContactMobileElement>;
       'rg-navigation-dropdown-desktop': LocalJSX.RgNavigationDropdownDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationDropdownDesktopElement>;
       'rg-navigation-item': LocalJSX.RgNavigationItem & JSXBase.HTMLAttributes<HTMLRgNavigationItemElement>;
       'rg-navigation-items-desktop': LocalJSX.RgNavigationItemsDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationItemsDesktopElement>;

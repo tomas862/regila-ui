@@ -3,9 +3,8 @@
 }
 
 .main-fields rg-navigation-item {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: $nav-padding-bottom;
+  padding-left: $nav-padding-sides;
+  padding-right: $nav-padding-sides;
 }
 
 rg-navigation-dropdown-desktop {
@@ -13,7 +12,7 @@ rg-navigation-dropdown-desktop {
   background-color: $white-color;
   width: 100%;
   left: 0;
-  top: calc(#{$nav-height} + 1px );
+  top: 66px;
   z-index: $z-index-nav-dropdown;
 
   border: 1ps solid $border-color;
