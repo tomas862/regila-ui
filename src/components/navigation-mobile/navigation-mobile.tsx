@@ -9,6 +9,7 @@ import {IconColor} from "../icon/IconColor";
 export class NavigationMobile {
 
   @Prop() navigationFields: any | Array<NavigationField> = [];
+  @Prop() contactFields: string;
 
   @State() isOpened = false;
   @State() openedFields = [];
@@ -62,6 +63,8 @@ export class NavigationMobile {
               .map((item) => this.renderMenuElement(item))
             }
           </ul>
+
+          <rg-navigation-contact-mobile contact-fields={this.contactFields}/>
         </div>
     </div>
   }

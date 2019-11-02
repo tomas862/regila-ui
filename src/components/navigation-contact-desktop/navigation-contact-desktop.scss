@@ -1,4 +1,8 @@
 :host {
+  @include media-max-width-large() {
+    display: none;
+  }
+
   .container {
     border-bottom: 1px solid $border-color;
   }
