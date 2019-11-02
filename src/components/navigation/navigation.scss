@@ -30,6 +30,10 @@ nav {
         padding-bottom: $nav-padding-bottom;
       }
 
+      .anniversary {
+        padding-left: 10px;
+      }
+
       @include media-max-width-medium() {
         .anniversary {
           display: none;
