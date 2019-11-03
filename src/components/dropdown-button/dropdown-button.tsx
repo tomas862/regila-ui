@@ -1,4 +1,4 @@
-import {Component, h, Element, State} from "@stencil/core";
+import {Component, h, Element, Prop} from "@stencil/core";
 import {MDCMenu} from '@material/menu';
 
 @Component({
@@ -7,9 +7,19 @@ import {MDCMenu} from '@material/menu';
   shadow: true
 })
 export class DropdownButton {
+  /**
+   * Helps to render required amount of slots
+   */
+  @Prop() totalElements: number;
   @Element() element: HTMLElement;
 
   menu?: MDCMenu;
+  dropdownElements: Array<number>;
+
+  componentWillLoad() {
+    this.dropdownElements = new Array<number>(this.totalElements)
+  }
+
 
   componentDidLoad() {
     this.menu = new MDCMenu(this.element.shadowRoot.querySelector('.mdc-menu'));
@@ -50,12 +60,13 @@ export class DropdownButton {
         </rg-button>
         <div class="mdc-menu mdc-menu-surface">
           <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-            <li class="mdc-list-item" role="menuitem">
-              <span class="mdc-list-item__text">A Menu Item</span>
-            </li>
-            <li class="mdc-list-item" role="menuitem">
-              <span class="mdc-list-item__text">Another Menu Item</span>
-            </li>
+            {
+              this.dropdownElements.map((el, index) =>
+                <li class="mdc-list-item" role="menuitem">
+                  <span class="mdc-list-item__text"><slot name={`list-item-${index}`}/></span>
+                </li>
+              )
+            }
           </ul>
         </div>
     </div>

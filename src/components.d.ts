@@ -20,7 +20,12 @@ export namespace Components {
   }
   interface RgButton {}
   interface RgContainer {}
-  interface RgDropdownButton {}
+  interface RgDropdownButton {
+    /**
+    * Helps to render required amount of slots
+    */
+    'totalElements': number;
+  }
   interface RgIcon {
     'color': IconColor;
     'size': IconSize;
@@ -172,7 +177,12 @@ declare namespace LocalJSX {
   }
   interface RgButton {}
   interface RgContainer {}
-  interface RgDropdownButton {}
+  interface RgDropdownButton {
+    /**
+    * Helps to render required amount of slots
+    */
+    'totalElements'?: number;
+  }
   interface RgIcon {
     'color'?: IconColor;
     'size'?: IconSize;
