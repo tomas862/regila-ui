@@ -8,7 +8,6 @@ import {MDCMenu} from '@material/menu';
 })
 export class DropdownButton {
   @Element() element: HTMLElement;
-  @State() isOpened: boolean = false;
 
   menu?: MDCMenu;
 
@@ -41,14 +40,13 @@ export class DropdownButton {
 
   toggleMenu() {
     this.menu.open = !this.menu.open;
-    this.isOpened = this.menu.open;
   }
 
   render() {
     return <div id="menu-container" class="mdc-menu-surface--anchor">
         <rg-button onClick={_ => this.toggleMenu()} id="menu-button">
           <slot name="dropdown-button-text"/>
-          <rg-icon type={this.isOpened ? `arrow_drop_up` : `arrow_drop_down`}/>
+          <rg-icon type="arrow_drop_down"/>
         </rg-button>
         <div class="mdc-menu mdc-menu-surface">
           <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
