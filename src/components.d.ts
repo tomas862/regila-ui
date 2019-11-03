@@ -14,7 +14,6 @@ import {
 } from './components/icon/IconColor';
 
 export namespace Components {
-  interface RgAccountDropdownButton {}
   interface RgAnniversary {
     'date': string;
     'name': string;
@@ -71,12 +70,6 @@ export namespace Components {
 
 declare global {
 
-
-  interface HTMLRgAccountDropdownButtonElement extends Components.RgAccountDropdownButton, HTMLStencilElement {}
-  var HTMLRgAccountDropdownButtonElement: {
-    prototype: HTMLRgAccountDropdownButtonElement;
-    new (): HTMLRgAccountDropdownButtonElement;
-  };
 
   interface HTMLRgAnniversaryElement extends Components.RgAnniversary, HTMLStencilElement {}
   var HTMLRgAnniversaryElement: {
@@ -156,7 +149,6 @@ declare global {
     new (): HTMLRgNavigationMobileElement;
   };
   interface HTMLElementTagNameMap {
-    'rg-account-dropdown-button': HTMLRgAccountDropdownButtonElement;
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-button': HTMLRgButtonElement;
     'rg-container': HTMLRgContainerElement;
@@ -174,7 +166,6 @@ declare global {
 }
 
 declare namespace LocalJSX {
-  interface RgAccountDropdownButton {}
   interface RgAnniversary {
     'date'?: string;
     'name'?: string;
@@ -229,7 +220,6 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
-    'rg-account-dropdown-button': RgAccountDropdownButton;
     'rg-anniversary': RgAnniversary;
     'rg-button': RgButton;
     'rg-container': RgContainer;
@@ -252,7 +242,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'rg-account-dropdown-button': LocalJSX.RgAccountDropdownButton & JSXBase.HTMLAttributes<HTMLRgAccountDropdownButtonElement>;
       'rg-anniversary': LocalJSX.RgAnniversary & JSXBase.HTMLAttributes<HTMLRgAnniversaryElement>;
       'rg-button': LocalJSX.RgButton & JSXBase.HTMLAttributes<HTMLRgButtonElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;

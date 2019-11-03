@@ -1,4 +1,4 @@
-import {Component, h, State, Element} from "@stencil/core";
+import {Component, h, Element, State} from "@stencil/core";
 import {MDCMenu} from '@material/menu';
 
 @Component({
@@ -8,6 +8,8 @@ import {MDCMenu} from '@material/menu';
 })
 export class DropdownButton {
   @Element() element: HTMLElement;
+  @State() isOpened: boolean = false;
+
   menu?: MDCMenu;
 
   componentDidLoad() {
@@ -16,37 +18,38 @@ export class DropdownButton {
     document.addEventListener('click', (e) => this.initGlobalCloseEventListener(e))
   }
 
-  /**
-   * Listens for global click event and closes dropdown if it is opened.
-   * @param event
-   */
   initGlobalCloseEventListener(event: any) {
     if (!this.menu.open) {
       return;
     }
 
     const target = event.target;
-    const shadowRoot = target.shadowRoot;
 
-    if (!shadowRoot) {
-      this.menu.open = false;
+    if ('dropdown-button-text' === target.getAttribute('slot')) {
       return;
     }
 
-    const dropdown = shadowRoot.querySelector('rg-dropdown-button');
 
-    if (!dropdown) {
+    const shadowRoot = target.shadowRoot;
+    // menu is being closes only when click event was triggered outside shadow root.
+    // in shadow root case plugin handles close logic itself.
+    if (!shadowRoot) {
       this.menu.open = false;
+      return;
     }
   }
 
   toggleMenu() {
     this.menu.open = !this.menu.open;
+    this.isOpened = this.menu.open;
   }
 
   render() {
     return <div id="menu-container" class="mdc-menu-surface--anchor">
-        <button onClick={_ => this.toggleMenu()} id="menu-button">Open Menu</button>
+        <rg-button onClick={_ => this.toggleMenu()} id="menu-button">
+          <slot name="dropdown-button-text"/>
+          <rg-icon type={this.isOpened ? `arrow_drop_up` : `arrow_drop_down`}/>
+        </rg-button>
         <div class="mdc-menu mdc-menu-surface">
           <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
             <li class="mdc-list-item" role="menuitem">
