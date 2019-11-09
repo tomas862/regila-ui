@@ -1,4 +1,4 @@
-import {Component, h } from "@stencil/core";
+import {Component, h, Prop} from "@stencil/core";
 
 @Component({
   tag: 'rg-button',
@@ -6,11 +6,18 @@ import {Component, h } from "@stencil/core";
   shadow: true
 })
 export class Button {
+
+  @Prop() icon: string;
+  @Prop() href: string;
+
   render() {
-    return <button class="mdc-button mdc-button--raised mdc-button--dense">
+
+    const Element = this.href ? 'a' : 'button';
+
+    return <Element href={this.href ? this.href : undefined} class="mdc-button mdc-button--raised mdc-button--dense">
       <span class="mdc-button__label">
         <slot/>
       </span>
-    </button>
+    </Element>
   }
 }
