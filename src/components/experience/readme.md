@@ -1,4 +1,4 @@
-# rg-anniversary
+# rg-experience
 
 
 
@@ -10,25 +10,21 @@
 | Property | Attribute | Description | Type     | Default     |
 | -------- | --------- | ----------- | -------- | ----------- |
 | `date`   | `date`    |             | `string` | `undefined` |
-| `name`   | `name`    |             | `string` | `undefined` |
 
 
 ## Dependencies
 
 ### Used by
 
- - [rg-navigation](../navigation)
-
-### Depends on
-
-- [rg-experience](../experience)
+ - [rg-anniversary](../anniversary)
+ - [rg-assurance](../assurance)
 
 ### Graph
 ```mermaid
 graph TD;
   rg-anniversary --> rg-experience
-  rg-navigation --> rg-anniversary
-  style rg-anniversary fill:#f9f,stroke:#333,stroke-width:4px
+  rg-assurance --> rg-experience
+  style rg-experience fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

@@ -20,6 +20,10 @@ export class Icon {
     'basic_roller_blinds',
     'day_night_roller_blinds',
     'light_prof_roller_blinds',
+    'consultation',
+    'delivery',
+    'experience',
+    'measure',
   ];
 
   render() {
