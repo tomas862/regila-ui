@@ -33,7 +33,7 @@ export namespace Components {
   interface RgCategoryCards {
     'categoryCardsData': any | Array<CategoryCardData>;
   }
-  interface RgCategoryCardsItem {
+  interface RgCategoryCardsDesktopItem {
     'img': string;
     'link': string;
     'name': string;
@@ -128,10 +128,10 @@ declare global {
     new (): HTMLRgCategoryCardsElement;
   };
 
-  interface HTMLRgCategoryCardsItemElement extends Components.RgCategoryCardsItem, HTMLStencilElement {}
-  var HTMLRgCategoryCardsItemElement: {
-    prototype: HTMLRgCategoryCardsItemElement;
-    new (): HTMLRgCategoryCardsItemElement;
+  interface HTMLRgCategoryCardsDesktopItemElement extends Components.RgCategoryCardsDesktopItem, HTMLStencilElement {}
+  var HTMLRgCategoryCardsDesktopItemElement: {
+    prototype: HTMLRgCategoryCardsDesktopItemElement;
+    new (): HTMLRgCategoryCardsDesktopItemElement;
   };
 
   interface HTMLRgContainerElement extends Components.RgContainer, HTMLStencilElement {}
@@ -211,7 +211,7 @@ declare global {
     'rg-button': HTMLRgButtonElement;
     'rg-cart-button': HTMLRgCartButtonElement;
     'rg-category-cards': HTMLRgCategoryCardsElement;
-    'rg-category-cards-item': HTMLRgCategoryCardsItemElement;
+    'rg-category-cards-desktop-item': HTMLRgCategoryCardsDesktopItemElement;
     'rg-container': HTMLRgContainerElement;
     'rg-dropdown-button': HTMLRgDropdownButtonElement;
     'rg-experience': HTMLRgExperienceElement;
@@ -246,7 +246,7 @@ declare namespace LocalJSX {
   interface RgCategoryCards {
     'categoryCardsData'?: any | Array<CategoryCardData>;
   }
-  interface RgCategoryCardsItem {
+  interface RgCategoryCardsDesktopItem {
     'img'?: string;
     'link'?: string;
     'name'?: string;
@@ -313,7 +313,7 @@ declare namespace LocalJSX {
     'rg-button': RgButton;
     'rg-cart-button': RgCartButton;
     'rg-category-cards': RgCategoryCards;
-    'rg-category-cards-item': RgCategoryCardsItem;
+    'rg-category-cards-desktop-item': RgCategoryCardsDesktopItem;
     'rg-container': RgContainer;
     'rg-dropdown-button': RgDropdownButton;
     'rg-experience': RgExperience;
@@ -340,7 +340,7 @@ declare module "@stencil/core" {
       'rg-button': LocalJSX.RgButton & JSXBase.HTMLAttributes<HTMLRgButtonElement>;
       'rg-cart-button': LocalJSX.RgCartButton & JSXBase.HTMLAttributes<HTMLRgCartButtonElement>;
       'rg-category-cards': LocalJSX.RgCategoryCards & JSXBase.HTMLAttributes<HTMLRgCategoryCardsElement>;
-      'rg-category-cards-item': LocalJSX.RgCategoryCardsItem & JSXBase.HTMLAttributes<HTMLRgCategoryCardsItemElement>;
+      'rg-category-cards-desktop-item': LocalJSX.RgCategoryCardsDesktopItem & JSXBase.HTMLAttributes<HTMLRgCategoryCardsDesktopItemElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
       'rg-dropdown-button': LocalJSX.RgDropdownButton & JSXBase.HTMLAttributes<HTMLRgDropdownButtonElement>;
       'rg-experience': LocalJSX.RgExperience & JSXBase.HTMLAttributes<HTMLRgExperienceElement>;

@@ -13,20 +13,17 @@ export class CategoryCards {
   }
 
   render() {
-    return (
-      <div class="category-cards">
-        {
-          this.categoryCardsData.map((item) =>
-            <rg-category-cards-item
-              link={item.link}
-              name={item.name}
-              img={item.img}
-            >
-              {item.name}
-            </rg-category-cards-item>
-          )
-        }
-      </div>
-    )
+    return <div class="category-cards">
+      {
+        this.categoryCardsData.map((item) =>
+          <rg-category-cards-item
+            link={item.link}
+            name={item.name}
+            img={item.img}
+          >
+          </rg-category-cards-item>
+        )
+      }
+    </div>
   }
 }
