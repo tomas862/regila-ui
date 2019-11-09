@@ -14,10 +14,19 @@ export class DropdownButton {
   @Element() element: HTMLElement;
 
   menu?: MDCMenu;
-  dropdownElements: Array<number>;
+  dropdownElements: Array<HTMLElement>;
 
   componentWillLoad() {
     this.dropdownElements = new Array(this.totalElements);
+
+    for (let i = 0; i < this.totalElements; i++) {
+      this.dropdownElements.push(
+        <li class="mdc-list-item" role="menuitem">
+          <span class="mdc-list-item__text"><slot name={`list-item-${i}`}/></span>
+        </li>
+      )
+    }
+
   }
 
 
@@ -61,11 +70,7 @@ export class DropdownButton {
         <div class="mdc-menu mdc-menu-surface">
           <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
             {
-              this.dropdownElements.map((el, index) =>
-                <li class="mdc-list-item" role="menuitem">
-                  <span class="mdc-list-item__text"><slot name={`list-item-${index}`}/></span>
-                </li>
-              )
+              this.dropdownElements.forEach((el) => el)
             }
           </ul>
         </div>
