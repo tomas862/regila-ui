@@ -20,6 +20,12 @@ export namespace Components {
   }
   interface RgButton {}
   interface RgContainer {}
+  interface RgDropdownButton {
+    /**
+    * Helps to render required amount of slots
+    */
+    'totalElements': number;
+  }
   interface RgIcon {
     'color': IconColor;
     'size': IconSize;
@@ -88,6 +94,12 @@ declare global {
     new (): HTMLRgContainerElement;
   };
 
+  interface HTMLRgDropdownButtonElement extends Components.RgDropdownButton, HTMLStencilElement {}
+  var HTMLRgDropdownButtonElement: {
+    prototype: HTMLRgDropdownButtonElement;
+    new (): HTMLRgDropdownButtonElement;
+  };
+
   interface HTMLRgIconElement extends Components.RgIcon, HTMLStencilElement {}
   var HTMLRgIconElement: {
     prototype: HTMLRgIconElement;
@@ -145,6 +157,7 @@ declare global {
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-button': HTMLRgButtonElement;
     'rg-container': HTMLRgContainerElement;
+    'rg-dropdown-button': HTMLRgDropdownButtonElement;
     'rg-icon': HTMLRgIconElement;
     'rg-navigation': HTMLRgNavigationElement;
     'rg-navigation-contact-desktop': HTMLRgNavigationContactDesktopElement;
@@ -164,6 +177,12 @@ declare namespace LocalJSX {
   }
   interface RgButton {}
   interface RgContainer {}
+  interface RgDropdownButton {
+    /**
+    * Helps to render required amount of slots
+    */
+    'totalElements'?: number;
+  }
   interface RgIcon {
     'color'?: IconColor;
     'size'?: IconSize;
@@ -214,6 +233,7 @@ declare namespace LocalJSX {
     'rg-anniversary': RgAnniversary;
     'rg-button': RgButton;
     'rg-container': RgContainer;
+    'rg-dropdown-button': RgDropdownButton;
     'rg-icon': RgIcon;
     'rg-navigation': RgNavigation;
     'rg-navigation-contact-desktop': RgNavigationContactDesktop;
@@ -235,6 +255,7 @@ declare module "@stencil/core" {
       'rg-anniversary': LocalJSX.RgAnniversary & JSXBase.HTMLAttributes<HTMLRgAnniversaryElement>;
       'rg-button': LocalJSX.RgButton & JSXBase.HTMLAttributes<HTMLRgButtonElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
+      'rg-dropdown-button': LocalJSX.RgDropdownButton & JSXBase.HTMLAttributes<HTMLRgDropdownButtonElement>;
       'rg-icon': LocalJSX.RgIcon & JSXBase.HTMLAttributes<HTMLRgIconElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
       'rg-navigation-contact-desktop': LocalJSX.RgNavigationContactDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationContactDesktopElement>;

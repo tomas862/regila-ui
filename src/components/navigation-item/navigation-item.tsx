@@ -15,7 +15,7 @@ export class NavigationItem {
   render() {
     return <li class={`navigation-item ${this.active ? 'navigation-item--active' : 'navigation-item--inactive'}`}>
       <a href={this.link}>
-        <rg-icon size={this.size} type={this.icon}/><span class="text"><slot/></span>
+        { this.icon && <rg-icon size={this.size} type={this.icon}/> }<span class="text"><slot/></span>
       </a>
     </li>
   }
