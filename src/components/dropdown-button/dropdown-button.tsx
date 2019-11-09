@@ -70,7 +70,7 @@ export class DropdownButton {
         <div class="mdc-menu mdc-menu-surface">
           <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
             {
-              this.dropdownElements.forEach((el) => el)
+              this.dropdownElements.map((el) => el)
             }
           </ul>
         </div>
