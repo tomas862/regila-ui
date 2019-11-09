@@ -19,10 +19,12 @@ export namespace Components {
     'name': string;
   }
   interface RgButton {
+    'href': string;
     'icon': string;
   }
   interface RgCartButton {
     'cartQuantity': number;
+    'href': string;
   }
   interface RgContainer {}
   interface RgDropdownButton {
@@ -188,10 +190,12 @@ declare namespace LocalJSX {
     'name'?: string;
   }
   interface RgButton {
+    'href'?: string;
     'icon'?: string;
   }
   interface RgCartButton {
     'cartQuantity'?: number;
+    'href'?: string;
   }
   interface RgContainer {}
   interface RgDropdownButton {

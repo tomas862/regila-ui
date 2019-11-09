@@ -8,12 +8,16 @@ import {Component, h, Prop} from "@stencil/core";
 export class Button {
 
   @Prop() icon: string;
+  @Prop() href: string;
 
   render() {
-    return <button class="mdc-button mdc-button--raised mdc-button--dense">
+
+    const Element = this.href ? 'a' : 'button';
+
+    return <Element href={this.href} class="mdc-button mdc-button--raised mdc-button--dense">
       <span class="mdc-button__label">
         <slot/>
       </span>
-    </button>
+    </Element>
   }
 }

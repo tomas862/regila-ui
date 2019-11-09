@@ -9,6 +9,7 @@ import {IconColor} from "../icon/IconColor";
 export class CartButton {
 
   @Prop() cartQuantity: number;
+  @Prop() href: string;
 
   renderQuantity() {
     if (!this.cartQuantity) {
@@ -18,7 +19,7 @@ export class CartButton {
   }
 
   render() {
-    return <rg-button class="cart-button">
+    return <rg-button href={this.href} class="cart-button">
       <rg-icon
         color={this.cartQuantity ? IconColor.PRIMARY : null } type="cart"/>
 
