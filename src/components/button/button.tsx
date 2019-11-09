@@ -14,7 +14,7 @@ export class Button {
 
     const Element = this.href ? 'a' : 'button';
 
-    return <Element href={this.href} class="mdc-button mdc-button--raised mdc-button--dense">
+    return <Element href={this.href ? this.href : undefined} class="mdc-button mdc-button--raised mdc-button--dense">
       <span class="mdc-button__label">
         <slot/>
       </span>
