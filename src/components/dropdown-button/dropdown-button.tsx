@@ -17,7 +17,7 @@ export class DropdownButton {
   dropdownElements: Array<number>;
 
   componentWillLoad() {
-    this.dropdownElements = new Array<number>(this.totalElements)
+    this.dropdownElements = new Array(this.totalElements);
   }
 
 
