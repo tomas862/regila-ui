@@ -34,10 +34,15 @@ nav {
     }
 
     .actions {
-      margin-left: auto;
-      @include media-min-width-large() {
-        padding-bottom: $nav-padding-bottom;
-      }
+        margin-left: auto;
+        @include media-min-width-large() {
+          padding-bottom: $nav-padding-bottom;
+        }
+
+        ::slotted(div) {
+          display: flex;
+          align-items: center;
+        }
     }
 
     .menu-mobile {
