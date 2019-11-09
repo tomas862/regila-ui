@@ -18,6 +18,9 @@ export namespace Components {
     'date': string;
     'name': string;
   }
+  interface RgAssurance {
+    'anniversaryDate': string;
+  }
   interface RgButton {
     'href': string;
     'icon': string;
@@ -32,6 +35,9 @@ export namespace Components {
     * Helps to render required amount of slots
     */
     'totalElements': number;
+  }
+  interface RgExperience {
+    'date': string;
   }
   interface RgIcon {
     'color': IconColor;
@@ -89,6 +95,12 @@ declare global {
     new (): HTMLRgAnniversaryElement;
   };
 
+  interface HTMLRgAssuranceElement extends Components.RgAssurance, HTMLStencilElement {}
+  var HTMLRgAssuranceElement: {
+    prototype: HTMLRgAssuranceElement;
+    new (): HTMLRgAssuranceElement;
+  };
+
   interface HTMLRgButtonElement extends Components.RgButton, HTMLStencilElement {}
   var HTMLRgButtonElement: {
     prototype: HTMLRgButtonElement;
@@ -111,6 +123,12 @@ declare global {
   var HTMLRgDropdownButtonElement: {
     prototype: HTMLRgDropdownButtonElement;
     new (): HTMLRgDropdownButtonElement;
+  };
+
+  interface HTMLRgExperienceElement extends Components.RgExperience, HTMLStencilElement {}
+  var HTMLRgExperienceElement: {
+    prototype: HTMLRgExperienceElement;
+    new (): HTMLRgExperienceElement;
   };
 
   interface HTMLRgIconElement extends Components.RgIcon, HTMLStencilElement {}
@@ -168,10 +186,12 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'rg-anniversary': HTMLRgAnniversaryElement;
+    'rg-assurance': HTMLRgAssuranceElement;
     'rg-button': HTMLRgButtonElement;
     'rg-cart-button': HTMLRgCartButtonElement;
     'rg-container': HTMLRgContainerElement;
     'rg-dropdown-button': HTMLRgDropdownButtonElement;
+    'rg-experience': HTMLRgExperienceElement;
     'rg-icon': HTMLRgIconElement;
     'rg-navigation': HTMLRgNavigationElement;
     'rg-navigation-contact-desktop': HTMLRgNavigationContactDesktopElement;
@@ -189,6 +209,9 @@ declare namespace LocalJSX {
     'date'?: string;
     'name'?: string;
   }
+  interface RgAssurance {
+    'anniversaryDate'?: string;
+  }
   interface RgButton {
     'href'?: string;
     'icon'?: string;
@@ -203,6 +226,9 @@ declare namespace LocalJSX {
     * Helps to render required amount of slots
     */
     'totalElements'?: number;
+  }
+  interface RgExperience {
+    'date'?: string;
   }
   interface RgIcon {
     'color'?: IconColor;
@@ -252,10 +278,12 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'rg-anniversary': RgAnniversary;
+    'rg-assurance': RgAssurance;
     'rg-button': RgButton;
     'rg-cart-button': RgCartButton;
     'rg-container': RgContainer;
     'rg-dropdown-button': RgDropdownButton;
+    'rg-experience': RgExperience;
     'rg-icon': RgIcon;
     'rg-navigation': RgNavigation;
     'rg-navigation-contact-desktop': RgNavigationContactDesktop;
@@ -275,10 +303,12 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'rg-anniversary': LocalJSX.RgAnniversary & JSXBase.HTMLAttributes<HTMLRgAnniversaryElement>;
+      'rg-assurance': LocalJSX.RgAssurance & JSXBase.HTMLAttributes<HTMLRgAssuranceElement>;
       'rg-button': LocalJSX.RgButton & JSXBase.HTMLAttributes<HTMLRgButtonElement>;
       'rg-cart-button': LocalJSX.RgCartButton & JSXBase.HTMLAttributes<HTMLRgCartButtonElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
       'rg-dropdown-button': LocalJSX.RgDropdownButton & JSXBase.HTMLAttributes<HTMLRgDropdownButtonElement>;
+      'rg-experience': LocalJSX.RgExperience & JSXBase.HTMLAttributes<HTMLRgExperienceElement>;
       'rg-icon': LocalJSX.RgIcon & JSXBase.HTMLAttributes<HTMLRgIconElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
       'rg-navigation-contact-desktop': LocalJSX.RgNavigationContactDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationContactDesktopElement>;
