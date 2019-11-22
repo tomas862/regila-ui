@@ -31,9 +31,11 @@ export namespace Components {
     'href': string;
   }
   interface RgCategoryCards {
+    'buttonName': string;
     'categoryCardsData': any | Array<CategoryCardData>;
   }
   interface RgCategoryCardsDesktopItem {
+    'buttonName': string;
     'img': string;
     'link': string;
     'name': string;
@@ -244,9 +246,11 @@ declare namespace LocalJSX {
     'href'?: string;
   }
   interface RgCategoryCards {
+    'buttonName'?: string;
     'categoryCardsData'?: any | Array<CategoryCardData>;
   }
   interface RgCategoryCardsDesktopItem {
+    'buttonName'?: string;
     'img'?: string;
     'link'?: string;
     'name'?: string;

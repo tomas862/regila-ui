@@ -8,6 +8,8 @@ import {Component, h, Prop} from "@stencil/core";
 export class CategoryCards {
   @Prop() categoryCardsData: any | Array<CategoryCardData> = [];
 
+  @Prop() buttonName: string;
+
   componentWillLoad() {
     this.categoryCardsData = typeof this.categoryCardsData === 'string' ? JSON.parse(this.categoryCardsData) : this.categoryCardsData;
   }
@@ -16,12 +18,13 @@ export class CategoryCards {
     return <div class="category-cards">
       {
         this.categoryCardsData.map((item) =>
-          <rg-category-cards-item
-            link={item.link}
+          <rg-category-cards-desktop-item
             name={item.name}
             img={item.img}
+            link={item.link}
+            buttonName={this.buttonName}
           >
-          </rg-category-cards-item>
+          </rg-category-cards-desktop-item>
         )
       }
     </div>

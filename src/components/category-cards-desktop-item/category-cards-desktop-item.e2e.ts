@@ -6,8 +6,8 @@ describe('rg-navigation', () => {
 
     await page.setContent(`<rg-category-cards-item></rg-category-cards-item>`);
 
-    const categoryCardsItem = await page.find('rg-category-cards-item');
+    const categoryCardsDesktopItem = await page.find('rg-category-cards-desktop-item');
 
-    expect(categoryCardsItem).toHaveClass('hydrated');
+    expect(categoryCardsDesktopItem).toHaveClass('hydrated');
   })
 });

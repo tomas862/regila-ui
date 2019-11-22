@@ -1,0 +1,22 @@
+.card-item {
+  height: $category-card-desktop-height;
+  &-wrapper {
+    float: right;
+    width: 33%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $transparent-gray;
+
+    //&:before{
+    //  content:"";
+    //  position:absolute;
+    //  border-top:1px solid red;
+    //  width:40px;
+    //  transform: rotate(45deg);
+    //  transform-origin: 0% 0%;
+    //}
+  }
+}
