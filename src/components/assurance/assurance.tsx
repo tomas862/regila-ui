@@ -20,8 +20,7 @@ export class Assurance {
       <div class="assurance-item">
         <rg-icon class="assurance-item__icon" size={IconSize.MEDIUM} type="experience"/>
         <p class="assurance-item__text">
-          <rg-experience date={this.anniversaryDate}/>
-          metų patirtis ir daugiau kaip 700 projektų
+          <rg-experience date={this.anniversaryDate}/> metų patirtis ir daugiau kaip 700 projektų
         </p>
       </div>
 
@@ -35,5 +34,6 @@ export class Assurance {
         <p class="assurance-item__text">Nemokama meistro konsultacija ir iškvietimas</p>
       </div>
     </div>
+
   }
 }
