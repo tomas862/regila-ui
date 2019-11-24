@@ -14,7 +14,6 @@ import {IconColor} from "./IconColor";
 export class Icon {
   @Prop() type: string;
   @Prop() size: IconSize;
-  @Prop() viewbox: IconSize;
   @Prop() color: IconColor;
 
   customIcons = [

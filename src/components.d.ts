@@ -54,7 +54,6 @@ export namespace Components {
     'color': IconColor;
     'size': IconSize;
     'type': string;
-    'viewbox': IconSize;
   }
   interface RgNavigation {
     'anniversaryDate': string;
@@ -270,7 +269,6 @@ declare namespace LocalJSX {
     'color'?: IconColor;
     'size'?: IconSize;
     'type'?: string;
-    'viewbox'?: IconSize;
   }
   interface RgNavigation {
     'anniversaryDate'?: string;
