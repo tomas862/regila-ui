@@ -2,10 +2,19 @@ $primary-color: #BF9E44;
 $border-color: #DEDEDE;
 $white-color: #ffffff;
 $black-color: #000000;
+$gray-color: #e8e8e8;
+$dark-gray-color: #515251;
 
-$transparent-gray: #e8e8e8CC;
+$gray-color-transparent: #e8e8e8E0;
 
 $font-size-small: 13px;
+$font-size-small-large: 14px;
+$font-size-large: 25px;
+
+$font-weight-normal: 400;
+$font-weight-semi-bold: 500;
+$font-weight-bold: 600;
+
 $z-index-nav-dropdown: 1000;
 $z-index-mobile-side-nav: 1000;
 $nav-padding-bottom: 17px;
@@ -16,3 +25,4 @@ $breakpoint-medium: 768px;
 $breakpoint-small: 576px;
 
 $category-card-desktop-height: 288px;
+$category-card-mobile-height: 200px;

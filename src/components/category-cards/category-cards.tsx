@@ -18,13 +18,13 @@ export class CategoryCards {
     return <div class="category-cards">
       {
         this.categoryCardsData.map((item) =>
-          <rg-category-cards-desktop-item
+          <rg-category-cards-item
             name={item.name}
             img={item.img}
             link={item.link}
             buttonName={this.buttonName}
           >
-          </rg-category-cards-desktop-item>
+          </rg-category-cards-item>
         )
       }
     </div>
