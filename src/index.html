@@ -62,6 +62,17 @@
   <rg-assurance anniversary-date="2004-01-27"></rg-assurance>
 </rg-container>
 
+<h2>Category cards</h2>
+
+<rg-container>
+  <rg-category-cards
+    id="category-cards"
+    button-name="Rinktis"
+  >
+
+  </rg-category-cards>
+</rg-container>
+
 </body>
 
 <script>
@@ -148,6 +159,64 @@
   ]
 
   nav.setAttribute('contact-fields', JSON.stringify(contactFields))
+
+  // set your datasets here
+  const categoryCards = document.getElementById('category-cards');
+
+  const categoryCardsData = [
+    {
+      "name": "Žaliuzės",
+      "img": "https://picsum.photos/692/288",
+      "link": "localhost",
+    },
+    {
+      "name": "Roletai",
+      "img": "https://picsum.photos/692/288",
+      "link": "localhost",
+    },
+    {
+      "name": "Užuolaidos",
+      "img": "https://picsum.photos/692/288",
+      "link": "localhost",
+    },
+    {
+      "name": "Tinkleliai nuo vabzdžių",
+      "img": "https://picsum.photos/692/288",
+      "link": "localhost",
+    },
+    {
+      "name": "Romanetės",
+      "img": "https://picsum.photos/692/288",
+      "link": "localhost",
+    },
+    {
+      "name": "Karnizai",
+      "img": "https://picsum.photos/692/288",
+      "link": "localhost",
+    },
+    {
+      "name": "Širmos",
+      "img": "https://picsum.photos/692/288",
+      "link": "localhost",
+    },
+    {
+      "name": "Textilė",
+      "img": "https://picsum.photos/692/288",
+      "link": "localhost",
+    },
+    {
+      "name": "Velux langų uždengimai",
+      "img": "https://picsum.photos/692/288",
+      "link": "localhost",
+    },
+    {
+      "name": "Žaliuzės",
+      "img": "https://picsum.photos/692/288",
+      "link": "localhost",
+    },
+  ]
+
+  categoryCards.setAttribute('category-cards-data', JSON.stringify(categoryCardsData))
 
 </script>
 </html>

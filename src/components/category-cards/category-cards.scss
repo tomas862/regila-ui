@@ -1,0 +1,11 @@
+.category-cards {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+
+
+  @include media-max-width-medium() {
+    grid-template-columns: 100%;
+  }
+}
