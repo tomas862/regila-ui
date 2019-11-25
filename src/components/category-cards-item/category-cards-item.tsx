@@ -1,6 +1,7 @@
 import {Component, h, Prop} from "@stencil/core";
 import {IconColor} from "../icon/IconColor";
 import {IconSize} from "../icon/IconSize";
+import {ButtonColor} from "../button/buttonColor";
 
 @Component({
   tag: 'rg-category-cards-item',
@@ -20,10 +21,11 @@ export class CategoryCardsItem {
 
       <div class="card-item-wrapper">
         <p class="card-item__text">{this.name}</p>
-        <a class="card-item__desktop-link" href={this.link} target="_blank">
-          <i><rg-icon color={IconColor.WHITE} type="arrow_left" size={IconSize.VERY_SMALL}/></i>
+
+        <rg-button color={ButtonColor.DARK_GRAY} href={this.link} class="card-item__desktop-link">
+          <i><rg-icon color={IconColor.WHITE} type="arrow_left" size={IconSize.SMALL}/></i>
           <span>{this.buttonName}</span>
-        </a>
+        </rg-button>
       </div>
     </div>
   }

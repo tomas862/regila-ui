@@ -8,6 +8,9 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
+  ButtonColor,
+} from './components/button/buttonColor';
+import {
   IconSize,
 } from './components/icon/IconSize';
 import {
@@ -23,6 +26,7 @@ export namespace Components {
     'anniversaryDate': string;
   }
   interface RgButton {
+    'color': ButtonColor;
     'href': string;
     'icon': string;
   }
@@ -238,6 +242,7 @@ declare namespace LocalJSX {
     'anniversaryDate'?: string;
   }
   interface RgButton {
+    'color'?: ButtonColor;
     'href'?: string;
     'icon'?: string;
   }
