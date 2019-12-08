@@ -51,6 +51,10 @@ export namespace Components {
     */
     'totalElements': number;
   }
+  interface RgDropdownSelect {
+    'productAttribute': string;
+    'productAttributeData': string | Array<ProductAttributeData>;
+  }
   interface RgExperience {
     'date': string;
   }
@@ -98,6 +102,11 @@ export namespace Components {
   interface RgNavigationMobile {
     'contactFields': string;
     'navigationFields': any | Array<NavigationField>;
+  }
+  interface RgProductAttributeSelect {
+    'attributeName': string;
+    'productAttribute': string;
+    'productAttributeData': string | Array<ProductAttributeData>;
   }
 }
 
@@ -150,6 +159,12 @@ declare global {
   var HTMLRgDropdownButtonElement: {
     prototype: HTMLRgDropdownButtonElement;
     new (): HTMLRgDropdownButtonElement;
+  };
+
+  interface HTMLRgDropdownSelectElement extends Components.RgDropdownSelect, HTMLStencilElement {}
+  var HTMLRgDropdownSelectElement: {
+    prototype: HTMLRgDropdownSelectElement;
+    new (): HTMLRgDropdownSelectElement;
   };
 
   interface HTMLRgExperienceElement extends Components.RgExperience, HTMLStencilElement {}
@@ -211,6 +226,12 @@ declare global {
     prototype: HTMLRgNavigationMobileElement;
     new (): HTMLRgNavigationMobileElement;
   };
+
+  interface HTMLRgProductAttributeSelectElement extends Components.RgProductAttributeSelect, HTMLStencilElement {}
+  var HTMLRgProductAttributeSelectElement: {
+    prototype: HTMLRgProductAttributeSelectElement;
+    new (): HTMLRgProductAttributeSelectElement;
+  };
   interface HTMLElementTagNameMap {
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-assurance': HTMLRgAssuranceElement;
@@ -220,6 +241,7 @@ declare global {
     'rg-category-cards-item': HTMLRgCategoryCardsItemElement;
     'rg-container': HTMLRgContainerElement;
     'rg-dropdown-button': HTMLRgDropdownButtonElement;
+    'rg-dropdown-select': HTMLRgDropdownSelectElement;
     'rg-experience': HTMLRgExperienceElement;
     'rg-icon': HTMLRgIconElement;
     'rg-navigation': HTMLRgNavigationElement;
@@ -230,6 +252,7 @@ declare global {
     'rg-navigation-items-desktop': HTMLRgNavigationItemsDesktopElement;
     'rg-navigation-logo': HTMLRgNavigationLogoElement;
     'rg-navigation-mobile': HTMLRgNavigationMobileElement;
+    'rg-product-attribute-select': HTMLRgProductAttributeSelectElement;
   }
 }
 
@@ -266,6 +289,10 @@ declare namespace LocalJSX {
     * Helps to render required amount of slots
     */
     'totalElements'?: number;
+  }
+  interface RgDropdownSelect {
+    'productAttribute'?: string;
+    'productAttributeData'?: string | Array<ProductAttributeData>;
   }
   interface RgExperience {
     'date'?: string;
@@ -315,6 +342,11 @@ declare namespace LocalJSX {
     'contactFields'?: string;
     'navigationFields'?: any | Array<NavigationField>;
   }
+  interface RgProductAttributeSelect {
+    'attributeName'?: string;
+    'productAttribute'?: string;
+    'productAttributeData'?: string | Array<ProductAttributeData>;
+  }
 
   interface IntrinsicElements {
     'rg-anniversary': RgAnniversary;
@@ -325,6 +357,7 @@ declare namespace LocalJSX {
     'rg-category-cards-item': RgCategoryCardsItem;
     'rg-container': RgContainer;
     'rg-dropdown-button': RgDropdownButton;
+    'rg-dropdown-select': RgDropdownSelect;
     'rg-experience': RgExperience;
     'rg-icon': RgIcon;
     'rg-navigation': RgNavigation;
@@ -335,6 +368,7 @@ declare namespace LocalJSX {
     'rg-navigation-items-desktop': RgNavigationItemsDesktop;
     'rg-navigation-logo': RgNavigationLogo;
     'rg-navigation-mobile': RgNavigationMobile;
+    'rg-product-attribute-select': RgProductAttributeSelect;
   }
 }
 
@@ -352,6 +386,7 @@ declare module "@stencil/core" {
       'rg-category-cards-item': LocalJSX.RgCategoryCardsItem & JSXBase.HTMLAttributes<HTMLRgCategoryCardsItemElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
       'rg-dropdown-button': LocalJSX.RgDropdownButton & JSXBase.HTMLAttributes<HTMLRgDropdownButtonElement>;
+      'rg-dropdown-select': LocalJSX.RgDropdownSelect & JSXBase.HTMLAttributes<HTMLRgDropdownSelectElement>;
       'rg-experience': LocalJSX.RgExperience & JSXBase.HTMLAttributes<HTMLRgExperienceElement>;
       'rg-icon': LocalJSX.RgIcon & JSXBase.HTMLAttributes<HTMLRgIconElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
@@ -362,6 +397,7 @@ declare module "@stencil/core" {
       'rg-navigation-items-desktop': LocalJSX.RgNavigationItemsDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationItemsDesktopElement>;
       'rg-navigation-logo': LocalJSX.RgNavigationLogo & JSXBase.HTMLAttributes<HTMLRgNavigationLogoElement>;
       'rg-navigation-mobile': LocalJSX.RgNavigationMobile & JSXBase.HTMLAttributes<HTMLRgNavigationMobileElement>;
+      'rg-product-attribute-select': LocalJSX.RgProductAttributeSelect & JSXBase.HTMLAttributes<HTMLRgProductAttributeSelectElement>;
     }
   }
 }

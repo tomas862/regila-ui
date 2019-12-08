@@ -57,6 +57,17 @@
   </div>
 </rg-navigation>
 
+<h2>Product attribute select component</h2>
+<rg-container>
+  <rg-product-attribute-select
+    id="product-attribute-select"
+    product-attribute="6"
+    attribute-name="Pakabinimo tipas"
+  >
+  </rg-product-attribute-select>
+</rg-container>
+
+
 <h2>Icons component</h2>
 <rg-container>
   <rg-assurance anniversary-date="2004-01-27"></rg-assurance>
@@ -77,8 +88,8 @@
 
 <script>
 
-  // write data sets here
-
+  // set your data sets here
+  // navigation data
   const navigationFields = [
     {
       "name": "Roletai",
@@ -137,10 +148,10 @@
     },
   ];
 
-  // set your datasets here
   const nav = document.getElementById('navigation');
   nav.setAttribute('navigation-fields', JSON.stringify(navigationFields))
 
+  // contact data
   const contactFields = [
     {
       "name": "Kontaktai",
@@ -160,7 +171,35 @@
 
   nav.setAttribute('contact-fields', JSON.stringify(contactFields))
 
-  // set your datasets here
+  // product attribute select data
+  const productAttributeSelect = document.getElementById('product-attribute-select');
+
+  const productAttributeData = [
+    {
+      "name": "pieštukinis klostavimas",
+      "img": "https://picsum.photos/210/50",
+      "value": 111,
+    },
+    {
+      "name": "kilpinis klostavimas",
+      "img": "https://picsum.photos/210/50",
+      "value": 112,
+    },
+    {
+      "name": "žiedinis klostavimas",
+      "img": "https://picsum.photos/210/50",
+      "value": 113,
+    },
+    {
+      "name": "su paaukštintu viršumi",
+      "img": "https://picsum.photos/210/50",
+      "value": 114,
+    },
+  ]
+
+  productAttributeSelect.setAttribute('product-attribute-data', JSON.stringify(productAttributeData))
+
+  // category cards
   const categoryCards = document.getElementById('category-cards');
 
   const categoryCardsData = [
