@@ -52,8 +52,8 @@ export namespace Components {
     'totalElements': number;
   }
   interface RgDropdownSelect {
-    'productAttribute': string;
-    'productAttributeData': string | Array<ProductAttributeData>;
+    'productAttributeData': any | Array<ProductAttributeData>;
+    'productAttributeGroup': string;
   }
   interface RgExperience {
     'date': string;
@@ -102,11 +102,6 @@ export namespace Components {
   interface RgNavigationMobile {
     'contactFields': string;
     'navigationFields': any | Array<NavigationField>;
-  }
-  interface RgProductAttributeSelect {
-    'attributeName': string;
-    'productAttribute': string;
-    'productAttributeData': string | Array<ProductAttributeData>;
   }
 }
 
@@ -226,12 +221,6 @@ declare global {
     prototype: HTMLRgNavigationMobileElement;
     new (): HTMLRgNavigationMobileElement;
   };
-
-  interface HTMLRgProductAttributeSelectElement extends Components.RgProductAttributeSelect, HTMLStencilElement {}
-  var HTMLRgProductAttributeSelectElement: {
-    prototype: HTMLRgProductAttributeSelectElement;
-    new (): HTMLRgProductAttributeSelectElement;
-  };
   interface HTMLElementTagNameMap {
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-assurance': HTMLRgAssuranceElement;
@@ -252,7 +241,6 @@ declare global {
     'rg-navigation-items-desktop': HTMLRgNavigationItemsDesktopElement;
     'rg-navigation-logo': HTMLRgNavigationLogoElement;
     'rg-navigation-mobile': HTMLRgNavigationMobileElement;
-    'rg-product-attribute-select': HTMLRgProductAttributeSelectElement;
   }
 }
 
@@ -291,8 +279,8 @@ declare namespace LocalJSX {
     'totalElements'?: number;
   }
   interface RgDropdownSelect {
-    'productAttribute'?: string;
-    'productAttributeData'?: string | Array<ProductAttributeData>;
+    'productAttributeData'?: any | Array<ProductAttributeData>;
+    'productAttributeGroup'?: string;
   }
   interface RgExperience {
     'date'?: string;
@@ -342,11 +330,6 @@ declare namespace LocalJSX {
     'contactFields'?: string;
     'navigationFields'?: any | Array<NavigationField>;
   }
-  interface RgProductAttributeSelect {
-    'attributeName'?: string;
-    'productAttribute'?: string;
-    'productAttributeData'?: string | Array<ProductAttributeData>;
-  }
 
   interface IntrinsicElements {
     'rg-anniversary': RgAnniversary;
@@ -368,7 +351,6 @@ declare namespace LocalJSX {
     'rg-navigation-items-desktop': RgNavigationItemsDesktop;
     'rg-navigation-logo': RgNavigationLogo;
     'rg-navigation-mobile': RgNavigationMobile;
-    'rg-product-attribute-select': RgProductAttributeSelect;
   }
 }
 
@@ -397,7 +379,6 @@ declare module "@stencil/core" {
       'rg-navigation-items-desktop': LocalJSX.RgNavigationItemsDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationItemsDesktopElement>;
       'rg-navigation-logo': LocalJSX.RgNavigationLogo & JSXBase.HTMLAttributes<HTMLRgNavigationLogoElement>;
       'rg-navigation-mobile': LocalJSX.RgNavigationMobile & JSXBase.HTMLAttributes<HTMLRgNavigationMobileElement>;
-      'rg-product-attribute-select': LocalJSX.RgProductAttributeSelect & JSXBase.HTMLAttributes<HTMLRgProductAttributeSelectElement>;
     }
   }
 }

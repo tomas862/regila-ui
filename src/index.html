@@ -59,12 +59,13 @@
 
 <h2>Product attribute select component</h2>
 <rg-container>
-  <rg-product-attribute-select
+  <span class="control-label no-padding col-xs-3">Pakabinimo tipas</span>
+
+  <rg-dropdown-select
     id="product-attribute-select"
-    product-attribute="6"
-    attribute-name="Pakabinimo tipas"
+    product-attribute-group="6"
   >
-  </rg-product-attribute-select>
+  </rg-dropdown-select>
 </rg-container>
 
 
@@ -169,32 +170,42 @@
     }
   ]
 
-  nav.setAttribute('contact-fields', JSON.stringify(contactFields))
+  nav.setAttribute('contact-fields', JSON.stringify(contactFields));
 
   // product attribute select data
   const productAttributeSelect = document.getElementById('product-attribute-select');
 
   const productAttributeData = [
     {
-      "name": "pieštukinis klostavimas",
-      "img": "https://picsum.photos/210/50",
-      "value": 111,
-    },
-    {
-      "name": "kilpinis klostavimas",
-      "img": "https://picsum.photos/210/50",
-      "value": 112,
-    },
-    {
-      "name": "žiedinis klostavimas",
-      "img": "https://picsum.photos/210/50",
-      "value": 113,
-    },
-    {
-      "name": "su paaukštintu viršumi",
-      "img": "https://picsum.photos/210/50",
-      "value": 114,
-    },
+      "111": [
+        {
+          "name": "pieštukinis klostavimas",
+          "img": "https://picsum.photos/210/50",
+          "selected": false
+        }
+      ],
+      "112": [
+        {
+          "name": "kilpinis klostavimas",
+          "img": "https://picsum.photos/210/50",
+          "selected": true
+        }
+      ],
+      "113": [
+        {
+          "name": "žiedinis klostavimas",
+          "img": "https://picsum.photos/210/50",
+          "selected": false
+        }
+      ],
+      "114": [
+        {
+          "name": "su paaukštintu viršumi",
+          "img": "https://picsum.photos/210/50",
+          "selected": false
+        }
+      ]
+    }
   ]
 
   productAttributeSelect.setAttribute('product-attribute-data', JSON.stringify(productAttributeData))
