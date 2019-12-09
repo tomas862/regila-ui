@@ -16,20 +16,20 @@ export class DropdownSelect {
 
   render() {
     return <select
-      class="form-control form-control-select no-padding col-xs-9"
+      class="form-control form-control-select no-padding col-xs-9 dropdown-select"
       id={`group_${this.productAttributeGroup}`}
       data-product-attribute={this.productAttributeGroup}
       name={`group[${this.productAttributeGroup}]`}
     >
       {
-        this.productAttributeData.map((item, attributeId) =>
+        this.productAttributeData.map((attribute) =>
             <option
-              style={{ backgroundImage: "url(" + item.img + ")" }}
-              value={attributeId}
-              title={item.name}
-              selected={item.selected}
+              style={{ backgroundImage: "url(" + attribute.img + ")" }}
+              value={attribute.attributeId}
+              title={attribute.name}
+              selected={attribute.selected}
             >
-              {item.name}
+              {attribute.name}
             </option>
         )
       }

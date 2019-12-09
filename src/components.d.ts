@@ -45,12 +45,6 @@ export namespace Components {
     'name': string;
   }
   interface RgContainer {}
-  interface RgDropdownButton {
-    /**
-    * Helps to render required amount of slots
-    */
-    'totalElements': number;
-  }
   interface RgDropdownSelect {
     'productAttributeData': any | Array<ProductAttributeData>;
     'productAttributeGroup': string;
@@ -150,12 +144,6 @@ declare global {
     new (): HTMLRgContainerElement;
   };
 
-  interface HTMLRgDropdownButtonElement extends Components.RgDropdownButton, HTMLStencilElement {}
-  var HTMLRgDropdownButtonElement: {
-    prototype: HTMLRgDropdownButtonElement;
-    new (): HTMLRgDropdownButtonElement;
-  };
-
   interface HTMLRgDropdownSelectElement extends Components.RgDropdownSelect, HTMLStencilElement {}
   var HTMLRgDropdownSelectElement: {
     prototype: HTMLRgDropdownSelectElement;
@@ -229,7 +217,6 @@ declare global {
     'rg-category-cards': HTMLRgCategoryCardsElement;
     'rg-category-cards-item': HTMLRgCategoryCardsItemElement;
     'rg-container': HTMLRgContainerElement;
-    'rg-dropdown-button': HTMLRgDropdownButtonElement;
     'rg-dropdown-select': HTMLRgDropdownSelectElement;
     'rg-experience': HTMLRgExperienceElement;
     'rg-icon': HTMLRgIconElement;
@@ -272,12 +259,6 @@ declare namespace LocalJSX {
     'name'?: string;
   }
   interface RgContainer {}
-  interface RgDropdownButton {
-    /**
-    * Helps to render required amount of slots
-    */
-    'totalElements'?: number;
-  }
   interface RgDropdownSelect {
     'productAttributeData'?: any | Array<ProductAttributeData>;
     'productAttributeGroup'?: string;
@@ -339,7 +320,6 @@ declare namespace LocalJSX {
     'rg-category-cards': RgCategoryCards;
     'rg-category-cards-item': RgCategoryCardsItem;
     'rg-container': RgContainer;
-    'rg-dropdown-button': RgDropdownButton;
     'rg-dropdown-select': RgDropdownSelect;
     'rg-experience': RgExperience;
     'rg-icon': RgIcon;
@@ -367,7 +347,6 @@ declare module "@stencil/core" {
       'rg-category-cards': LocalJSX.RgCategoryCards & JSXBase.HTMLAttributes<HTMLRgCategoryCardsElement>;
       'rg-category-cards-item': LocalJSX.RgCategoryCardsItem & JSXBase.HTMLAttributes<HTMLRgCategoryCardsItemElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
-      'rg-dropdown-button': LocalJSX.RgDropdownButton & JSXBase.HTMLAttributes<HTMLRgDropdownButtonElement>;
       'rg-dropdown-select': LocalJSX.RgDropdownSelect & JSXBase.HTMLAttributes<HTMLRgDropdownSelectElement>;
       'rg-experience': LocalJSX.RgExperience & JSXBase.HTMLAttributes<HTMLRgExperienceElement>;
       'rg-icon': LocalJSX.RgIcon & JSXBase.HTMLAttributes<HTMLRgIconElement>;
