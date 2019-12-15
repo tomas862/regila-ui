@@ -1,0 +1,13 @@
+.card-content {
+  position: relative;
+
+  .text-centered {
+    display: flex;
+    justify-content: center;
+  }
+
+  .slot-content--hidden {
+    overflow-y: hidden;
+    position: relative;
+  }
+}
