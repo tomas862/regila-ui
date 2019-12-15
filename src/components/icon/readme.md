@@ -20,6 +20,7 @@
 
  - [rg-assurance](../assurance)
  - [rg-cart-button](../cart-button)
+ - [rg-category-cards-item](../category-cards-item)
  - [rg-dropdown-button](../dropdown-button)
  - [rg-navigation-item](../navigation-item)
  - [rg-navigation-mobile](../navigation-mobile)
@@ -29,6 +30,7 @@
 graph TD;
   rg-assurance --> rg-icon
   rg-cart-button --> rg-icon
+  rg-category-cards-item --> rg-icon
   rg-dropdown-button --> rg-icon
   rg-navigation-item --> rg-icon
   rg-navigation-mobile --> rg-icon
