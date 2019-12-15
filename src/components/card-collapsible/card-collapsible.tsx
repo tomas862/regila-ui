@@ -26,8 +26,8 @@ export class CardCollapsible {
         <div class={`slot-content${showReadMore && '--hidden'}`} style={showReadMore && {maxHeight: `${this.maxHeight}px`}}>
           <slot/>
         </div>
-        {shouldDisplayAction && <div class="text-centered">
-          <rg-button onClick={_ => this.isOpened = !this.isOpened}>
+        {shouldDisplayAction && <div class={`text-centered ${showReadMore && 'read-more-container'}`}>
+          <rg-button class="collapse-button" onClick={_ => this.isOpened = !this.isOpened}>
             <span>{buttonText}</span>
             <rg-icon type={buttonIcon}/>
           </rg-button>
