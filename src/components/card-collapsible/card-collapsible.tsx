@@ -17,18 +17,23 @@ export class CardCollapsible {
   render() {
     const shouldDisplayAction = this.contentHeight > this.maxHeight;
     const showReadMore = shouldDisplayAction && !this.isOpened;
-    const buttonText = showReadMore ? this.readMoreText : this.readLessText;
 
-    return <rg-card>
+    const buttonText = showReadMore ? this.readMoreText : this.readLessText;
+    const buttonIcon = showReadMore ? 'arrow_drop_down' : 'arrow_drop_up';
+
+    return <div>
       <div class="card-content">
         <div class={`slot-content${showReadMore && '--hidden'}`} style={showReadMore && {maxHeight: `${this.maxHeight}px`}}>
           <slot/>
         </div>
         {shouldDisplayAction && <div class="text-centered">
-          <rg-button onClick={_ => this.isOpened = !this.isOpened}>{buttonText}</rg-button>
+          <rg-button onClick={_ => this.isOpened = !this.isOpened}>
+            <span>{buttonText}</span>
+            <rg-icon type={buttonIcon}/>
+          </rg-button>
         </div>
         }
       </div>
-    </rg-card>
+    </div>
   }
 }
