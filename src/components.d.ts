@@ -32,6 +32,7 @@ export namespace Components {
   interface RgCard {}
   interface RgCardCollapsible {
     'contentHeight': number;
+    'readLessText': string;
     'readMoreText': string;
   }
   interface RgCartButton {
@@ -267,6 +268,7 @@ declare namespace LocalJSX {
   interface RgCard {}
   interface RgCardCollapsible {
     'contentHeight'?: number;
+    'readLessText'?: string;
     'readMoreText'?: string;
   }
   interface RgCartButton {
