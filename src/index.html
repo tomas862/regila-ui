@@ -60,7 +60,7 @@
 <h2>Mansonry grid component</h2>
 
 <rg-container>
-  <rg-image-grid>
+  <rg-image-grid id="image-grid" relation-title="Gaukite panasias!">
   </rg-image-grid>
 </rg-container>
 
@@ -127,13 +127,40 @@
     id="category-cards"
     button-name="Rinktis"
   >
-
   </rg-category-cards>
 </rg-container>
 
 </body>
 
 <script>
+  const galleryGrid = document.getElementById('image-grid')
+
+  const galleryImages = [
+    {
+      title: 'Photo',
+      link: 'https://picsum.photos/692/288',
+    },
+    {
+      title: 'Photo',
+      link: 'https://picsum.photos/600/400',
+      imageRelationLink: '#',
+      columns: 3,
+      rows: 3
+    },
+    {
+      title: 'Photo',
+      link: 'https://picsum.photos/300/300',
+      rows: 1,
+      columns: 1
+    },
+    {
+      title: 'Photo',
+      link: 'https://picsum.photos/500/500',
+    },
+  ]
+
+  galleryGrid.setAttribute('gallery-images', JSON.stringify(galleryImages))
+
   const cardContentCollapsible = document.getElementById('collapsible-data-content')
   const collapsibleCard = document.getElementById('card-collapsible');
   collapsibleCard.setAttribute('content-height', cardContentCollapsible.clientHeight)

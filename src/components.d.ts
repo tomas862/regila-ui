@@ -27,7 +27,7 @@ export namespace Components {
   interface RgButton {
     'color': ButtonColor;
     'href': string;
-    'icon': string;
+    'target': string;
   }
   interface RgCardCollapsible {
     'contentHeight': number;
@@ -63,7 +63,10 @@ export namespace Components {
     'size': IconSize;
     'type': string;
   }
-  interface RgImageGrid {}
+  interface RgImageGrid {
+    'galleryImages': any | Array<GalleryImage>;
+    'relationTitle': string;
+  }
   interface RgNavigation {
     'anniversaryDate': string;
     'anniversaryTitle': string;
@@ -263,7 +266,7 @@ declare namespace LocalJSX {
   interface RgButton {
     'color'?: ButtonColor;
     'href'?: string;
-    'icon'?: string;
+    'target'?: string;
   }
   interface RgCardCollapsible {
     'contentHeight'?: number;
@@ -299,7 +302,10 @@ declare namespace LocalJSX {
     'size'?: IconSize;
     'type'?: string;
   }
-  interface RgImageGrid {}
+  interface RgImageGrid {
+    'galleryImages'?: any | Array<GalleryImage>;
+    'relationTitle'?: string;
+  }
   interface RgNavigation {
     'anniversaryDate'?: string;
     'anniversaryTitle'?: string;

@@ -1,4 +1,4 @@
-import {Component, h} from "@stencil/core";
+import {Component, h, Prop} from "@stencil/core";
 
 @Component({
   tag: 'rg-image-grid',
@@ -6,18 +6,36 @@ import {Component, h} from "@stencil/core";
   shadow: true
 })
 export class ImageGrid {
-  //todo: default to item 5. Sample code here https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout/
+
+  @Prop() galleryImages: any | Array<GalleryImage> = [];
+  @Prop() relationTitle: string;
+
+  componentWillLoad() {
+    this.galleryImages = typeof this.galleryImages === 'string' ? JSON.parse(this.galleryImages) : this.galleryImages;
+  }
+
+  getDynamicStyle(el: GalleryImage) {
+    return {
+      gridColumnEnd: `span ${el.columns ? el.columns : 2}`,
+      gridRowEnd: `span ${el.rows ? el.rows : 2}`
+    }
+  }
+
   render() {
     return <div class="grid-layout">
-      <div class="grid-item grid-item-1">item 1</div>
-      <div class="grid-item grid-item-2">item 2</div>
-      <div class="grid-item span-3 grid-item-3">item 3</div>
-      <div class="grid-item grid-item-4">item 4</div>
-      <div class="grid-item span-2 grid-item-5">item 5</div>
-      <div class="grid-item grid-item-6">item 6</div>
-      <div class="grid-item grid-item-7">item 7</div>
-      <div class="grid-item grid-item-8">item 8</div>
-      <div class="grid-item grid-item-9">item 9</div>
+      {
+        this.galleryImages.map((el) => {
+          return (
+            <div class="grid-item" style={this.getDynamicStyle(el)}>
+              <img src={el.link} alt={el.title}/>
+              {el.imageRelationLink && <rg-button target="_blank" href={el.imageRelationLink}>
+                {this.relationTitle}
+                <rg-icon type="arrow_right"/>
+              </rg-button>}
+            </div>
+          )
+        })
+      }
     </div>
   }
 }
