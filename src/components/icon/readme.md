@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                | Default     |
-| -------- | --------- | ----------- | ----------------------------------- | ----------- |
-| `color`  | `color`   |             | `IconColor`                         | `undefined` |
-| `size`   | `size`    |             | `IconSize.MEDIUM \| IconSize.SMALL` | `undefined` |
-| `type`   | `type`    |             | `string`                            | `undefined` |
+| Property | Attribute | Description | Type                                   | Default     |
+| -------- | --------- | ----------- | -------------------------------------- | ----------- |
+| `color`  | `color`   |             | `IconColor.PRIMARY \| IconColor.WHITE` | `undefined` |
+| `size`   | `size`    |             | `IconSize.MEDIUM \| IconSize.SMALL`    | `undefined` |
+| `type`   | `type`    |             | `string`                               | `undefined` |
 
 
 ## Dependencies
@@ -19,6 +19,7 @@
 ### Used by
 
  - [rg-assurance](../assurance)
+ - [rg-card-collapsible](../card-collapsible)
  - [rg-cart-button](../cart-button)
  - [rg-category-cards-item](../category-cards-item)
  - [rg-dropdown-button](../dropdown-button)
@@ -29,6 +30,7 @@
 ```mermaid
 graph TD;
   rg-assurance --> rg-icon
+  rg-card-collapsible --> rg-icon
   rg-cart-button --> rg-icon
   rg-category-cards-item --> rg-icon
   rg-dropdown-button --> rg-icon
