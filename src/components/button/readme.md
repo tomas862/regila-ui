@@ -18,6 +18,7 @@
 
 ### Used by
 
+ - [rg-card-collapsible](../card-collapsible)
  - [rg-cart-button](../cart-button)
  - [rg-category-cards-item](../category-cards-item)
  - [rg-dropdown-button](../dropdown-button)
@@ -26,6 +27,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  rg-card-collapsible --> rg-button
   rg-cart-button --> rg-button
   rg-category-cards-item --> rg-button
   rg-dropdown-button --> rg-button

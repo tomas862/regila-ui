@@ -16,6 +16,7 @@ export class Icon {
   @Prop() size: IconSize;
   @Prop() color: IconColor;
 
+  // @see www.iloveimg.com for editing svg images
   customIcons = [
     'basic_roller_blinds',
     'day_night_roller_blinds',
@@ -24,6 +25,8 @@ export class Icon {
     'delivery',
     'experience',
     'measure',
+    'day_curtain',
+    'night_curtain',
   ];
 
   render() {
