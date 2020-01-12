@@ -1,4 +1,5 @@
 import {Component, h, Prop} from "@stencil/core";
+import { GalleryImage } from "../../interfaces/GalleryImage";
 
 @Component({
   tag: 'rg-image-grid',
@@ -22,12 +23,14 @@ export class ImageGrid {
   }
 
   render() {
+    //todo: add IntersectionObserver usage
+    //todo: on mobile just use images in order and set full width
     return <div class="grid-layout">
       {
         this.galleryImages.map((el) => {
           return (
             <div class="grid-item" style={this.getDynamicStyle(el)}>
-              <img src={el.link} alt={el.title}/>
+              <rg-image image={el.image}/>
               {el.imageRelationLink && <rg-button target="_blank" href={el.imageRelationLink}>
                 {this.relationTitle}
                 <rg-icon type="arrow_right"/>

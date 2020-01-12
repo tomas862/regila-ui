@@ -15,6 +15,12 @@ import {
 import {
   IconColor,
 } from './components/icon/IconColor';
+import {
+  ImageInterface,
+} from './interfaces/ImageInterface';
+import {
+  GalleryImage,
+} from './interfaces/GalleryImage';
 
 export namespace Components {
   interface RgAnniversary {
@@ -62,6 +68,9 @@ export namespace Components {
     'color': IconColor;
     'size': IconSize;
     'type': string;
+  }
+  interface RgImage {
+    'image': any | ImageInterface;
   }
   interface RgImageGrid {
     'galleryImages': any | Array<GalleryImage>;
@@ -178,6 +187,12 @@ declare global {
     new (): HTMLRgIconElement;
   };
 
+  interface HTMLRgImageElement extends Components.RgImage, HTMLStencilElement {}
+  var HTMLRgImageElement: {
+    prototype: HTMLRgImageElement;
+    new (): HTMLRgImageElement;
+  };
+
   interface HTMLRgImageGridElement extends Components.RgImageGrid, HTMLStencilElement {}
   var HTMLRgImageGridElement: {
     prototype: HTMLRgImageGridElement;
@@ -243,6 +258,7 @@ declare global {
     'rg-dropdown-button': HTMLRgDropdownButtonElement;
     'rg-experience': HTMLRgExperienceElement;
     'rg-icon': HTMLRgIconElement;
+    'rg-image': HTMLRgImageElement;
     'rg-image-grid': HTMLRgImageGridElement;
     'rg-navigation': HTMLRgNavigationElement;
     'rg-navigation-contact-desktop': HTMLRgNavigationContactDesktopElement;
@@ -302,6 +318,9 @@ declare namespace LocalJSX {
     'size'?: IconSize;
     'type'?: string;
   }
+  interface RgImage {
+    'image'?: any | ImageInterface;
+  }
   interface RgImageGrid {
     'galleryImages'?: any | Array<GalleryImage>;
     'relationTitle'?: string;
@@ -359,6 +378,7 @@ declare namespace LocalJSX {
     'rg-dropdown-button': RgDropdownButton;
     'rg-experience': RgExperience;
     'rg-icon': RgIcon;
+    'rg-image': RgImage;
     'rg-image-grid': RgImageGrid;
     'rg-navigation': RgNavigation;
     'rg-navigation-contact-desktop': RgNavigationContactDesktop;
@@ -388,6 +408,7 @@ declare module "@stencil/core" {
       'rg-dropdown-button': LocalJSX.RgDropdownButton & JSXBase.HTMLAttributes<HTMLRgDropdownButtonElement>;
       'rg-experience': LocalJSX.RgExperience & JSXBase.HTMLAttributes<HTMLRgExperienceElement>;
       'rg-icon': LocalJSX.RgIcon & JSXBase.HTMLAttributes<HTMLRgIconElement>;
+      'rg-image': LocalJSX.RgImage & JSXBase.HTMLAttributes<HTMLRgImageElement>;
       'rg-image-grid': LocalJSX.RgImageGrid & JSXBase.HTMLAttributes<HTMLRgImageGridElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
       'rg-navigation-contact-desktop': LocalJSX.RgNavigationContactDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationContactDesktopElement>;
