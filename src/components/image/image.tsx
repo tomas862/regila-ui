@@ -1,5 +1,6 @@
 import {Component, h, Prop} from "@stencil/core";
 import { ImageInterface } from "../../interfaces/ImageInterface";
+import {isImageLoaded} from "../../utils/image";
 
 @Component({
   tag: 'rg-image',
@@ -19,12 +20,16 @@ export class Image {
       return;
     }
 
+    if (!isImageLoaded(this.image)) {
+      return;
+    }
+
     return <picture>
       {
         this.image.sources && this.image.sources.map(el => {
           return (
             // @ts-ignore
-            <source type={el.type ? el.type : undefined} srcset={el.src}/>
+            <source type={el.type ? el.type : undefined} data-src={el.src}/>
           )
         })
       }

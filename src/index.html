@@ -145,7 +145,14 @@
     {
       image: {
         alt: 'Photo',
-        src: 'https://picsum.photos/600/400'
+        src: 'https://picsum.photos/600/400',
+        sources: [
+          {
+            type: 'image/webp',
+            src: 'https://picsum.photos/400/400'
+          }
+        ],
+        isLoaded:false,
       },
       imageRelationLink: '#',
       columns: 3,
@@ -154,10 +161,9 @@
     {
       image: {
         alt: 'Photo',
-        src: 'https://picsum.photos/300/300'
+        src: 'https://picsum.photos/300/300',
+        isLoaded: false,
       },
-      rows: 1,
-      columns: 1
     },
     {
       image: {

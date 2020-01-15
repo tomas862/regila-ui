@@ -1,5 +1,6 @@
 import {Component, h, Prop} from "@stencil/core";
 import { GalleryImage } from "../../interfaces/GalleryImage";
+import {isImageLoaded} from "../../utils/image";
 
 @Component({
   tag: 'rg-image-grid',
@@ -11,8 +12,37 @@ export class ImageGrid {
   @Prop() galleryImages: any | Array<GalleryImage> = [];
   @Prop() relationTitle: string;
 
+  root: HTMLDivElement;
+  imagesToObserve: Array<any> = [];
+
   componentWillLoad() {
     this.galleryImages = typeof this.galleryImages === 'string' ? JSON.parse(this.galleryImages) : this.galleryImages;
+  }
+
+  componentDidLoad() {
+    const observerOptions = {
+      root: this.root,
+      rootMargin: '0px',
+      threshold: 1.0
+    };
+
+    const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      const targets: Element[] = entries
+        .filter(entry => entry.isIntersecting)
+        .map(entry=> entry.target)
+
+      const intersectingIndexes: number[] = this.imagesToObserve
+        .filter(({ el }) => targets.includes(el))
+        .map(el => el.index)
+
+      console.log(intersectingIndexes)
+    };
+
+    const observer = new IntersectionObserver(callback, observerOptions)
+
+    this.imagesToObserve.forEach(({ el }) => {
+      observer.observe(el)
+    })
   }
 
   getDynamicStyle(el: GalleryImage) {
@@ -23,18 +53,21 @@ export class ImageGrid {
   }
 
   render() {
-    //todo: add IntersectionObserver usage
     //todo: on mobile just use images in order and set full width
-    return <div class="grid-layout">
+    return <div class="grid-layout" ref={(el) => this.root = el as HTMLDivElement}>
       {
-        this.galleryImages.map((el) => {
+        this.galleryImages.filter(({ image }) => isImageLoaded(image)).map((el, index) => {
+
           return (
             <div class="grid-item" style={this.getDynamicStyle(el)}>
-              <rg-image image={el.image}/>
-              {el.imageRelationLink && <rg-button target="_blank" href={el.imageRelationLink}>
-                {this.relationTitle}
-                <rg-icon type="arrow_right"/>
-              </rg-button>}
+              <rg-image ref={(el) => this.imagesToObserve.push({index, el})} image={el.image}/>
+
+              {el.imageRelationLink &&
+                <rg-button target="_blank" href={el.imageRelationLink}>
+                  {this.relationTitle}
+                  <rg-icon type="arrow_right"/>
+                </rg-button>
+              }
             </div>
           )
         })

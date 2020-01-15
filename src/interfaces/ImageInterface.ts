@@ -5,4 +5,6 @@ export interface ImageInterface {
   /** the source of the original image */
   src: string;
   sources?: Array<ImageSourceInterface>
+  /** determines if image is loaded or not */
+  isLoaded? :boolean;
 }
