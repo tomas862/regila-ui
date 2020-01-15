@@ -1,6 +1,5 @@
 import {Component, h, Prop} from "@stencil/core";
 import { ImageInterface } from "../../interfaces/ImageInterface";
-import {isImageLoaded} from "../../utils/image";
 
 @Component({
   tag: 'rg-image',
@@ -17,10 +16,6 @@ export class Image {
 
   render() {
     if (!this.image) {
-      return;
-    }
-
-    if (!isImageLoaded(this.image)) {
       return;
     }
 

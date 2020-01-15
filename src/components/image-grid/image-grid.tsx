@@ -1,6 +1,6 @@
 import {Component, h, Prop} from "@stencil/core";
 import { GalleryImage } from "../../interfaces/GalleryImage";
-import {isImageLoaded} from "../../utils/image";
+import {isObjectLoaded} from "../../utils/loadingObject";
 
 @Component({
   tag: 'rg-image-grid',
@@ -9,7 +9,7 @@ import {isImageLoaded} from "../../utils/image";
 })
 export class ImageGrid {
 
-  @Prop() galleryImages: any | Array<GalleryImage> = [];
+  @Prop({ mutable: true }) galleryImages: any | Array<GalleryImage> = [];
   @Prop() relationTitle: string;
 
   root: HTMLDivElement;
@@ -35,7 +35,12 @@ export class ImageGrid {
         .filter(({ el }) => targets.includes(el))
         .map(el => el.index)
 
-      console.log(intersectingIndexes)
+      this.galleryImages = this.galleryImages.map((el: GalleryImage, index) => {
+        return {
+          ...el,
+          isLoaded: intersectingIndexes.includes(index),
+        }
+      })
     };
 
     const observer = new IntersectionObserver(callback, observerOptions)
@@ -56,7 +61,7 @@ export class ImageGrid {
     //todo: on mobile just use images in order and set full width
     return <div class="grid-layout" ref={(el) => this.root = el as HTMLDivElement}>
       {
-        this.galleryImages.filter(({ image }) => isImageLoaded(image)).map((el, index) => {
+        this.galleryImages.filter((el) => isObjectLoaded(el)).map((el, index) => {
 
           return (
             <div class="grid-item" style={this.getDynamicStyle(el)}>
