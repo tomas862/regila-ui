@@ -74,8 +74,7 @@ export class ImageGrid implements ObservableWebComponentInterface {
               style={this.getDynamicStyle(el)}
               ref={(ref) => this.setObservable({index, ref})}
             >
-              <rg-image is-loaded={isLoaded} image={el.image}/>
-
+              {isLoaded && <rg-image image={el.image}/>}
               {isLoaded && el.imageRelationLink &&
                 <rg-button target="_blank" href={el.imageRelationLink}>
                   {this.relationTitle}

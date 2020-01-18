@@ -9,14 +9,13 @@ import { ImageInterface } from "../../interfaces/ImageInterface";
 export class Image {
 
   @Prop() image : any | ImageInterface = null;
-  @Prop() isLoaded : boolean;
 
   componentWillLoad() {
     this.image = typeof this.image === 'string' ? JSON.parse(this.image) : this.image;
   }
 
   render() {
-    if (!this.image || !this.isLoaded) {
+    if (!this.image) {
       return null;
     }
 
@@ -25,7 +24,7 @@ export class Image {
         this.image.sources && this.image.sources.map(el => {
           return (
             // @ts-ignore
-            <source type={el.type ? el.type : undefined} data-src={el.src}/>
+            <source type={el.type ? el.type : undefined} srcset={el.src}/>
           )
         })
       }
