@@ -1,6 +1,6 @@
 import {Component, h, Prop} from "@stencil/core";
 import { GalleryImage } from "../../interfaces/GalleryImage";
-import {getUnsubscribedIntersectingTargets, isObserverApiAvailable} from "../../utils/intersectionObserver";
+import {getUnsubscribedIntersectingTargets, isObserverApiAvailable, ObservableItemInterface, createFitToViewportObservableStrategy} from "../../utils/intersectionObserver";
 import { getLoadableEntries } from "../../utils/loadableObject";
 import {LoadableObjectInterface} from "../../interfaces/LoadableObjectInterface";
 
@@ -13,7 +13,7 @@ export class ImageGrid {
 
   @Prop({ mutable: true }) galleryImages: any | Array<GalleryImage> = [];
   @Prop() relationTitle: string;
-  itemsToObserve: Array<any> = [];
+  itemsToObserve: ObservableItemInterface[] = [];
 
   componentWillLoad() {
     this.galleryImages = typeof this.galleryImages === 'string' ? JSON.parse(this.galleryImages) : this.galleryImages;
@@ -22,13 +22,10 @@ export class ImageGrid {
   componentDidLoad() {
     if (!isObserverApiAvailable()) {
       this.galleryImages = getLoadableEntries(this.galleryImages, _ => true);
-
       return;
     }
 
-    const observerOptions = { rootMargin: "0px 0px 0px 0px" };
-
-    const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+    createFitToViewportObservableStrategy(this.itemsToObserve, (entries, observer) => {
       const targets: Element[] = getUnsubscribedIntersectingTargets(entries, observer);
 
       // finding intersecting indexes
@@ -40,14 +37,7 @@ export class ImageGrid {
       this.galleryImages = getLoadableEntries(this.galleryImages, (entry: LoadableObjectInterface, index: number) => {
         return entry.isLoaded || intersectingIndexes.includes(index)
       });
-    };
-
-    const observer = new IntersectionObserver(callback, observerOptions);
-
-    // setting elements to observe
-    this.itemsToObserve.forEach(({ ref }) => {
-      observer.observe(ref)
-    })
+    });
   }
 
   getDynamicStyle(el: GalleryImage) {
