@@ -1,6 +1,11 @@
 import {Component, h, Prop} from "@stencil/core";
 import { GalleryImage } from "../../interfaces/GalleryImage";
-import {getUnsubscribedIntersectingTargets, isObserverApiAvailable, ObservableItemInterface, createFitToViewportObservableStrategy} from "../../utils/intersectionObserver";
+import {
+  getUnsubscribedIntersectingTargets,
+  isObserverApiAvailable,
+  ObservableItemInterface,
+  createFitToViewportObservableStrategy
+} from "../../utils/intersectionObserver";
 import { getLoadableEntries } from "../../utils/loadableObject";
 import {LoadableObjectInterface} from "../../interfaces/LoadableObjectInterface";
 import { ObservableWebComponentInterface } from "../../interfaces/ObservableWebComponentInterface";
