@@ -3,17 +3,27 @@ import { GalleryImage } from "../../interfaces/GalleryImage";
 import {getUnsubscribedIntersectingTargets, isObserverApiAvailable, ObservableItemInterface, createFitToViewportObservableStrategy} from "../../utils/intersectionObserver";
 import { getLoadableEntries } from "../../utils/loadableObject";
 import {LoadableObjectInterface} from "../../interfaces/LoadableObjectInterface";
+import { ObservableWebComponentInterface } from "../../interfaces/ObservableWebComponentInterface";
 
 @Component({
   tag: 'rg-image-grid',
   styleUrl: 'image-grid.scss',
   shadow: true
 })
-export class ImageGrid {
+export class ImageGrid implements ObservableWebComponentInterface {
 
   @Prop({ mutable: true }) galleryImages: any | Array<GalleryImage> = [];
   @Prop() relationTitle: string;
+
   itemsToObserve: ObservableItemInterface[] = [];
+
+  getObservables(): ObservableItemInterface[] {
+    return this.itemsToObserve;
+  }
+
+  setObservable(item: ObservableItemInterface): void {
+    this.itemsToObserve.push(item)
+  }
 
   componentWillLoad() {
     this.galleryImages = typeof this.galleryImages === 'string' ? JSON.parse(this.galleryImages) : this.galleryImages;
@@ -25,11 +35,11 @@ export class ImageGrid {
       return;
     }
 
-    createFitToViewportObservableStrategy(this.itemsToObserve, (entries, observer) => {
+    createFitToViewportObservableStrategy(this.getObservables(), (entries, observer) => {
       const targets: Element[] = getUnsubscribedIntersectingTargets(entries, observer);
 
       // finding intersecting indexes
-      const intersectingIndexes: number[] = this.itemsToObserve
+      const intersectingIndexes: number[] = this.getObservables()
         .filter(({ ref }) => targets.includes(ref))
         .map(el => el.index);
 
@@ -57,7 +67,7 @@ export class ImageGrid {
             <div
               class="grid-item"
               style={this.getDynamicStyle(el)}
-              ref={(ref) => this.itemsToObserve.push({index, ref})}
+              ref={(ref) => this.setObservable({index, ref})}
             >
               <rg-image is-loaded={isLoaded} image={el.image}/>
 
