@@ -71,6 +71,7 @@ export namespace Components {
   }
   interface RgImage {
     'image': any | ImageInterface;
+    'isLoaded': boolean;
   }
   interface RgImageGrid {
     'galleryImages': any | Array<GalleryImage>;
@@ -320,6 +321,7 @@ declare namespace LocalJSX {
   }
   interface RgImage {
     'image'?: any | ImageInterface;
+    'isLoaded'?: boolean;
   }
   interface RgImageGrid {
     'galleryImages'?: any | Array<GalleryImage>;

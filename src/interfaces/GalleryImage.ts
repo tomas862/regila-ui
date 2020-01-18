@@ -10,4 +10,6 @@ export interface GalleryImage extends LoadingObjectInterface {
   rows?: number;
   /** An integer which defines how much squares to kae in height */
   columns?: number;
+  /** Determines the state of gallery image */
+  isLoaded?: boolean;
 }

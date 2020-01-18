@@ -20,22 +20,29 @@ export class ImageGrid {
   }
 
   componentDidLoad() {
-    const observerOptions = {
-      root: this.root,
-      rootMargin: '0px',
-      threshold: 1.0
-    };
+    const observerOptions = { rootMargin: "0px 0px -200px 0px" };
 
     const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      console.log(entries);
+      // finding intersecting elements
       const targets: Element[] = entries
         .filter(entry => entry.isIntersecting)
-        .map(entry=> entry.target)
+        .map(entry=> entry.target);
 
+      // removing observation
+      targets.forEach(target => observer.unobserve(target));
+
+      // finding intersecting indexes
       const intersectingIndexes: number[] = this.imagesToObserve
-        .filter(({ el }) => targets.includes(el))
-        .map(el => el.index)
+        .filter(({ ref }) => targets.includes(ref))
+        .map(el => el.index);
 
+      // marking object with isLoaded state - if its already loaded then skip modification
       this.galleryImages = this.galleryImages.map((el: GalleryImage, index) => {
+        if (el.isLoaded) {
+          return el;
+        }
+
         return {
           ...el,
           isLoaded: intersectingIndexes.includes(index),
@@ -43,29 +50,29 @@ export class ImageGrid {
       })
     };
 
-    const observer = new IntersectionObserver(callback, observerOptions)
+    const observer = new IntersectionObserver(callback, observerOptions);
 
-    this.imagesToObserve.forEach(({ el }) => {
-      observer.observe(el)
+    // setting elements to observe
+    this.imagesToObserve.forEach(({ ref }) => {
+      observer.observe(ref)
     })
   }
 
   getDynamicStyle(el: GalleryImage) {
     return {
       gridColumnEnd: `span ${el.columns ? el.columns : 2}`,
-      gridRowEnd: `span ${el.rows ? el.rows : 2}`
+      gridRowEnd: `span ${el.rows ? el.rows : 2}`,
     }
   }
 
   render() {
-    //todo: on mobile just use images in order and set full width
-    return <div class="grid-layout" ref={(el) => this.root = el as HTMLDivElement}>
-      {
-        this.galleryImages.filter((el) => isObjectLoaded(el)).map((el, index) => {
 
+    return <div class="grid-layout" ref={(ref) => this.root = ref as HTMLDivElement}>
+      {
+        this.galleryImages.map((el, index) => {
           return (
             <div class="grid-item" style={this.getDynamicStyle(el)}>
-              <rg-image ref={(el) => this.imagesToObserve.push({index, el})} image={el.image}/>
+              <rg-image is-loaded={isObjectLoaded(el)} ref={(ref) => this.imagesToObserve.push({index, ref})} image={el.image}/>
 
               {el.imageRelationLink &&
                 <rg-button target="_blank" href={el.imageRelationLink}>

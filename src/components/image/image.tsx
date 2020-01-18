@@ -9,14 +9,15 @@ import { ImageInterface } from "../../interfaces/ImageInterface";
 export class Image {
 
   @Prop() image : any | ImageInterface = null;
+  @Prop() isLoaded : boolean = true;
 
   componentWillLoad() {
     this.image = typeof this.image === 'string' ? JSON.parse(this.image) : this.image;
   }
 
   render() {
-    if (!this.image) {
-      return;
+    if (!this.image || !this.isLoaded) {
+      return null;
     }
 
     return <picture>
