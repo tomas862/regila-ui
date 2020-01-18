@@ -1,5 +1,5 @@
-interface LinkDropdownInterface {
+export interface LinkDropdownInterface {
   buttonText: string;
-  buttonIcon: string;
+  buttonIcon?: string;
   options: LinkDropdownOptionInterface[];
 }

@@ -1,5 +1,6 @@
 import {Component, h, Element, Prop} from "@stencil/core";
 import {MDCMenu} from '@material/menu';
+import { LinkDropdownInterface } from "../../interfaces/LinkDropdownInterface";
 
 @Component({
   tag: 'rg-link-dropdown',
