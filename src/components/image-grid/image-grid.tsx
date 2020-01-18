@@ -1,6 +1,5 @@
 import {Component, h, Prop} from "@stencil/core";
 import { GalleryImage } from "../../interfaces/GalleryImage";
-import {isObjectLoaded} from "../../utils/loadingObject";
 
 @Component({
   tag: 'rg-image-grid',
@@ -20,7 +19,7 @@ export class ImageGrid {
   }
 
   componentDidLoad() {
-    const observerOptions = { rootMargin: "0px 0px -200px 0px" };
+    const observerOptions = { rootMargin: "0px 0px 0px 0px" };
 
     const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
       console.log(entries);
@@ -28,6 +27,10 @@ export class ImageGrid {
       const targets: Element[] = entries
         .filter(entry => entry.isIntersecting)
         .map(entry=> entry.target);
+
+      if (!targets.length) {
+        return;
+      }
 
       // removing observation
       targets.forEach(target => observer.unobserve(target));
@@ -70,11 +73,16 @@ export class ImageGrid {
     return <div class="grid-layout" ref={(ref) => this.root = ref as HTMLDivElement}>
       {
         this.galleryImages.map((el, index) => {
+          const isLoaded = el.isLoaded !== undefined && el.isLoaded;
           return (
-            <div class="grid-item" style={this.getDynamicStyle(el)}>
-              <rg-image is-loaded={isObjectLoaded(el)} ref={(ref) => this.imagesToObserve.push({index, ref})} image={el.image}/>
+            <div
+              class="grid-item"
+              style={this.getDynamicStyle(el)}
+              ref={(ref) => this.imagesToObserve.push({index, ref})}
+            >
+              <rg-image is-loaded={isLoaded} image={el.image}/>
 
-              {el.imageRelationLink &&
+              {isLoaded && el.imageRelationLink &&
                 <rg-button target="_blank" href={el.imageRelationLink}>
                   {this.relationTitle}
                   <rg-icon type="arrow_right"/>

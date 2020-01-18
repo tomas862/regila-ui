@@ -9,7 +9,7 @@ import { ImageInterface } from "../../interfaces/ImageInterface";
 export class Image {
 
   @Prop() image : any | ImageInterface = null;
-  @Prop() isLoaded : boolean = true;
+  @Prop() isLoaded : boolean;
 
   componentWillLoad() {
     this.image = typeof this.image === 'string' ? JSON.parse(this.image) : this.image;
