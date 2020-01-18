@@ -21,6 +21,9 @@ import {
 import {
   GalleryImage,
 } from './interfaces/GalleryImage';
+import {
+  LinkDropdownInterface,
+} from './interfaces/LinkDropdownInterface';
 
 export namespace Components {
   interface RgAnniversary {
@@ -55,12 +58,6 @@ export namespace Components {
     'name': string;
   }
   interface RgContainer {}
-  interface RgDropdownButton {
-    /**
-    * Helps to render required amount of slots
-    */
-    'totalElements': number;
-  }
   interface RgExperience {
     'date': string;
   }
@@ -75,6 +72,9 @@ export namespace Components {
   interface RgImageGrid {
     'galleryImages': any | Array<GalleryImage>;
     'relationTitle': string;
+  }
+  interface RgLinkDropdown {
+    'dropdown': any | LinkDropdownInterface;
   }
   interface RgNavigation {
     'anniversaryDate': string;
@@ -169,12 +169,6 @@ declare global {
     new (): HTMLRgContainerElement;
   };
 
-  interface HTMLRgDropdownButtonElement extends Components.RgDropdownButton, HTMLStencilElement {}
-  var HTMLRgDropdownButtonElement: {
-    prototype: HTMLRgDropdownButtonElement;
-    new (): HTMLRgDropdownButtonElement;
-  };
-
   interface HTMLRgExperienceElement extends Components.RgExperience, HTMLStencilElement {}
   var HTMLRgExperienceElement: {
     prototype: HTMLRgExperienceElement;
@@ -197,6 +191,12 @@ declare global {
   var HTMLRgImageGridElement: {
     prototype: HTMLRgImageGridElement;
     new (): HTMLRgImageGridElement;
+  };
+
+  interface HTMLRgLinkDropdownElement extends Components.RgLinkDropdown, HTMLStencilElement {}
+  var HTMLRgLinkDropdownElement: {
+    prototype: HTMLRgLinkDropdownElement;
+    new (): HTMLRgLinkDropdownElement;
   };
 
   interface HTMLRgNavigationElement extends Components.RgNavigation, HTMLStencilElement {}
@@ -255,11 +255,11 @@ declare global {
     'rg-category-cards': HTMLRgCategoryCardsElement;
     'rg-category-cards-item': HTMLRgCategoryCardsItemElement;
     'rg-container': HTMLRgContainerElement;
-    'rg-dropdown-button': HTMLRgDropdownButtonElement;
     'rg-experience': HTMLRgExperienceElement;
     'rg-icon': HTMLRgIconElement;
     'rg-image': HTMLRgImageElement;
     'rg-image-grid': HTMLRgImageGridElement;
+    'rg-link-dropdown': HTMLRgLinkDropdownElement;
     'rg-navigation': HTMLRgNavigationElement;
     'rg-navigation-contact-desktop': HTMLRgNavigationContactDesktopElement;
     'rg-navigation-contact-mobile': HTMLRgNavigationContactMobileElement;
@@ -304,12 +304,6 @@ declare namespace LocalJSX {
     'name'?: string;
   }
   interface RgContainer {}
-  interface RgDropdownButton {
-    /**
-    * Helps to render required amount of slots
-    */
-    'totalElements'?: number;
-  }
   interface RgExperience {
     'date'?: string;
   }
@@ -324,6 +318,9 @@ declare namespace LocalJSX {
   interface RgImageGrid {
     'galleryImages'?: any | Array<GalleryImage>;
     'relationTitle'?: string;
+  }
+  interface RgLinkDropdown {
+    'dropdown'?: any | LinkDropdownInterface;
   }
   interface RgNavigation {
     'anniversaryDate'?: string;
@@ -375,11 +372,11 @@ declare namespace LocalJSX {
     'rg-category-cards': RgCategoryCards;
     'rg-category-cards-item': RgCategoryCardsItem;
     'rg-container': RgContainer;
-    'rg-dropdown-button': RgDropdownButton;
     'rg-experience': RgExperience;
     'rg-icon': RgIcon;
     'rg-image': RgImage;
     'rg-image-grid': RgImageGrid;
+    'rg-link-dropdown': RgLinkDropdown;
     'rg-navigation': RgNavigation;
     'rg-navigation-contact-desktop': RgNavigationContactDesktop;
     'rg-navigation-contact-mobile': RgNavigationContactMobile;
@@ -405,11 +402,11 @@ declare module "@stencil/core" {
       'rg-category-cards': LocalJSX.RgCategoryCards & JSXBase.HTMLAttributes<HTMLRgCategoryCardsElement>;
       'rg-category-cards-item': LocalJSX.RgCategoryCardsItem & JSXBase.HTMLAttributes<HTMLRgCategoryCardsItemElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
-      'rg-dropdown-button': LocalJSX.RgDropdownButton & JSXBase.HTMLAttributes<HTMLRgDropdownButtonElement>;
       'rg-experience': LocalJSX.RgExperience & JSXBase.HTMLAttributes<HTMLRgExperienceElement>;
       'rg-icon': LocalJSX.RgIcon & JSXBase.HTMLAttributes<HTMLRgIconElement>;
       'rg-image': LocalJSX.RgImage & JSXBase.HTMLAttributes<HTMLRgImageElement>;
       'rg-image-grid': LocalJSX.RgImageGrid & JSXBase.HTMLAttributes<HTMLRgImageGridElement>;
+      'rg-link-dropdown': LocalJSX.RgLinkDropdown & JSXBase.HTMLAttributes<HTMLRgLinkDropdownElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
       'rg-navigation-contact-desktop': LocalJSX.RgNavigationContactDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationContactDesktopElement>;
       'rg-navigation-contact-mobile': LocalJSX.RgNavigationContactMobile & JSXBase.HTMLAttributes<HTMLRgNavigationContactMobileElement>;

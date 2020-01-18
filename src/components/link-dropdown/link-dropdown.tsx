@@ -1,32 +1,20 @@
 import {Component, h, Element, Prop} from "@stencil/core";
 import {MDCMenu} from '@material/menu';
+import { LinkDropdownInterface } from "../../interfaces/LinkDropdownInterface";
 
 @Component({
-  tag: 'rg-dropdown-button',
-  styleUrl: 'dropdown-button.scss',
+  tag: 'rg-link-dropdown',
+  styleUrl: 'link-dropdown.scss',
   shadow: true
 })
-export class DropdownButton {
-  /**
-   * Helps to render required amount of slots
-   */
-  @Prop() totalElements: number;
+export class LinkDropdown {
+  @Prop() dropdown: any | LinkDropdownInterface = null;
   @Element() element: HTMLElement;
 
   menu?: MDCMenu;
-  dropdownElements: Array<HTMLElement>;
 
   componentWillLoad() {
-    this.dropdownElements = new Array(this.totalElements);
-
-    for (let i = 0; i < this.totalElements; i++) {
-      this.dropdownElements.push(
-        <li class="mdc-list-item" role="menuitem">
-          <span class="mdc-list-item__text"><slot name={`list-item-${i}`}/></span>
-        </li>
-      )
-    }
-
+    this.dropdown = typeof this.dropdown === 'string' ? JSON.parse(this.dropdown) : this.dropdown;
   }
 
 
@@ -64,13 +52,21 @@ export class DropdownButton {
   render() {
     return <div id="menu-container" class="mdc-menu-surface--anchor">
         <rg-button onClick={_ => this.toggleMenu()} id="menu-button">
-          <slot name="dropdown-button-text"/>
+          {this.dropdown.buttonText}
+          {this.dropdown.buttonIcon && <rg-icon type={this.dropdown.buttonIcon}/>}
           <rg-icon type="arrow_drop_down"/>
         </rg-button>
         <div class="mdc-menu mdc-menu-surface">
+
           <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
             {
-              this.dropdownElements.map((el) => el)
+              this.dropdown.options.map(option => {
+                return (
+                  <li class="mdc-list-item" role="menuitem" onClick={_ => window.location.href = option.link}>
+                    <a href={option.link}>{option.value}</a>
+                  </li>
+                )
+              })
             }
           </ul>
         </div>
