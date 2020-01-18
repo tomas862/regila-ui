@@ -8,8 +8,7 @@ import {ButtonColor} from "./buttonColor";
   shadow: true
 })
 export class Button {
-
-  @Prop() icon: string;
+  @Prop() target: string;
   @Prop() href: string;
   @Prop() color: ButtonColor;
 
@@ -20,6 +19,7 @@ export class Button {
 
     return <Element
       href={this.href ? this.href : undefined}
+      target={this.href && this.target ? this.target : undefined}
       class="mdc-button mdc-button--raised mdc-button--dense"
       style={{'background-color': buttonColor}}
     >

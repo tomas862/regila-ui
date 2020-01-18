@@ -57,6 +57,14 @@
   </div>
 </rg-navigation>
 
+<h2>Mansonry grid component</h2>
+
+<rg-container>
+  <rg-image-grid id="image-grid" relation-title="Gaukite panasias!">
+  </rg-image-grid>
+</rg-container>
+
+
 <h2>Card component</h2>
 
 <rg-container>
@@ -119,13 +127,84 @@
     id="category-cards"
     button-name="Rinktis"
   >
-
   </rg-category-cards>
 </rg-container>
 
 </body>
 
 <script>
+  const galleryGrid = document.getElementById('image-grid')
+
+  const galleryImages = [
+    {
+      image: {
+        alt: 'Photo',
+        src: 'https://picsum.photos/692/288'
+      },
+      isLoaded: false,
+    },
+    {
+      image: {
+        alt: 'Photo',
+        src: 'https://picsum.photos/600/400',
+        sources: [
+          {
+            type: 'image/webp',
+            src: 'https://picsum.photos/400/400'
+          }
+        ],
+      },
+      imageRelationLink: '#',
+      columns: 3,
+      rows: 3,
+      isLoaded: false,
+    },
+    {
+      image: {
+        alt: 'Photo',
+        src: 'https://picsum.photos/300/300',
+      },
+      isLoaded: false,
+    },
+    {
+      image: {
+        alt: 'Photo',
+        src: 'https://picsum.photos/500/500',
+      },
+      isLoaded: false,
+    },
+    {
+      image: {
+        alt: 'Photo',
+        src: 'https://picsum.photos/600/500'
+      },
+      isLoaded: false
+    },
+    {
+      image: {
+        alt: 'Photo',
+        src: 'https://picsum.photos/700/500'
+      },
+      isLoaded: false
+    },
+    {
+      image: {
+        alt: 'Photo',
+        src: 'https://picsum.photos/200/200'
+      },
+      isLoaded: false
+    },
+    {
+      image: {
+        alt: 'Photo',
+        src: 'https://picsum.photos/400/400'
+      },
+      isLoaded: false
+    },
+  ]
+
+  galleryGrid.setAttribute('gallery-images', JSON.stringify(galleryImages))
+
   const cardContentCollapsible = document.getElementById('collapsible-data-content')
   const collapsibleCard = document.getElementById('card-collapsible');
   collapsibleCard.setAttribute('content-height', cardContentCollapsible.clientHeight)
