@@ -40,18 +40,7 @@
   anniversary-title="year anniversary"
 >
   <div slot="actions">
-      <rg-dropdown-button total-elements="2">
-        <rg-icon type="perm_identity" slot="dropdown-button-text"></rg-icon>
-
-        <a href="localhost" slot="list-item-0">
-          Mano anketa
-        </a>
-        <a href="localhost" slot="list-item-1">
-          Atsijungti
-        </a>
-
-    </rg-dropdown-button>
-
+    <rg-link-dropdown id="link-dropdown"></rg-link-dropdown>
     <rg-cart-button href="localhost" cart-quantity="100">
     </rg-cart-button>
   </div>
@@ -133,6 +122,24 @@
 </body>
 
 <script>
+  const linkDropdown = document.getElementById('link-dropdown')
+  const options = {
+    buttonText: '',
+    buttonIcon: 'perm_identity',
+    options: [
+      {
+        link: 'http://www.facebook.com',
+        value: 'Mano anketa'
+      },
+      {
+        link: '#',
+        value: 'Atsijungti',
+      }
+    ]
+  }
+
+  linkDropdown.setAttribute('dropdown', JSON.stringify(options))
+
   const galleryGrid = document.getElementById('image-grid')
 
   const galleryImages = [

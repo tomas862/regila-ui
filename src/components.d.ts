@@ -76,6 +76,9 @@ export namespace Components {
     'galleryImages': any | Array<GalleryImage>;
     'relationTitle': string;
   }
+  interface RgLinkDropdown {
+    'dropdown': any | LinkDropdownInterface;
+  }
   interface RgNavigation {
     'anniversaryDate': string;
     'anniversaryTitle': string;
@@ -199,6 +202,12 @@ declare global {
     new (): HTMLRgImageGridElement;
   };
 
+  interface HTMLRgLinkDropdownElement extends Components.RgLinkDropdown, HTMLStencilElement {}
+  var HTMLRgLinkDropdownElement: {
+    prototype: HTMLRgLinkDropdownElement;
+    new (): HTMLRgLinkDropdownElement;
+  };
+
   interface HTMLRgNavigationElement extends Components.RgNavigation, HTMLStencilElement {}
   var HTMLRgNavigationElement: {
     prototype: HTMLRgNavigationElement;
@@ -260,6 +269,7 @@ declare global {
     'rg-icon': HTMLRgIconElement;
     'rg-image': HTMLRgImageElement;
     'rg-image-grid': HTMLRgImageGridElement;
+    'rg-link-dropdown': HTMLRgLinkDropdownElement;
     'rg-navigation': HTMLRgNavigationElement;
     'rg-navigation-contact-desktop': HTMLRgNavigationContactDesktopElement;
     'rg-navigation-contact-mobile': HTMLRgNavigationContactMobileElement;
@@ -325,6 +335,9 @@ declare namespace LocalJSX {
     'galleryImages'?: any | Array<GalleryImage>;
     'relationTitle'?: string;
   }
+  interface RgLinkDropdown {
+    'dropdown'?: any | LinkDropdownInterface;
+  }
   interface RgNavigation {
     'anniversaryDate'?: string;
     'anniversaryTitle'?: string;
@@ -380,6 +393,7 @@ declare namespace LocalJSX {
     'rg-icon': RgIcon;
     'rg-image': RgImage;
     'rg-image-grid': RgImageGrid;
+    'rg-link-dropdown': RgLinkDropdown;
     'rg-navigation': RgNavigation;
     'rg-navigation-contact-desktop': RgNavigationContactDesktop;
     'rg-navigation-contact-mobile': RgNavigationContactMobile;
@@ -410,6 +424,7 @@ declare module "@stencil/core" {
       'rg-icon': LocalJSX.RgIcon & JSXBase.HTMLAttributes<HTMLRgIconElement>;
       'rg-image': LocalJSX.RgImage & JSXBase.HTMLAttributes<HTMLRgImageElement>;
       'rg-image-grid': LocalJSX.RgImageGrid & JSXBase.HTMLAttributes<HTMLRgImageGridElement>;
+      'rg-link-dropdown': LocalJSX.RgLinkDropdown & JSXBase.HTMLAttributes<HTMLRgLinkDropdownElement>;
       'rg-navigation': LocalJSX.RgNavigation & JSXBase.HTMLAttributes<HTMLRgNavigationElement>;
       'rg-navigation-contact-desktop': LocalJSX.RgNavigationContactDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationContactDesktopElement>;
       'rg-navigation-contact-mobile': LocalJSX.RgNavigationContactMobile & JSXBase.HTMLAttributes<HTMLRgNavigationContactMobileElement>;
