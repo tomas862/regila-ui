@@ -1,7 +1,7 @@
 import {ImageInterface} from "./ImageInterface";
-import {LoadingObjectInterface} from "./LoadingObjectInterface";
+import {LoadableObjectInterface} from "./LoadableObjectInterface";
 
-export interface GalleryImage extends LoadingObjectInterface {
+export interface GalleryImage extends LoadableObjectInterface {
   title: string;
   image: ImageInterface;
   /** Images in grid can have action button which leads for instance to e-shop version of the image */
@@ -10,6 +10,4 @@ export interface GalleryImage extends LoadingObjectInterface {
   rows?: number;
   /** An integer which defines how much squares to kae in height */
   columns?: number;
-  /** Determines the state of gallery image */
-  isLoaded?: boolean;
 }

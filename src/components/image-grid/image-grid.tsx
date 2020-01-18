@@ -1,5 +1,8 @@
 import {Component, h, Prop} from "@stencil/core";
 import { GalleryImage } from "../../interfaces/GalleryImage";
+import {getUnsubscribedIntersectingTargets, isObserverApiAvailable} from "../../utils/intersectionObserver";
+import { getLoadableEntries } from "../../utils/loadableObject";
+import {LoadableObjectInterface} from "../../interfaces/LoadableObjectInterface";
 
 @Component({
   tag: 'rg-image-grid',
@@ -10,53 +13,39 @@ export class ImageGrid {
 
   @Prop({ mutable: true }) galleryImages: any | Array<GalleryImage> = [];
   @Prop() relationTitle: string;
-
-  root: HTMLDivElement;
-  imagesToObserve: Array<any> = [];
+  itemsToObserve: Array<any> = [];
 
   componentWillLoad() {
     this.galleryImages = typeof this.galleryImages === 'string' ? JSON.parse(this.galleryImages) : this.galleryImages;
   }
 
   componentDidLoad() {
+    if (!isObserverApiAvailable()) {
+      this.galleryImages = getLoadableEntries(this.galleryImages, _ => true);
+
+      return;
+    }
+
     const observerOptions = { rootMargin: "0px 0px 0px 0px" };
 
     const callback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
-      console.log(entries);
-      // finding intersecting elements
-      const targets: Element[] = entries
-        .filter(entry => entry.isIntersecting)
-        .map(entry=> entry.target);
-
-      if (!targets.length) {
-        return;
-      }
-
-      // removing observation
-      targets.forEach(target => observer.unobserve(target));
+      const targets: Element[] = getUnsubscribedIntersectingTargets(entries, observer);
 
       // finding intersecting indexes
-      const intersectingIndexes: number[] = this.imagesToObserve
+      const intersectingIndexes: number[] = this.itemsToObserve
         .filter(({ ref }) => targets.includes(ref))
         .map(el => el.index);
 
       // marking object with isLoaded state - if its already loaded then skip modification
-      this.galleryImages = this.galleryImages.map((el: GalleryImage, index) => {
-        if (el.isLoaded) {
-          return el;
-        }
-
-        return {
-          ...el,
-          isLoaded: intersectingIndexes.includes(index),
-        }
-      })
+      this.galleryImages = getLoadableEntries(this.galleryImages, (entry: LoadableObjectInterface, index: number) => {
+        return entry.isLoaded || intersectingIndexes.includes(index)
+      });
     };
 
     const observer = new IntersectionObserver(callback, observerOptions);
 
     // setting elements to observe
-    this.imagesToObserve.forEach(({ ref }) => {
+    this.itemsToObserve.forEach(({ ref }) => {
       observer.observe(ref)
     })
   }
@@ -70,7 +59,7 @@ export class ImageGrid {
 
   render() {
 
-    return <div class="grid-layout" ref={(ref) => this.root = ref as HTMLDivElement}>
+    return <div class="grid-layout">
       {
         this.galleryImages.map((el, index) => {
           const isLoaded = el.isLoaded !== undefined && el.isLoaded;
@@ -78,7 +67,7 @@ export class ImageGrid {
             <div
               class="grid-item"
               style={this.getDynamicStyle(el)}
-              ref={(ref) => this.imagesToObserve.push({index, ref})}
+              ref={(ref) => this.itemsToObserve.push({index, ref})}
             >
               <rg-image is-loaded={isLoaded} image={el.image}/>
 
