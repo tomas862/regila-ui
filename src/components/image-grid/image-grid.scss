@@ -1,11 +1,18 @@
 .grid-layout {
-  @include media-min-width-medium() {
+
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    grid-gap: 5px;
+
+    @include media-max-width-medium() {
+      grid-template-columns: 1fr;
+    }
+
+    @include media-min-width-medium() {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+
+  grid-gap: 5px;
     grid-auto-rows: minmax(180px, auto);
     grid-auto-flow: dense;
-  }
 
   .grid-item {
     padding: 20px;
