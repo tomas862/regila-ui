@@ -10,8 +10,7 @@ before_deploy:
 deploy:
   - provider: npm
     email: tilginis@gmail.com
-    api_key:
-      secure: f21le4qjRhS127D5SgF1nbh438eMuNoSLO60SUFJxi2wkefhEax4c4IGB2b8RthCN56KMMrzsZsqdjtmk3Q+vFDQGLbuCOEWnfWvGFUPr+qYy2rRY8VGuPVAcs0mjbbCmrfY3yFjkxSi1SvHwKMV9tXbS/K4SHIzfGnrIVnrLWAXKwPgpaSH9fP6G7XZ90zqBe4cjJiIKzRfp/GDbLcDs38dRnyF8iox23Yy829MJ5p7ys3t8ayx8TeZpK+8/TpUcKgqILx2RByeARCfNHglQsU/RDOPwooeKBiN3X7rhNnSAOu/3d7caJN+EwkFxIbj5iobXlKNddaqZ4lM1AKCPVSSaNcnDRbLldePlZmRy134Z0bEMRazwvgFCLgSb+xSe40TvP9FbCorbjH2xSvTV66064oWiO2dK7FE1ljSrLLcKt4vEhdl0EB+OH3qJuXlYvaIlTV64MmOYcjEGn3o1O/X4KiSRGu5lw3UELZdkcOOqg51ZG/dAdPOU1N4M66hl3kgdp0adnrcIBVUCIW51nH3Be3ExXwmqWDA9LNtitzdVYb9/lQAhl+u5JSkgLqTc7qFPCoSPgxAXV5oJaCM3FN6UDdBSW418hmabWqwynjnDOEIduJKAGKoJQD/Kb4ojmqtBNYXSAJKieKSQFEwukhW2OT7avARhreme3UqI4s=
+    api_key: $NPM_TOKEN
     on:
       repo: tomas862/regila-ui
       branch: master
