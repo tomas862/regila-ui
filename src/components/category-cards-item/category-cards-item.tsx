@@ -1,4 +1,4 @@
-import {Component, h, Host, Prop} from "@stencil/core";
+import {Component, h, Host, Prop, State} from "@stencil/core";
 import {IconColor} from "../icon/IconColor";
 import {IconSize} from "../icon/IconSize";
 
@@ -13,12 +13,24 @@ export class CategoryCardsItem {
   @Prop() img: string;
   @Prop() buttonName: string;
 
+  @State() active: boolean = false;
+
   render() {
     return <Host style={{ backgroundImage: `url(${this.img})` }}>
-      <rg-card class="card-item" link={{href: this.link }}>
+      <rg-card
+        onMouseOver={_ => this.active = true}
+        onMouseLeave={_ => this.active = false}
+        class="card-item"
+        link={{href: this.link }}
+      >
         <div class="card-item-wrapper">
-          <p class="card-item__text">{this.name}</p>
-          <span class="card-item__subtitle">
+          <p class="card-item__text">
+            {this.name}
+          </p>
+          <span class={{
+            'card-item__subtitle': true,
+            'active': this.active,
+          }}>
             {this.buttonName}
             <rg-icon type="arrow_right" size={IconSize.SMALL}/>
           </span>

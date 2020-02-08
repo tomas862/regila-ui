@@ -47,6 +47,11 @@
 
   &__subtitle {
     position: relative;
+
+    &.active {
+      color: $primary-color;
+    }
+
     color: $black-color;
     line-height: 1.2;
     font-weight: $font-weight-bold;
