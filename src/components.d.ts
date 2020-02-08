@@ -63,6 +63,7 @@ export namespace Components {
   interface RgCategoryCardsItem {
     'buttonName': string;
     'img': string;
+    'isCompact': boolean;
     'link': string;
     'name': string;
   }
@@ -329,6 +330,7 @@ declare namespace LocalJSX {
   interface RgCategoryCardsItem {
     'buttonName'?: string;
     'img'?: string;
+    'isCompact'?: boolean;
     'link'?: string;
     'name'?: string;
   }

@@ -11,18 +11,24 @@ export class CategoryCardsItem {
   @Prop() name: string;
   @Prop() img: string;
   @Prop() buttonName: string;
+  @Prop() isCompact: boolean = false;
 
   @State() active: boolean = false;
 
   render() {
-    return <Host style={{ backgroundImage: `url(${this.img})` }}>
+    return <Host
+      style={{
+        backgroundImage: `url(${this.img})`,
+        height: this.isCompact ? '200px' : '288px'
+      }}
+    >
       <rg-card
         onMouseOver={_ => this.active = true}
         onMouseLeave={_ => this.active = false}
         class="card-item"
         link={{href: this.link }}
       >
-        <div class="card-item-wrapper">
+        <div class={{'card-item-wrapper' : !this.isCompact, 'card-item-wrapper--compact': this.isCompact }}>
           <p class="card-item__text">
             {this.name}
           </p>

@@ -23,6 +23,7 @@ export class CategoryCards {
             img={item.img}
             link={item.link}
             buttonName={this.buttonName}
+            isCompact={item.isCompact}
           >
           </rg-category-cards-item>
         )
