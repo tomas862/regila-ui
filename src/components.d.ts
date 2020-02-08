@@ -38,6 +38,7 @@ export namespace Components {
     'href': string;
     'target': string;
   }
+  interface RgCard {}
   interface RgCardCollapsible {
     'contentHeight': number;
     'readLessText': string;
@@ -137,6 +138,12 @@ declare global {
   var HTMLRgButtonElement: {
     prototype: HTMLRgButtonElement;
     new (): HTMLRgButtonElement;
+  };
+
+  interface HTMLRgCardElement extends Components.RgCard, HTMLStencilElement {}
+  var HTMLRgCardElement: {
+    prototype: HTMLRgCardElement;
+    new (): HTMLRgCardElement;
   };
 
   interface HTMLRgCardCollapsibleElement extends Components.RgCardCollapsible, HTMLStencilElement {}
@@ -250,6 +257,7 @@ declare global {
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-assurance': HTMLRgAssuranceElement;
     'rg-button': HTMLRgButtonElement;
+    'rg-card': HTMLRgCardElement;
     'rg-card-collapsible': HTMLRgCardCollapsibleElement;
     'rg-cart-button': HTMLRgCartButtonElement;
     'rg-category-cards': HTMLRgCategoryCardsElement;
@@ -284,6 +292,7 @@ declare namespace LocalJSX {
     'href'?: string;
     'target'?: string;
   }
+  interface RgCard {}
   interface RgCardCollapsible {
     'contentHeight'?: number;
     'readLessText'?: string;
@@ -367,6 +376,7 @@ declare namespace LocalJSX {
     'rg-anniversary': RgAnniversary;
     'rg-assurance': RgAssurance;
     'rg-button': RgButton;
+    'rg-card': RgCard;
     'rg-card-collapsible': RgCardCollapsible;
     'rg-cart-button': RgCartButton;
     'rg-category-cards': RgCategoryCards;
@@ -397,6 +407,7 @@ declare module "@stencil/core" {
       'rg-anniversary': LocalJSX.RgAnniversary & JSXBase.HTMLAttributes<HTMLRgAnniversaryElement>;
       'rg-assurance': LocalJSX.RgAssurance & JSXBase.HTMLAttributes<HTMLRgAssuranceElement>;
       'rg-button': LocalJSX.RgButton & JSXBase.HTMLAttributes<HTMLRgButtonElement>;
+      'rg-card': LocalJSX.RgCard & JSXBase.HTMLAttributes<HTMLRgCardElement>;
       'rg-card-collapsible': LocalJSX.RgCardCollapsible & JSXBase.HTMLAttributes<HTMLRgCardCollapsibleElement>;
       'rg-cart-button': LocalJSX.RgCartButton & JSXBase.HTMLAttributes<HTMLRgCartButtonElement>;
       'rg-category-cards': LocalJSX.RgCategoryCards & JSXBase.HTMLAttributes<HTMLRgCategoryCardsElement>;
