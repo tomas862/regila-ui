@@ -9,6 +9,8 @@
     height: $category-card-mobile-height;
     position: relative;
   }
+
+  background-size: cover;
 }
 
 @mixin wrapperCommon() {
