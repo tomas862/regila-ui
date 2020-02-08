@@ -30,7 +30,6 @@ export class CompactCategoryCards {
               <h2 class={{ 'active': index === this.activeIndex }}>
                 {el.name}
               </h2>
-              <rg-icon type="arrow_right"/>
             </div>
 
           </div>
