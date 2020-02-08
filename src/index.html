@@ -114,9 +114,18 @@
 <rg-container>
   <rg-category-cards
     id="category-cards"
-    button-name="Rinktis"
+    button-name="Perziureti"
   >
   </rg-category-cards>
+</rg-container>
+
+
+<h2>Compact category cards</h2>
+
+<rg-container>
+  <rg-compact-category-cards id="compact-category-cards">
+
+  </rg-compact-category-cards>
 </rg-container>
 
 </body>
@@ -359,5 +368,40 @@
 
   categoryCards.setAttribute('category-cards-data', JSON.stringify(categoryCardsData))
 
+  const compactCategoryCards = document.getElementById('compact-category-cards');
+  const compactCategoryCardsData = [
+    {
+      name: 'Roletai',
+      link: 'localhost',
+      icon: 'basic_roller_blinds',
+    },
+    {
+      name: 'Blackout roletai',
+      link: 'localhost',
+      icon: 'light_prof_roller_blinds'
+    },
+    {
+      name: 'Diena naktis',
+      link: 'localhost',
+      icon: 'day_night_roller_blinds'
+    },
+    {
+      name: 'Foto roletai',
+      link: 'localhost',
+      icon: 'photo_roller_blinds',
+    },
+    {
+      name: 'Medines',
+      link: 'localhost',
+      icon: 'wooden_roller_blinds',
+    },
+    {
+      name: 'Horizontalios zaliuzes',
+      link: 'localhost',
+      icon: 'horizontal_roller_blinds',
+    }
+  ]
+
+  compactCategoryCards.setAttribute('category-items', JSON.stringify(compactCategoryCardsData));
 </script>
 </html>

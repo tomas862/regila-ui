@@ -1,0 +1,38 @@
+:host {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  justify-content: space-around;
+
+  @include media-max-width-medium() {
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+
+  grid-gap: 2rem;
+
+  rg-card {
+    @include media-min-width-medium() {
+      height: 300px;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+
+      a::-moz-focus-inner {
+        border: 0;
+      }
+
+      a:focus {
+        outline:none;
+      }
+
+      .active {
+        color: $primary-color;
+      }
+    }
+  }
+}

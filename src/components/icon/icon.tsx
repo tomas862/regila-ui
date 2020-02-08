@@ -19,8 +19,13 @@ export class Icon {
   // @see www.iloveimg.com for editing svg images
   customIcons = [
     'basic_roller_blinds',
+    'photo_roller_blinds',
+    'horizontal_roller_blinds',
+    'decorated_bottom_roller_blinds',
+    'wooden_roller_blinds',
     'day_night_roller_blinds',
     'light_prof_roller_blinds',
+    'vertical_roller_blinds',
     'consultation',
     'delivery',
     'experience',
