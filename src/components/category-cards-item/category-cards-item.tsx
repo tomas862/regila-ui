@@ -1,5 +1,4 @@
 import {Component, h, Host, Prop, State} from "@stencil/core";
-import {IconColor} from "../icon/IconColor";
 import {IconSize} from "../icon/IconSize";
 
 @Component({
