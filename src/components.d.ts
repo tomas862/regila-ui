@@ -10,6 +10,9 @@ import {
   ButtonColor,
 } from './components/button/buttonColor';
 import {
+  LinkInterface,
+} from './interfaces/LinkInterface';
+import {
   IconSize,
 } from './components/icon/IconSize';
 import {
@@ -38,7 +41,9 @@ export namespace Components {
     'href': string;
     'target': string;
   }
-  interface RgCard {}
+  interface RgCard {
+    'link': LinkInterface;
+  }
   interface RgCardCollapsible {
     'contentHeight': number;
     'readLessText': string;
@@ -292,7 +297,9 @@ declare namespace LocalJSX {
     'href'?: string;
     'target'?: string;
   }
-  interface RgCard {}
+  interface RgCard {
+    'link'?: LinkInterface;
+  }
   interface RgCardCollapsible {
     'contentHeight'?: number;
     'readLessText'?: string;

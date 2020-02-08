@@ -41,31 +41,22 @@
     line-height: 1.2;
     font-weight: $font-weight-bold;
     text-align: center;
-    color: $dark-gray-color;
+    color: $black-color;
     margin: 0 0 10px;
   }
 
-  &__desktop-link {
-    text-decoration: none;
-    text-align: center;
-    color: $white-color;
+  &__subtitle {
     position: relative;
-    left: -15px;
+    color: $black-color;
+    line-height: 1.2;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-small-large;
+    margin: 0 0 10px;
 
-    i {
-      position: relative;
-      left: -4px;
-      top: 1px;
+    rg-icon {
+      position: absolute;
+      top: -4px;
     }
-
-    span {
-      font-size: $font-size-small-large;
-      text-transform: capitalize;
-    }
-  }
-
-  &__mobile-link {
-    display: none;
   }
 
   @include media-max-width-medium() {
@@ -81,20 +72,9 @@
       }
     }
 
-    &__mobile-link {
-      display: block;
-      height: 100%;
-      position: relative;
-      z-index: 2;
-    }
-
     &__text {
       position: static;
       margin: 15px 0;
-    }
-
-    &__desktop-link {
-      display: none;
     }
   }
 }
