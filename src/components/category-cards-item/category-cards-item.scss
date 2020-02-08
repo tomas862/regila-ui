@@ -1,41 +1,53 @@
-.card-item {
+:host {
   height: $category-card-desktop-height;
-  background: no-repeat center center;
-  background-size: cover;
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),0px 1px 1px 0px rgba(0, 0, 0, 0.14),0px 1px 3px 0px rgba(0,0,0,.12);
 
-  a::-moz-focus-inner {
-    border: 0;
+  &.is-compact {
+    height: $category-card-mobile-height;
   }
 
-  a:focus {
-    outline:none;
-  }
-
-  &-wrapper {
-    float: right;
-    width: 33%;
-    height: 100%;
-    display: flex;
+  @include media-max-width-medium() {
+    height: $category-card-mobile-height;
     position: relative;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: $gray-color-transparent;
+  }
+}
 
-    &:before {
-      content: '';
-      position: absolute;
-      border-style: solid;
-      border-width: 287px 80px 0 0;
-      border-color: transparent $gray-color-transparent;
-      display: block;
-      width: 0;
-      z-index: 0;
-      left: -80px;
-      top: 0;
-      bottom: 0;
-    }
+@mixin wrapperCommon() {
+  float: right;
+  width: 33%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $gray-color-transparent;
+}
+
+@mixin wrapperBefore($borderWidth) {
+  &:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: $borderWidth;
+    border-color: transparent $gray-color-transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+    left: -80px;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.card-item {
+  &-wrapper {
+    @include wrapperCommon;
+    @include wrapperBefore(287px 80px 0 0);
+  }
+
+  &-wrapper--compact {
+    @include wrapperCommon;
+    @include wrapperBefore(200px 80px 0 0);
   }
 
   &__text {
@@ -45,37 +57,30 @@
     line-height: 1.2;
     font-weight: $font-weight-bold;
     text-align: center;
-    color: $dark-gray-color;
+    color: $black-color;
     margin: 0 0 10px;
   }
 
-  &__desktop-link {
-    text-decoration: none;
-    text-align: center;
-    color: $white-color;
+  &__subtitle {
     position: relative;
-    left: -15px;
 
-    i {
-      position: relative;
-      left: -4px;
-      top: 1px;
+    &.active {
+      color: $primary-color;
     }
 
-    span {
-      font-size: $font-size-small-large;
-      text-transform: capitalize;
-    }
-  }
+    color: $black-color;
+    line-height: 1.2;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-small-large;
+    margin: 0 0 10px;
 
-  &__mobile-link {
-    display: none;
+    rg-icon {
+      position: absolute;
+      top: -4px;
+    }
   }
 
   @include media-max-width-medium() {
-    height: $category-card-mobile-height;
-    position: relative;
-
     &-wrapper {
       width: 100%;
       height: auto;
@@ -88,20 +93,9 @@
       }
     }
 
-    &__mobile-link {
-      display: block;
-      height: 100%;
-      position: relative;
-      z-index: 2;
-    }
-
     &__text {
       position: static;
       margin: 15px 0;
-    }
-
-    &__desktop-link {
-      display: none;
     }
   }
 }

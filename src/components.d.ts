@@ -10,6 +10,12 @@ import {
   ButtonColor,
 } from './components/button/buttonColor';
 import {
+  LinkInterface,
+} from './interfaces/LinkInterface';
+import {
+  CompactCategoryItemInterface,
+} from './interfaces/CompactCategoryItemInterface';
+import {
   IconSize,
 } from './components/icon/IconSize';
 import {
@@ -38,6 +44,9 @@ export namespace Components {
     'href': string;
     'target': string;
   }
+  interface RgCard {
+    'link': LinkInterface;
+  }
   interface RgCardCollapsible {
     'contentHeight': number;
     'readLessText': string;
@@ -54,8 +63,12 @@ export namespace Components {
   interface RgCategoryCardsItem {
     'buttonName': string;
     'img': string;
+    'isCompact': boolean;
     'link': string;
     'name': string;
+  }
+  interface RgCompactCategoryCards {
+    'categoryItems': any | Array<CompactCategoryItemInterface>;
   }
   interface RgContainer {}
   interface RgExperience {
@@ -139,6 +152,12 @@ declare global {
     new (): HTMLRgButtonElement;
   };
 
+  interface HTMLRgCardElement extends Components.RgCard, HTMLStencilElement {}
+  var HTMLRgCardElement: {
+    prototype: HTMLRgCardElement;
+    new (): HTMLRgCardElement;
+  };
+
   interface HTMLRgCardCollapsibleElement extends Components.RgCardCollapsible, HTMLStencilElement {}
   var HTMLRgCardCollapsibleElement: {
     prototype: HTMLRgCardCollapsibleElement;
@@ -161,6 +180,12 @@ declare global {
   var HTMLRgCategoryCardsItemElement: {
     prototype: HTMLRgCategoryCardsItemElement;
     new (): HTMLRgCategoryCardsItemElement;
+  };
+
+  interface HTMLRgCompactCategoryCardsElement extends Components.RgCompactCategoryCards, HTMLStencilElement {}
+  var HTMLRgCompactCategoryCardsElement: {
+    prototype: HTMLRgCompactCategoryCardsElement;
+    new (): HTMLRgCompactCategoryCardsElement;
   };
 
   interface HTMLRgContainerElement extends Components.RgContainer, HTMLStencilElement {}
@@ -250,10 +275,12 @@ declare global {
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-assurance': HTMLRgAssuranceElement;
     'rg-button': HTMLRgButtonElement;
+    'rg-card': HTMLRgCardElement;
     'rg-card-collapsible': HTMLRgCardCollapsibleElement;
     'rg-cart-button': HTMLRgCartButtonElement;
     'rg-category-cards': HTMLRgCategoryCardsElement;
     'rg-category-cards-item': HTMLRgCategoryCardsItemElement;
+    'rg-compact-category-cards': HTMLRgCompactCategoryCardsElement;
     'rg-container': HTMLRgContainerElement;
     'rg-experience': HTMLRgExperienceElement;
     'rg-icon': HTMLRgIconElement;
@@ -284,6 +311,9 @@ declare namespace LocalJSX {
     'href'?: string;
     'target'?: string;
   }
+  interface RgCard {
+    'link'?: LinkInterface;
+  }
   interface RgCardCollapsible {
     'contentHeight'?: number;
     'readLessText'?: string;
@@ -300,8 +330,12 @@ declare namespace LocalJSX {
   interface RgCategoryCardsItem {
     'buttonName'?: string;
     'img'?: string;
+    'isCompact'?: boolean;
     'link'?: string;
     'name'?: string;
+  }
+  interface RgCompactCategoryCards {
+    'categoryItems'?: any | Array<CompactCategoryItemInterface>;
   }
   interface RgContainer {}
   interface RgExperience {
@@ -367,10 +401,12 @@ declare namespace LocalJSX {
     'rg-anniversary': RgAnniversary;
     'rg-assurance': RgAssurance;
     'rg-button': RgButton;
+    'rg-card': RgCard;
     'rg-card-collapsible': RgCardCollapsible;
     'rg-cart-button': RgCartButton;
     'rg-category-cards': RgCategoryCards;
     'rg-category-cards-item': RgCategoryCardsItem;
+    'rg-compact-category-cards': RgCompactCategoryCards;
     'rg-container': RgContainer;
     'rg-experience': RgExperience;
     'rg-icon': RgIcon;
@@ -397,10 +433,12 @@ declare module "@stencil/core" {
       'rg-anniversary': LocalJSX.RgAnniversary & JSXBase.HTMLAttributes<HTMLRgAnniversaryElement>;
       'rg-assurance': LocalJSX.RgAssurance & JSXBase.HTMLAttributes<HTMLRgAssuranceElement>;
       'rg-button': LocalJSX.RgButton & JSXBase.HTMLAttributes<HTMLRgButtonElement>;
+      'rg-card': LocalJSX.RgCard & JSXBase.HTMLAttributes<HTMLRgCardElement>;
       'rg-card-collapsible': LocalJSX.RgCardCollapsible & JSXBase.HTMLAttributes<HTMLRgCardCollapsibleElement>;
       'rg-cart-button': LocalJSX.RgCartButton & JSXBase.HTMLAttributes<HTMLRgCartButtonElement>;
       'rg-category-cards': LocalJSX.RgCategoryCards & JSXBase.HTMLAttributes<HTMLRgCategoryCardsElement>;
       'rg-category-cards-item': LocalJSX.RgCategoryCardsItem & JSXBase.HTMLAttributes<HTMLRgCategoryCardsItemElement>;
+      'rg-compact-category-cards': LocalJSX.RgCompactCategoryCards & JSXBase.HTMLAttributes<HTMLRgCompactCategoryCardsElement>;
       'rg-container': LocalJSX.RgContainer & JSXBase.HTMLAttributes<HTMLRgContainerElement>;
       'rg-experience': LocalJSX.RgExperience & JSXBase.HTMLAttributes<HTMLRgExperienceElement>;
       'rg-icon': LocalJSX.RgIcon & JSXBase.HTMLAttributes<HTMLRgIconElement>;

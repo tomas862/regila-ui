@@ -1,7 +1,5 @@
-import {Component, h, Prop} from "@stencil/core";
-import {IconColor} from "../icon/IconColor";
+import {Component, h, Host, Prop, State} from "@stencil/core";
 import {IconSize} from "../icon/IconSize";
-import {ButtonColor} from "../button/buttonColor";
 
 @Component({
   tag: 'rg-category-cards-item',
@@ -9,24 +7,40 @@ import {ButtonColor} from "../button/buttonColor";
   shadow: true
 })
 export class CategoryCardsItem {
-
   @Prop() link: string;
   @Prop() name: string;
   @Prop() img: string;
   @Prop() buttonName: string;
+  @Prop() isCompact: boolean = false;
+
+  @State() active: boolean = false;
 
   render() {
-    return <div class="card-item" style={{ backgroundImage: "url(" + this.img + ")" }}>
-      <a class="card-item__mobile-link" href={this.link} target="_blank"/>
-
-      <div class="card-item-wrapper">
-        <p class="card-item__text">{this.name}</p>
-
-        <rg-button color={ButtonColor.DARK_GRAY} href={this.link} class="card-item__desktop-link">
-          <i><rg-icon color={IconColor.WHITE} type="arrow_left" size={IconSize.SMALL}/></i>
-          <span>{this.buttonName}</span>
-        </rg-button>
-      </div>
-    </div>
+    return <Host
+      style={{
+        backgroundImage: `url(${this.img})`,
+        height: this.isCompact ? '200px' : '288px'
+      }}
+    >
+      <rg-card
+        onMouseOver={_ => this.active = true}
+        onMouseLeave={_ => this.active = false}
+        class="card-item"
+        link={{href: this.link }}
+      >
+        <div class={{'card-item-wrapper' : !this.isCompact, 'card-item-wrapper--compact': this.isCompact }}>
+          <p class="card-item__text">
+            {this.name}
+          </p>
+          <span class={{
+            'card-item__subtitle': true,
+            'active': this.active,
+          }}>
+            {this.buttonName}
+            <rg-icon type="arrow_right" size={IconSize.SMALL}/>
+          </span>
+        </div>
+      </rg-card>
+    </Host>
   }
 }
