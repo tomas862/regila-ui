@@ -1,8 +1,16 @@
 .assurance {
   display: flex;
-  flex-direction: row;
+
+  @include media-max-width-medium() {
+    flex-direction: column;
+  }
 
   &-item {
+
+    @include media-max-width-medium() {
+      border-bottom: 1px solid $border-color;
+    }
+
     flex-basis: 25%;
     flex-grow: 0;
     padding: 0 2%;
@@ -19,9 +27,5 @@
       padding-left: 10px;
       box-sizing: border-box;
     }
-  }
-
-  @include media-max-width-medium() {
-    display: none;
   }
 }
