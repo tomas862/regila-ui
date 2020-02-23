@@ -1,0 +1,14 @@
+.mobile {
+  display: none;
+  @include media-max-width-medium() {
+    display: block;
+  }
+}
+
+.tablet {
+  display: block;
+
+  @include media-max-width-medium() {
+    display: none;
+  }
+}

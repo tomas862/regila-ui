@@ -1,5 +1,6 @@
 import {Component, h, Prop, State} from "@stencil/core";
 import {IconColor} from "../icon/IconColor";
+import {ButtonType} from "../button/ButtonType";
 
 @Component({
   tag: 'rg-navigation-mobile',
@@ -49,9 +50,14 @@ export class NavigationMobile {
 
   render() {
     return <div>
-      <rg-button class="mobile-menu-toggle" onClick={_ => this.toggleIsMenuOpened()}>
-        <rg-icon color={IconColor.PRIMARY} type="menu"/>
-      </rg-button>
+      <rg-selective-renderer>
+        <rg-button slot="tablet" class="mobile-menu-toggle" onClick={_ => this.toggleIsMenuOpened()}>
+          <rg-icon color={IconColor.PRIMARY} type="menu"/>
+        </rg-button>
+        <rg-button type={ButtonType.PLAIN} slot="mobile" class="mobile-menu-toggle" onClick={_ => this.toggleIsMenuOpened()}>
+          <rg-icon color={IconColor.PRIMARY} type="menu"/>
+        </rg-button>
+      </rg-selective-renderer>
 
         <div class={`side-navigation side-navigation${this.isOpened ? '--opened' : '--closed'}`}>
           <rg-button class="mobile-menu-close" onClick={_ => this.toggleIsMenuOpened()}>

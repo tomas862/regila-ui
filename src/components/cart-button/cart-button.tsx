@@ -1,5 +1,6 @@
 import {Component, h, Prop} from "@stencil/core";
 import {IconColor} from "../icon/IconColor";
+import {ButtonType} from "../button/ButtonType";
 
 @Component({
   tag: 'rg-cart-button',
@@ -19,11 +20,19 @@ export class CartButton {
   }
 
   render() {
-    return <rg-button href={this.href} class="cart-button">
-      <rg-icon
-        color={this.cartQuantity ? IconColor.PRIMARY : null } type="cart"/>
+    const Icon = <rg-icon color={this.cartQuantity ? IconColor.PRIMARY : null } type="cart"/>;
 
-        <span class={this.cartQuantity && 'cart-button__text--active'}><slot/> {this.renderQuantity()}</span>
-    </rg-button>
+    return <rg-selective-renderer>
+      <rg-button slot="tablet" href={this.href} class="cart-button">
+        {Icon}
+        <span class={this.cartQuantity && 'cart-button__text--active'}><slot/>
+          {this.renderQuantity()}
+      </span>
+      </rg-button>
+
+      <rg-button type={ButtonType.PLAIN} slot="mobile" href={this.href} class="cart-button">
+        {Icon}
+      </rg-button>
+    </rg-selective-renderer>
   }
 }
