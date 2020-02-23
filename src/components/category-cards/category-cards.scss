@@ -3,6 +3,7 @@
   grid-template-columns: 50% 50%;
   grid-column-gap: 16px;
   grid-row-gap: 16px;
+  padding-right: 15px;
 
 
   @include media-max-width-medium() {

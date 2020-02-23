@@ -1,6 +1,8 @@
-import {Component, h, Element, Prop} from "@stencil/core";
+import {Component, Element, h, Prop} from "@stencil/core";
 import {MDCMenu} from '@material/menu';
-import { LinkDropdownInterface } from "../../interfaces/LinkDropdownInterface";
+import {LinkDropdownInterface} from "../../interfaces/LinkDropdownInterface";
+import {ButtonType} from "../button/ButtonType";
+import {ButtonSize} from "../button/ButtonSize";
 
 @Component({
   tag: 'rg-link-dropdown',
@@ -9,6 +11,8 @@ import { LinkDropdownInterface } from "../../interfaces/LinkDropdownInterface";
 })
 export class LinkDropdown {
   @Prop() dropdown: any | LinkDropdownInterface = null;
+  @Prop() type: ButtonType = ButtonType.RAISED;
+  @Prop() size: ButtonSize = ButtonSize.SMALL;
   @Element() element: HTMLElement;
 
   menu?: MDCMenu;
@@ -51,7 +55,7 @@ export class LinkDropdown {
 
   render() {
     return <div id="menu-container" class="mdc-menu-surface--anchor">
-        <rg-button onClick={_ => this.toggleMenu()} id="menu-button">
+        <rg-button size={this.size} type={this.type} onClick={_ => this.toggleMenu()} id="menu-button">
           {this.dropdown.buttonText}
           {this.dropdown.buttonIcon && <rg-icon type={this.dropdown.buttonIcon}/>}
           <rg-icon type="arrow_drop_down"/>

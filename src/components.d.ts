@@ -7,8 +7,20 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
+  LinkDropdownInterface,
+} from './interfaces/LinkDropdownInterface';
+import {
   ButtonColor,
 } from './components/button/buttonColor';
+import {
+  ButtonType,
+} from './components/button/ButtonType';
+import {
+  ButtonSize,
+} from './components/button/ButtonSize';
+import {
+  LinkInterface,
+} from './interfaces/LinkInterface';
 import {
   CompactCategoryItemInterface,
 } from './interfaces/CompactCategoryItemInterface';
@@ -24,11 +36,11 @@ import {
 import {
   GalleryImage,
 } from './interfaces/GalleryImage';
-import {
-  LinkDropdownInterface,
-} from './interfaces/LinkDropdownInterface';
 
 export namespace Components {
+  interface RgAccountDropdown {
+    'dropdown': any | LinkDropdownInterface;
+  }
   interface RgAnniversary {
     'date': string;
     'name': string;
@@ -39,7 +51,12 @@ export namespace Components {
   interface RgButton {
     'color': ButtonColor;
     'href': string;
+    'size': ButtonSize;
     'target': string;
+    'type': ButtonType;
+  }
+  interface RgCard {
+    'link': LinkInterface;
   }
   interface RgCardCollapsible {
     'contentHeight': number;
@@ -82,6 +99,8 @@ export namespace Components {
   }
   interface RgLinkDropdown {
     'dropdown': any | LinkDropdownInterface;
+    'size': ButtonSize;
+    'type': ButtonType;
   }
   interface RgNavigation {
     'anniversaryDate': string;
@@ -123,10 +142,17 @@ export namespace Components {
     'contactFields': string;
     'navigationFields': any | Array<NavigationField>;
   }
+  interface RgSelectiveRenderer {}
 }
 
 declare global {
 
+
+  interface HTMLRgAccountDropdownElement extends Components.RgAccountDropdown, HTMLStencilElement {}
+  var HTMLRgAccountDropdownElement: {
+    prototype: HTMLRgAccountDropdownElement;
+    new (): HTMLRgAccountDropdownElement;
+  };
 
   interface HTMLRgAnniversaryElement extends Components.RgAnniversary, HTMLStencilElement {}
   var HTMLRgAnniversaryElement: {
@@ -144,6 +170,12 @@ declare global {
   var HTMLRgButtonElement: {
     prototype: HTMLRgButtonElement;
     new (): HTMLRgButtonElement;
+  };
+
+  interface HTMLRgCardElement extends Components.RgCard, HTMLStencilElement {}
+  var HTMLRgCardElement: {
+    prototype: HTMLRgCardElement;
+    new (): HTMLRgCardElement;
   };
 
   interface HTMLRgCardCollapsibleElement extends Components.RgCardCollapsible, HTMLStencilElement {}
@@ -259,10 +291,18 @@ declare global {
     prototype: HTMLRgNavigationMobileElement;
     new (): HTMLRgNavigationMobileElement;
   };
+
+  interface HTMLRgSelectiveRendererElement extends Components.RgSelectiveRenderer, HTMLStencilElement {}
+  var HTMLRgSelectiveRendererElement: {
+    prototype: HTMLRgSelectiveRendererElement;
+    new (): HTMLRgSelectiveRendererElement;
+  };
   interface HTMLElementTagNameMap {
+    'rg-account-dropdown': HTMLRgAccountDropdownElement;
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-assurance': HTMLRgAssuranceElement;
     'rg-button': HTMLRgButtonElement;
+    'rg-card': HTMLRgCardElement;
     'rg-card-collapsible': HTMLRgCardCollapsibleElement;
     'rg-cart-button': HTMLRgCartButtonElement;
     'rg-category-cards': HTMLRgCategoryCardsElement;
@@ -282,10 +322,14 @@ declare global {
     'rg-navigation-items-desktop': HTMLRgNavigationItemsDesktopElement;
     'rg-navigation-logo': HTMLRgNavigationLogoElement;
     'rg-navigation-mobile': HTMLRgNavigationMobileElement;
+    'rg-selective-renderer': HTMLRgSelectiveRendererElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface RgAccountDropdown {
+    'dropdown'?: any | LinkDropdownInterface;
+  }
   interface RgAnniversary {
     'date'?: string;
     'name'?: string;
@@ -296,7 +340,12 @@ declare namespace LocalJSX {
   interface RgButton {
     'color'?: ButtonColor;
     'href'?: string;
+    'size'?: ButtonSize;
     'target'?: string;
+    'type'?: ButtonType;
+  }
+  interface RgCard {
+    'link'?: LinkInterface;
   }
   interface RgCardCollapsible {
     'contentHeight'?: number;
@@ -339,6 +388,8 @@ declare namespace LocalJSX {
   }
   interface RgLinkDropdown {
     'dropdown'?: any | LinkDropdownInterface;
+    'size'?: ButtonSize;
+    'type'?: ButtonType;
   }
   interface RgNavigation {
     'anniversaryDate'?: string;
@@ -380,11 +431,14 @@ declare namespace LocalJSX {
     'contactFields'?: string;
     'navigationFields'?: any | Array<NavigationField>;
   }
+  interface RgSelectiveRenderer {}
 
   interface IntrinsicElements {
+    'rg-account-dropdown': RgAccountDropdown;
     'rg-anniversary': RgAnniversary;
     'rg-assurance': RgAssurance;
     'rg-button': RgButton;
+    'rg-card': RgCard;
     'rg-card-collapsible': RgCardCollapsible;
     'rg-cart-button': RgCartButton;
     'rg-category-cards': RgCategoryCards;
@@ -404,6 +458,7 @@ declare namespace LocalJSX {
     'rg-navigation-items-desktop': RgNavigationItemsDesktop;
     'rg-navigation-logo': RgNavigationLogo;
     'rg-navigation-mobile': RgNavigationMobile;
+    'rg-selective-renderer': RgSelectiveRenderer;
   }
 }
 
@@ -413,9 +468,11 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'rg-account-dropdown': LocalJSX.RgAccountDropdown & JSXBase.HTMLAttributes<HTMLRgAccountDropdownElement>;
       'rg-anniversary': LocalJSX.RgAnniversary & JSXBase.HTMLAttributes<HTMLRgAnniversaryElement>;
       'rg-assurance': LocalJSX.RgAssurance & JSXBase.HTMLAttributes<HTMLRgAssuranceElement>;
       'rg-button': LocalJSX.RgButton & JSXBase.HTMLAttributes<HTMLRgButtonElement>;
+      'rg-card': LocalJSX.RgCard & JSXBase.HTMLAttributes<HTMLRgCardElement>;
       'rg-card-collapsible': LocalJSX.RgCardCollapsible & JSXBase.HTMLAttributes<HTMLRgCardCollapsibleElement>;
       'rg-cart-button': LocalJSX.RgCartButton & JSXBase.HTMLAttributes<HTMLRgCartButtonElement>;
       'rg-category-cards': LocalJSX.RgCategoryCards & JSXBase.HTMLAttributes<HTMLRgCategoryCardsElement>;
@@ -435,6 +492,7 @@ declare module "@stencil/core" {
       'rg-navigation-items-desktop': LocalJSX.RgNavigationItemsDesktop & JSXBase.HTMLAttributes<HTMLRgNavigationItemsDesktopElement>;
       'rg-navigation-logo': LocalJSX.RgNavigationLogo & JSXBase.HTMLAttributes<HTMLRgNavigationLogoElement>;
       'rg-navigation-mobile': LocalJSX.RgNavigationMobile & JSXBase.HTMLAttributes<HTMLRgNavigationMobileElement>;
+      'rg-selective-renderer': LocalJSX.RgSelectiveRenderer & JSXBase.HTMLAttributes<HTMLRgSelectiveRendererElement>;
     }
   }
 }
