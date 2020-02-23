@@ -1,6 +1,7 @@
 import {Component, h, Prop, State} from "@stencil/core";
 import {IconColor} from "../icon/IconColor";
 import {ButtonType} from "../button/ButtonType";
+import {ButtonSize} from "../button/ButtonSize";
 
 @Component({
   tag: 'rg-navigation-mobile',
@@ -54,7 +55,7 @@ export class NavigationMobile {
         <rg-button slot="tablet" class="mobile-menu-toggle" onClick={_ => this.toggleIsMenuOpened()}>
           <rg-icon color={IconColor.PRIMARY} type="menu"/>
         </rg-button>
-        <rg-button type={ButtonType.PLAIN} slot="mobile" class="mobile-menu-toggle" onClick={_ => this.toggleIsMenuOpened()}>
+        <rg-button size={ButtonSize.SMALL} type={ButtonType.PLAIN} slot="mobile" class="mobile-menu-toggle" onClick={_ => this.toggleIsMenuOpened()}>
           <rg-icon color={IconColor.PRIMARY} type="menu"/>
         </rg-button>
       </rg-selective-renderer>

@@ -1,6 +1,10 @@
 :host {
   --mdc-theme-primary: $white-color;
   --mdc-theme-on-primary: $black-color;
+
+  .small {
+    min-width: auto;
+  }
 }
 
 @import '@material/button/mdc-button';

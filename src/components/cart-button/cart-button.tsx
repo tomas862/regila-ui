@@ -1,6 +1,7 @@
 import {Component, h, Prop} from "@stencil/core";
 import {IconColor} from "../icon/IconColor";
 import {ButtonType} from "../button/ButtonType";
+import {ButtonSize} from "../button/ButtonSize";
 
 @Component({
   tag: 'rg-cart-button',
@@ -30,7 +31,7 @@ export class CartButton {
       </span>
       </rg-button>
 
-      <rg-button type={ButtonType.PLAIN} slot="mobile" href={this.href} class="cart-button">
+      <rg-button size={ButtonSize.SMALL} type={ButtonType.PLAIN} slot="mobile" href={this.href} class="cart-button">
         {Icon}
       </rg-button>
     </rg-selective-renderer>

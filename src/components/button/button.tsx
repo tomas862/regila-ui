@@ -2,6 +2,7 @@ import {Component, h, Prop} from "@stencil/core";
 import {getColor} from "./buttonColorProvider";
 import {ButtonColor} from "./buttonColor";
 import {ButtonType} from "./ButtonType";
+import {ButtonSize} from "./ButtonSize";
 
 @Component({
   tag: 'rg-button',
@@ -13,6 +14,7 @@ export class Button {
   @Prop() href: string;
   @Prop() color: ButtonColor;
   @Prop() type: ButtonType = ButtonType.RAISED;
+  @Prop() size: ButtonSize = ButtonSize.MEDIUM;
 
   render() {
     const buttonColor = getColor(this.color);
@@ -22,7 +24,7 @@ export class Button {
     return <Element
       href={this.href ? this.href : undefined}
       target={this.href && this.target ? this.target : undefined}
-      class={`mdc-button mdc-button${this.type} mdc-button--dense`}
+      class={`mdc-button mdc-button${this.type} mdc-button--dense ${this.size}`}
       style={{'background-color': buttonColor}}
     >
       <span class="mdc-button__label">

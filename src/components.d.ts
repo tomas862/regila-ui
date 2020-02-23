@@ -7,11 +7,17 @@
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
+  LinkDropdownInterface,
+} from './interfaces/LinkDropdownInterface';
+import {
   ButtonColor,
 } from './components/button/buttonColor';
 import {
   ButtonType,
 } from './components/button/ButtonType';
+import {
+  ButtonSize,
+} from './components/button/ButtonSize';
 import {
   LinkInterface,
 } from './interfaces/LinkInterface';
@@ -30,11 +36,11 @@ import {
 import {
   GalleryImage,
 } from './interfaces/GalleryImage';
-import {
-  LinkDropdownInterface,
-} from './interfaces/LinkDropdownInterface';
 
 export namespace Components {
+  interface RgAccountDropdown {
+    'dropdown': any | LinkDropdownInterface;
+  }
   interface RgAnniversary {
     'date': string;
     'name': string;
@@ -45,6 +51,7 @@ export namespace Components {
   interface RgButton {
     'color': ButtonColor;
     'href': string;
+    'size': ButtonSize;
     'target': string;
     'type': ButtonType;
   }
@@ -92,6 +99,8 @@ export namespace Components {
   }
   interface RgLinkDropdown {
     'dropdown': any | LinkDropdownInterface;
+    'size': ButtonSize;
+    'type': ButtonType;
   }
   interface RgNavigation {
     'anniversaryDate': string;
@@ -138,6 +147,12 @@ export namespace Components {
 
 declare global {
 
+
+  interface HTMLRgAccountDropdownElement extends Components.RgAccountDropdown, HTMLStencilElement {}
+  var HTMLRgAccountDropdownElement: {
+    prototype: HTMLRgAccountDropdownElement;
+    new (): HTMLRgAccountDropdownElement;
+  };
 
   interface HTMLRgAnniversaryElement extends Components.RgAnniversary, HTMLStencilElement {}
   var HTMLRgAnniversaryElement: {
@@ -283,6 +298,7 @@ declare global {
     new (): HTMLRgSelectiveRendererElement;
   };
   interface HTMLElementTagNameMap {
+    'rg-account-dropdown': HTMLRgAccountDropdownElement;
     'rg-anniversary': HTMLRgAnniversaryElement;
     'rg-assurance': HTMLRgAssuranceElement;
     'rg-button': HTMLRgButtonElement;
@@ -311,6 +327,9 @@ declare global {
 }
 
 declare namespace LocalJSX {
+  interface RgAccountDropdown {
+    'dropdown'?: any | LinkDropdownInterface;
+  }
   interface RgAnniversary {
     'date'?: string;
     'name'?: string;
@@ -321,6 +340,7 @@ declare namespace LocalJSX {
   interface RgButton {
     'color'?: ButtonColor;
     'href'?: string;
+    'size'?: ButtonSize;
     'target'?: string;
     'type'?: ButtonType;
   }
@@ -368,6 +388,8 @@ declare namespace LocalJSX {
   }
   interface RgLinkDropdown {
     'dropdown'?: any | LinkDropdownInterface;
+    'size'?: ButtonSize;
+    'type'?: ButtonType;
   }
   interface RgNavigation {
     'anniversaryDate'?: string;
@@ -412,6 +434,7 @@ declare namespace LocalJSX {
   interface RgSelectiveRenderer {}
 
   interface IntrinsicElements {
+    'rg-account-dropdown': RgAccountDropdown;
     'rg-anniversary': RgAnniversary;
     'rg-assurance': RgAssurance;
     'rg-button': RgButton;
@@ -445,6 +468,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
+      'rg-account-dropdown': LocalJSX.RgAccountDropdown & JSXBase.HTMLAttributes<HTMLRgAccountDropdownElement>;
       'rg-anniversary': LocalJSX.RgAnniversary & JSXBase.HTMLAttributes<HTMLRgAnniversaryElement>;
       'rg-assurance': LocalJSX.RgAssurance & JSXBase.HTMLAttributes<HTMLRgAssuranceElement>;
       'rg-button': LocalJSX.RgButton & JSXBase.HTMLAttributes<HTMLRgButtonElement>;
