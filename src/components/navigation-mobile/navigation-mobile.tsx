@@ -29,24 +29,14 @@ export class NavigationMobile {
   }
 
   renderMenuElement(field: NavigationField) {
-    const hasChildren = typeof field.children !== 'undefined' && field.children.length !== 0;
-    const parentLink = undefined;
-    const parentText = <b>{ field.name }</b>;
-
-    if (!hasChildren) {
-      return <rg-navigation-item link={parentLink}>{ parentText }</rg-navigation-item>
-    }
-
-    return <rg-navigation-item>
-      <details open>
-        <summary>
-          <b class="parent-text">{ parentText }</b>
-        </summary>
-        <ul class="children">
-          {field.children.map((item) => <rg-navigation-item icon={item.icon} link={item.link}>{ item.name }</rg-navigation-item>)}
+    return <ul class="children">
+            <rg-navigation-item link={field.link}>
+              <b class="parent-text">
+                { field.name }
+              </b>
+            </rg-navigation-item>
+          {"children" in field && field.children.map((item) => <rg-navigation-item icon={item.icon} link={item.link}>{ item.name }</rg-navigation-item>)}
         </ul>
-      </details>
-    </rg-navigation-item>
   }
 
   render() {
