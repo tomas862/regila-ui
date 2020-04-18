@@ -15,6 +15,7 @@ export class Button {
   @Prop() color: ButtonColor;
   @Prop() type: ButtonType = ButtonType.RAISED;
   @Prop() size: ButtonSize = ButtonSize.MEDIUM;
+  @Prop() ariaLabel: string | undefined = undefined;
 
   render() {
     const buttonColor = getColor(this.color);
@@ -26,6 +27,7 @@ export class Button {
       target={this.href && this.target ? this.target : undefined}
       class={`mdc-button mdc-button${this.type} mdc-button--dense ${this.size}`}
       style={{'background-color': buttonColor}}
+      aria-label={this.ariaLabel}
     >
       <span class="mdc-button__label">
         <slot/>

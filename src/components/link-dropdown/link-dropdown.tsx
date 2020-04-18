@@ -13,6 +13,7 @@ export class LinkDropdown {
   @Prop() dropdown: any | LinkDropdownInterface = null;
   @Prop() type: ButtonType = ButtonType.RAISED;
   @Prop() size: ButtonSize = ButtonSize.SMALL;
+  @Prop() ariaLabel: string | undefined = undefined;
   @Element() element: HTMLElement;
 
   menu?: MDCMenu;
@@ -55,7 +56,7 @@ export class LinkDropdown {
 
   render() {
     return <div id="menu-container" class="mdc-menu-surface--anchor">
-        <rg-button size={this.size} type={this.type} onClick={_ => this.toggleMenu()} id="menu-button">
+        <rg-button aria-label={this.ariaLabel} size={this.size} type={this.type} onClick={_ => this.toggleMenu()} id="menu-button">
           {this.dropdown.buttonText}
           {this.dropdown.buttonIcon && <rg-icon type={this.dropdown.buttonIcon}/>}
           <rg-icon type="arrow_drop_down"/>

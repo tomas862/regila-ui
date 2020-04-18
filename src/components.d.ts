@@ -53,6 +53,7 @@ export namespace Components {
     'anniversaryDate': string;
   }
   interface RgButton {
+    'ariaLabel': string | undefined;
     'color': ButtonColor;
     'href': string;
     'size': ButtonSize;
@@ -105,6 +106,7 @@ export namespace Components {
     'relationTitle': string;
   }
   interface RgLinkDropdown {
+    'ariaLabel': string | undefined;
     'dropdown': any | LinkDropdownInterface;
     'size': ButtonSize;
     'type': ButtonType;
@@ -345,6 +347,7 @@ declare namespace LocalJSX {
     'anniversaryDate'?: string;
   }
   interface RgButton {
+    'ariaLabel'?: string | undefined;
     'color'?: ButtonColor;
     'href'?: string;
     'size'?: ButtonSize;
@@ -397,6 +400,7 @@ declare namespace LocalJSX {
     'relationTitle'?: string;
   }
   interface RgLinkDropdown {
+    'ariaLabel'?: string | undefined;
     'dropdown'?: any | LinkDropdownInterface;
     'size'?: ButtonSize;
     'type'?: ButtonType;
