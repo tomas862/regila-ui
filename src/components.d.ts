@@ -23,6 +23,12 @@ import {
   LinkInterface,
 } from './interfaces/LinkInterface';
 import {
+  CategoryCardData,
+} from './interfaces/CategoryCardData';
+import {
+  ImageInterface,
+} from './interfaces/ImageInterface';
+import {
   CompactCategoryItemInterface,
 } from './interfaces/CompactCategoryItemInterface';
 import {
@@ -31,9 +37,6 @@ import {
 import {
   IconColor,
 } from './components/icon/IconColor';
-import {
-  ImageInterface,
-} from './interfaces/ImageInterface';
 import {
   GalleryImage,
 } from './interfaces/GalleryImage';
@@ -50,6 +53,7 @@ export namespace Components {
     'anniversaryDate': string;
   }
   interface RgButton {
+    'ariaLabel': string | undefined;
     'color': ButtonColor;
     'href': string;
     'size': ButtonSize;
@@ -74,8 +78,9 @@ export namespace Components {
   }
   interface RgCategoryCardsItem {
     'buttonName': string;
-    'img': string;
+    'img': ImageInterface;
     'isCompact': boolean;
+    'isLoaded': boolean;
     'link': string;
     'name': string;
   }
@@ -92,13 +97,16 @@ export namespace Components {
     'type': string;
   }
   interface RgImage {
+    'height': string | undefined;
     'image': any | ImageInterface;
+    'width': string | undefined;
   }
   interface RgImageGrid {
     'galleryImages': any | Array<GalleryImage>;
     'relationTitle': string;
   }
   interface RgLinkDropdown {
+    'ariaLabel': string | undefined;
     'dropdown': any | LinkDropdownInterface;
     'size': ButtonSize;
     'type': ButtonType;
@@ -339,6 +347,7 @@ declare namespace LocalJSX {
     'anniversaryDate'?: string;
   }
   interface RgButton {
+    'ariaLabel'?: string | undefined;
     'color'?: ButtonColor;
     'href'?: string;
     'size'?: ButtonSize;
@@ -363,8 +372,9 @@ declare namespace LocalJSX {
   }
   interface RgCategoryCardsItem {
     'buttonName'?: string;
-    'img'?: string;
+    'img'?: ImageInterface;
     'isCompact'?: boolean;
+    'isLoaded'?: boolean;
     'link'?: string;
     'name'?: string;
   }
@@ -381,13 +391,16 @@ declare namespace LocalJSX {
     'type'?: string;
   }
   interface RgImage {
+    'height'?: string | undefined;
     'image'?: any | ImageInterface;
+    'width'?: string | undefined;
   }
   interface RgImageGrid {
     'galleryImages'?: any | Array<GalleryImage>;
     'relationTitle'?: string;
   }
   interface RgLinkDropdown {
+    'ariaLabel'?: string | undefined;
     'dropdown'?: any | LinkDropdownInterface;
     'size'?: ButtonSize;
     'type'?: ButtonType;

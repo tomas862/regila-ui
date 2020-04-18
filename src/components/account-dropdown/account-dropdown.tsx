@@ -12,8 +12,8 @@ export class AccountDropdown {
 
   render() {
     return <rg-selective-renderer>
-      <rg-link-dropdown slot="tablet" dropdown={this.dropdown}/>
-      <rg-link-dropdown size={ButtonSize.SMALL} type={ButtonType.PLAIN} slot="mobile" dropdown={this.dropdown}/>
+      <rg-link-dropdown aria-label="mano anketa" slot="tablet" dropdown={this.dropdown}/>
+      <rg-link-dropdown aria-label="mano anketa" size={ButtonSize.SMALL} type={ButtonType.PLAIN} slot="mobile" dropdown={this.dropdown}/>
     </rg-selective-renderer>
   }
 }

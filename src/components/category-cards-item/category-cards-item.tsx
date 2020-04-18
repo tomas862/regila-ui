@@ -1,5 +1,6 @@
 import {Component, h, Host, Prop, State} from "@stencil/core";
 import {IconSize} from "../icon/IconSize";
+import {ImageInterface} from "../../interfaces/ImageInterface";
 
 @Component({
   tag: 'rg-category-cards-item',
@@ -9,19 +10,20 @@ import {IconSize} from "../icon/IconSize";
 export class CategoryCardsItem {
   @Prop() link: string;
   @Prop() name: string;
-  @Prop() img: string;
+  @Prop() img: ImageInterface;
   @Prop() buttonName: string;
   @Prop() isCompact: boolean = false;
+  @Prop() isLoaded: boolean = false;
 
   @State() active: boolean = false;
 
   render() {
+    const height =  this.isCompact ? '200' : '288';
+
     return <Host
-      style={{
-        backgroundImage: `url(${this.img})`,
-        height: this.isCompact ? '200px' : '288px'
-      }}
+      style={{ height: `${height}px` }}
     >
+      { this.isLoaded && <rg-image class="card-item-image" image={this.img} height={height} width="600"/> }
       <rg-card
         onMouseOver={_ => this.active = true}
         onMouseLeave={_ => this.active = false}

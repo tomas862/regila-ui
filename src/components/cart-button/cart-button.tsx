@@ -24,14 +24,14 @@ export class CartButton {
     const Icon = <rg-icon color={this.cartQuantity ? IconColor.PRIMARY : null } type="cart"/>;
 
     return <rg-selective-renderer>
-      <rg-button slot="tablet" href={this.href} class="cart-button">
+      <rg-button aria-label="krepšelis" slot="tablet" href={this.href} class="cart-button">
         {Icon}
         <span class={this.cartQuantity && 'cart-button__text--active'}><slot/>
           {this.renderQuantity()}
       </span>
       </rg-button>
 
-      <rg-button size={ButtonSize.SMALL} type={ButtonType.PLAIN} slot="mobile" href={this.href} class="cart-button">
+      <rg-button aria-label="krepšelis" size={ButtonSize.SMALL} type={ButtonType.PLAIN} slot="mobile" href={this.href} class="cart-button">
         {Icon}
       </rg-button>
     </rg-selective-renderer>
