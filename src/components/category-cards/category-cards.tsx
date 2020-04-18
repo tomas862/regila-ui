@@ -1,4 +1,5 @@
 import {Component, h, Prop} from "@stencil/core";
+import { CategoryCardData } from "../../interfaces/CategoryCardData";
 
 @Component({
   tag: 'rg-category-cards',

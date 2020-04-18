@@ -23,6 +23,12 @@ import {
   LinkInterface,
 } from './interfaces/LinkInterface';
 import {
+  CategoryCardData,
+} from './interfaces/CategoryCardData';
+import {
+  ImageInterface,
+} from './interfaces/ImageInterface';
+import {
   CompactCategoryItemInterface,
 } from './interfaces/CompactCategoryItemInterface';
 import {
@@ -31,9 +37,6 @@ import {
 import {
   IconColor,
 } from './components/icon/IconColor';
-import {
-  ImageInterface,
-} from './interfaces/ImageInterface';
 import {
   GalleryImage,
 } from './interfaces/GalleryImage';
@@ -74,7 +77,7 @@ export namespace Components {
   }
   interface RgCategoryCardsItem {
     'buttonName': string;
-    'img': string;
+    'img': ImageInterface;
     'isCompact': boolean;
     'link': string;
     'name': string;
@@ -92,7 +95,9 @@ export namespace Components {
     'type': string;
   }
   interface RgImage {
+    'height': string | undefined;
     'image': any | ImageInterface;
+    'width': string | undefined;
   }
   interface RgImageGrid {
     'galleryImages': any | Array<GalleryImage>;
@@ -363,7 +368,7 @@ declare namespace LocalJSX {
   }
   interface RgCategoryCardsItem {
     'buttonName'?: string;
-    'img'?: string;
+    'img'?: ImageInterface;
     'isCompact'?: boolean;
     'link'?: string;
     'name'?: string;
@@ -381,7 +386,9 @@ declare namespace LocalJSX {
     'type'?: string;
   }
   interface RgImage {
+    'height'?: string | undefined;
     'image'?: any | ImageInterface;
+    'width'?: string | undefined;
   }
   interface RgImageGrid {
     'galleryImages'?: any | Array<GalleryImage>;
