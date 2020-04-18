@@ -79,6 +79,7 @@ export namespace Components {
     'buttonName': string;
     'img': ImageInterface;
     'isCompact': boolean;
+    'isLoaded': boolean;
     'link': string;
     'name': string;
   }
@@ -370,6 +371,7 @@ declare namespace LocalJSX {
     'buttonName'?: string;
     'img'?: ImageInterface;
     'isCompact'?: boolean;
+    'isLoaded'?: boolean;
     'link'?: string;
     'name'?: string;
   }

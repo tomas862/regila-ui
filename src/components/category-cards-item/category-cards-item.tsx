@@ -13,6 +13,7 @@ export class CategoryCardsItem {
   @Prop() img: ImageInterface;
   @Prop() buttonName: string;
   @Prop() isCompact: boolean = false;
+  @Prop() isLoaded: boolean = false;
 
   @State() active: boolean = false;
 
@@ -22,7 +23,7 @@ export class CategoryCardsItem {
     return <Host
       style={{ height: `${height}px` }}
     >
-      <rg-image class="card-item-image" image={this.img} height={height} width="600"/>
+      { this.isLoaded && <rg-image class="card-item-image" image={this.img} height={height} width="600"/> }
       <rg-card
         onMouseOver={_ => this.active = true}
         onMouseLeave={_ => this.active = false}

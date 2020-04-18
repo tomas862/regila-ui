@@ -41,7 +41,7 @@ export function getUnsubscribedIntersectingTargets(entries: IntersectionObserver
   const targets: Element[] = getIntersectingElementTargets(entries);
 
   if (!targets.length) {
-    return;
+    return [];
   }
 
   unsubscribeObservables(targets, observer);

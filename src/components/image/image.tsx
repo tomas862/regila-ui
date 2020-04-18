@@ -21,8 +21,6 @@ export class Image {
       return null;
     }
 
-    console.log(this.width);
-
     return <picture>
       {
         this.image.sources && this.image.sources.map(el => {
