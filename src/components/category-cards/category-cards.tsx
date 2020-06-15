@@ -55,7 +55,7 @@ export class CategoryCards {
 
   renderCards(cards: Array<CategoryCardData>, startFromIndex: number = 0) {
     return cards.map((item, index) => {
-      const observableItemIndex = index === 0 ? startFromIndex : index
+      const observableItemIndex = startFromIndex + index
 
       return (<rg-category-cards-item
         ref={(ref) => this.setObservable({index: observableItemIndex, ref})}
