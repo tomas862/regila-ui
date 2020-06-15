@@ -1,6 +1,6 @@
 {
   "name": "regila-ui",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "description": "Ui kit",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
