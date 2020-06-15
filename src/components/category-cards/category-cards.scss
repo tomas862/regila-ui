@@ -1,4 +1,7 @@
 .category-cards {
+  &.category-cards--compact {
+    margin-top: 16px;
+  }
   display: grid;
   grid-template-columns: 50% 50%;
   grid-column-gap: 16px;

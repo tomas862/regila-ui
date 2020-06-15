@@ -1,4 +1,4 @@
-import {Component, h, Prop} from "@stencil/core";
+import {Component, h, Host, Prop} from "@stencil/core";
 import { CategoryCardData } from "../../interfaces/CategoryCardData";
 import {
   createFitToViewportObservableStrategy, getUnsubscribedIntersectingTargets,
@@ -53,22 +53,37 @@ export class CategoryCards {
     });
   }
 
-  render() {
-    return <div class="category-cards">
-      {
-        this.categoryCardsData.map((item, index) =>
-          <rg-category-cards-item
-            ref={(ref) => this.setObservable({index, ref})}
-            isLoaded={item.isLoaded !== undefined && item.isLoaded}
-            name={item.name}
-            img={item.img}
-            link={item.link}
-            buttonName={this.buttonName}
-            isCompact={item.isCompact}
-          >
-          </rg-category-cards-item>
-        )
+  renderCards(cards: Array<CategoryCardData>, startFromIndex: number = 0) {
+    return cards.map((item, index) => {
+      const observableItemIndex = index === 0 ? startFromIndex : index
+
+      return (<rg-category-cards-item
+        ref={(ref) => this.setObservable({index: observableItemIndex, ref})}
+        isLoaded={item.isLoaded !== undefined && item.isLoaded}
+        name={item.name}
+        img={item.img}
+        link={item.link}
+        buttonName={this.buttonName}
+        isCompact={item.isCompact}
+      >
+      </rg-category-cards-item>)
       }
-    </div>
+    )
+  }
+
+  render() {
+    const regularCards = this.categoryCardsData.filter(item => !item.isCompact)
+    const compactCards = this.categoryCardsData.filter(item => item.isCompact)
+
+    return (
+      <Host>
+        <div class="category-cards">
+          { this.renderCards(regularCards) }
+        </div>
+        <div class="category-cards category-cards--compact">
+          { this.renderCards(compactCards, regularCards.length) }
+        </div>
+      </Host>
+    )
   }
 }
