@@ -29,9 +29,7 @@ export class Button {
       style={{'background-color': buttonColor}}
       aria-label={this.ariaLabel}
     >
-      <span class="mdc-button__label">
-        <slot/>
-      </span>
+      <slot/>
     </Element>
   }
 }

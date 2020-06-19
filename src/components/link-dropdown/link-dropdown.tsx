@@ -63,17 +63,17 @@ export class LinkDropdown {
         </rg-button>
         <div class="mdc-menu mdc-menu-surface">
 
-          <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">
-            {
-              this.dropdown.options.map(option => {
-                return (
-                  <li class="mdc-list-item" role="menuitem" onClick={_ => window.location.href = option.link}>
-                    <a href={option.link}>{option.value}</a>
-                  </li>
-                )
-              })
-            }
-          </ul>
+          {/*<ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical" tabindex="-1">*/}
+          {/*  {*/}
+          {/*    this.dropdown.options.map(option => {*/}
+          {/*      return (*/}
+          {/*        <li class="mdc-list-item" role="menuitem" onClick={_ => window.location.href = option.link}>*/}
+          {/*          <a href={option.link}>{option.value}</a>*/}
+          {/*        </li>*/}
+          {/*      )*/}
+          {/*    })*/}
+          {/*  }*/}
+          {/*</ul>*/}
         </div>
     </div>
   }
